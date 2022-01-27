@@ -8,6 +8,7 @@ import { persistor } from "./redux/store";
 import Footer from "./components/footer";
 import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
+import Forgotpassword from "./pages/starter/ForgotPassword";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/forgotpassword" element={<Forgotpassword />}/>
         </Routes>
         <Footer />
       </Router>

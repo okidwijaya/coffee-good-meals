@@ -28,10 +28,16 @@ const Signup = (props) => {
   };
   return (
     <>
+
       <main>
         <section className="col-6 col-lg-6 signup-form-wrapper">
           <Header />
           <form className="signup-form" onSubmit={submitHandler}>
+
+      <div className="starter-wrapper">
+        <section className="col-6 col-lg-6 signup-form-wrapper">
+          <Header />
+          <form className="signup-form">
             <p className="signup-form-title">Sign Up</p>
             <div className="mb-3">
               <label className="form-label">Email address:</label>
@@ -39,8 +45,10 @@ const Signup = (props) => {
                 type="email"
                 className="form-control"
                 id="inputEmail1"
+
                 name="email"
                 placeholder="Enter your email address"
+
                 aria-describedby="emailHelp"
               />
             </div>
@@ -49,18 +57,25 @@ const Signup = (props) => {
               <input
                 type="password"
                 className="form-control"
+
                 name="password"
                 placeholder="Enter your password"
+
                 id="inputPassword1"
               />
             </div>
             <div className="mb-3">
               <label className="form-label">Phone Number:</label>
               <input
+
                 type="number"
                 className="form-control"
                 name="phone"
                 placeholder="Enter your phone number"
+
+                type="text"
+                className="form-control"
+
                 id="inputPhoneNumber"
               />
             </div>
@@ -68,6 +83,7 @@ const Signup = (props) => {
               className="d-grid gap-2 col-12 mx-auto p-0"
               style={{ width: "100%" }}
             >
+
               <button
                 className="btn btn-warning btn-signup"
                 style={{ width: "100%" }}
@@ -75,6 +91,15 @@ const Signup = (props) => {
               >
                 Signup
               </button>
+
+              <div
+                className="btn btn-warning btn-signup"
+                style={{ width: "100%" }}
+                type="button"
+              >
+                Signup
+              </div>
+
               <div
                 className="btn btn-light btn-signup btn-signup-custom"
                 style={{ width: "100%" }}
@@ -90,7 +115,11 @@ const Signup = (props) => {
         <aside className="col-6 col-lg-6 signup-img-wrapper">
           <img src={homeBg} className="img-fluid" alt="Responsive" />
         </aside>
+
       </main>
+
+      </div>
+
       <SignupCard />
     </>
   );
