@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-main {
+.starter-wrapper {
     width: 100%;
     margin: auto;
     background-color: white;
@@ -156,4 +156,115 @@ main {
     font-size: 1rem;
     text-decoration-line: underline;
     color: #6A4029;
+}
+
+
+/* forgot password */
+
+.forgotpassword-bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.forgotpassword-content {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    margin: auto;
+    width: 100%;
+    color: white;
+}
+
+.forgotpassword-content form {
+    margin: 70px auto;
+    height: 100px;
+    width: 60%;
+    text-align: center;
+}
+
+.input-email-auth-password {
+    width: 68%;
+    height: 100px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: none;
+    text-align: left;
+    padding-left: 35px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #9F9F9F;
+}
+
+.btn-send-email {
+    width: 27%;
+    height: 100px;
+    background: #FFBA33;
+    margin: auto 19px;
+    box-shadow: 0px 6px 20px rgba(255, 186, 51);
+    border-radius: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #6A4029;
+    padding: 30px;
+}
+
+.forgotpassword-title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.forgotpassword-text {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.forgotpasssword-information {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.forgotpasssword-countdown {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn-resend {
+    width: 100%;
+    height: 100px;
+    margin: 30px auto;
+    background-color: #6A4029;
+    box-shadow: 0px 6px 20px rgba(106, 64, 41, 0.46);
+    border-radius: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    padding: 30px;
 }
