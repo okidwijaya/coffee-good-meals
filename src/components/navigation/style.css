@@ -1,0 +1,30 @@
+.navActive {
+    padding: 10px 50px;
+}
+
+.search-nav input {
+    border-radius: 25px;
+    background-color: #EFEEEE;
+}
+
+.chat-nav {
+    background: none;
+}
+
+.btn-profile-nav {
+    background: none;
+    padding: 0;
+}
+
+.chat-img-nav {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+.profile-img-nav {
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
