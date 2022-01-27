@@ -11,6 +11,7 @@ import SignupCard from "../../components/starter";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 
+
 class Login extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
@@ -127,7 +128,6 @@ function WrapperLogin(props) {
 
   return <Login {...props} navigate={navigate} />;
 }
-
 
 export default connect(mapStateToProps)(WrapperLogin);
 // export default Login;
