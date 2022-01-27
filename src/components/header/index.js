@@ -14,7 +14,7 @@ const Header = () => {
           </div>
           <div className="d-flex">
             <div className="btn btn-warning btn-login" type="submit">
-              Login
+              Signup
             </div>
           </div>
         </div>
