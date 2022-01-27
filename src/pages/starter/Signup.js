@@ -30,14 +30,11 @@ const Signup = (props) => {
     <>
 
       <main>
-        <section className="col-6 col-lg-6 signup-form-wrapper">
-          <Header />
-          <form className="signup-form" onSubmit={submitHandler}>
 
       <div className="starter-wrapper">
         <section className="col-6 col-lg-6 signup-form-wrapper">
           <Header />
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={submitHandler}>
             <p className="signup-form-title">Sign Up</p>
             <div className="mb-3">
               <label className="form-label">Email address:</label>
@@ -68,12 +65,9 @@ const Signup = (props) => {
               <label className="form-label">Phone Number:</label>
               <input
 
-                type="number"
-                className="form-control"
+                type="text"
                 name="phone"
                 placeholder="Enter your phone number"
-
-                type="text"
                 className="form-control"
 
                 id="inputPhoneNumber"
@@ -115,11 +109,11 @@ const Signup = (props) => {
         <aside className="col-6 col-lg-6 signup-img-wrapper">
           <img src={homeBg} className="img-fluid" alt="Responsive" />
         </aside>
-
-      </main>
-
+        
       </div>
-
+      
+      </main>
+      
       <SignupCard />
     </>
   );
