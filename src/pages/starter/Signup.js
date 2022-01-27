@@ -40,6 +40,7 @@ const Signup = (props) => {
                 className="form-control"
                 id="inputEmail1"
                 name="email"
+                placeholder="Enter your email address"
                 aria-describedby="emailHelp"
               />
             </div>
@@ -49,6 +50,7 @@ const Signup = (props) => {
                 type="password"
                 className="form-control"
                 name="password"
+                placeholder="Enter your password"
                 id="inputPassword1"
               />
             </div>
@@ -58,6 +60,7 @@ const Signup = (props) => {
                 type="number"
                 className="form-control"
                 name="phone"
+                placeholder="Enter your phone number"
                 id="inputPhoneNumber"
               />
             </div>

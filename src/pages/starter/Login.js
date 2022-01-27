@@ -59,6 +59,7 @@ class Login extends React.Component {
                   className="form-control"
                   id="inputEmail1"
                   aria-describedby="emailHelp"
+                  placeholder="Enter your email address"
                   required
                 />
               </div>
@@ -69,11 +70,17 @@ class Login extends React.Component {
                   name="password"
                   className="form-control"
                   id="inputPassword1"
+                  placeholder="Enter your password"
                   required
                 />
               </div>
               <div className="mb-3">
-                <div className="btn-forgot-password">Forgot Password</div>
+                <div
+                  className="btn-forgot-password"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Forgot Password?
+                </div>
               </div>
               <div
                 className="d-grid gap-2 col-12 mx-auto p-0"
