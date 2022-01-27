@@ -31,7 +31,7 @@ const Footer = () => {
             <strong>Product</strong>
           </p>
           <ul className="list-group">
-            <li className="list-group-item">Downlaod</li>
+            <li className="list-group-item">Download</li>
             <li className="list-group-item">Pricing</li>
             <li className="list-group-item">Locations</li>
             <li className="list-group-item">Countries</li>
@@ -56,4 +56,3 @@ const Footer = () => {
 };
 
 export default Footer;
-console.log("hello")
