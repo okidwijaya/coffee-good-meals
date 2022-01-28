@@ -26,6 +26,7 @@ const Navactive = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <div className="mx-auto">
           <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
             <li className="nav-item active">
               <a className="nav-link" href="#">
@@ -48,6 +49,7 @@ const Navactive = () => {
               </a>
             </li>
           </ul>
+          </div>
           <form className="form-inline my-2 my-lg-0 search-nav">
             <input
               className="form-control mr-sm-2"

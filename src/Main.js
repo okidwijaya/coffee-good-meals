@@ -1,20 +1,30 @@
 import "./App.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Navigate
+import { PersistGate } from "redux-persist/es/integration/react";
+import { persistor } from "./redux/store";
+// import { connect } from "react-redux";
+
 import Footer from "./components/footer";
 import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
 import Product from "./pages/product/Product";
+import Home from "./pages/main/Home";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/register" element={<Signup />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/forgotpassword" element={<Forgotpassword />}/>
-        <Route path="/products" element={<Product />}/> 
-{/* 
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgotpassword" element={<Forgotpassword />} />
+          <Route path="/products" element={<Product />} />
+          {/* 
         <Route path="products" element={<Products />}>
           <Route path="search" element={<Search />} />
           <Route path="favourite" element={< />} />
@@ -26,10 +36,10 @@ function App() {
           <Route path="add" element={<AddProduct />} />
           <Route path="addCoupon" element={<AddProduct />} />
         </Route> */}
-
-      </Routes>
-      <Footer />
-    </Router>
+        </Routes>
+        <Footer />
+      </Router>
+    </PersistGate>
   );
 }
 
