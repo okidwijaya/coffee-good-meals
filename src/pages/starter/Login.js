@@ -6,7 +6,7 @@ import homeBg from "../../assets/loginbg.png";
 import logo from "../../assets/icon.svg";
 import googleIcon from "../../assets/google-icon.svg";
 
-import SignupCard from "../../components/starter";
+import SignupCard from "../../components/Auth";
 
 import "./style.css";
 import { useNavigate } from "react-router-dom";

@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import homeBg from "../../assets/loginbg.png";
-import SignupCard from "../../components/starter";
+import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
 
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
 import "./style.css";
 
@@ -58,9 +58,9 @@ const Signup = (props) => {
               <div className="mb-3">
                 <label className="form-label">Phone Number:</label>
                 <input
+                  type="text"
                   name="phone"
                   placeholder="Enter your phone number"
-                  type="text"
                   className="form-control"
                   id="inputPhoneNumber"
                 />
