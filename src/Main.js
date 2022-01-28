@@ -12,6 +12,7 @@ import Forgotpassword from "./pages/starter/ForgotPassword";
 import Product from "./pages/product/Product";
 import ProductList from "./pages/productlist/productlist";
 
+
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
