@@ -11,7 +11,7 @@ import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
 import Product from "./pages/product/Product";
 import ProductList from "./pages/productlist/productlist";
-
+import Profile from "./pages/profile/profile";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/forgotpassword" element={<Forgotpassword />}/>
         <Route path="/products" element={<Product />}/> 
         <Route path="/products/list" element={<ProductList />}/>
+        <Route path="/profile" element={<Profile />} />
 {/* 
         <Route path="products" element={<Products />}>
           <Route path="search" element={<Search />} />
