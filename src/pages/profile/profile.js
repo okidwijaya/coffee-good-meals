@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import Navactive from "../../components/navigation/NavActive";
 import imgProfile from "../../assets/default-img.png";
-import iconContact from "../../assets/user-icon.png";
+import iconPen from "../../assets/pen-icon.svg";
 
 const Profile = () => {
   return (
@@ -78,7 +78,7 @@ const Profile = () => {
           <div className="col col-md-8 profile-detail">
             <div className="col-md-12 d-flex title-edit-profile">
               <h2 className="contact">Contact</h2>
-              <img src={iconContact} alt="icon-edit-profile" />
+              <img src={iconPen} alt="icon-edit-profile" />
             </div>
             <div className="row">
               <div className="col-md-8 space">
