@@ -11,7 +11,7 @@ const ProductList = () => {
       <section className="row">
         <div className="col col-md-6 image-detail-product">
           <p className="title-productDetail">
-            Favorite {"&"} Promo > Cold Brew
+            Favorite {"&"} Promo {">"} Cold Brew
           </p>
           <img
             src={ColdBrew}
