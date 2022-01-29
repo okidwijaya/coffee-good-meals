@@ -22,6 +22,7 @@ const ProductList = () => {
           <p className="price-coffee">IDR 30.000</p>
           <button className="btn button-addCart">Add to Cart</button>
           <button className="btn button-askStaff">Ask a Staff</button>
+           <button className="btn button-askStaff">Ask a Staff</button>
         </div>
         <div className="col col-md-6 bg-success detail-delivery">
           
