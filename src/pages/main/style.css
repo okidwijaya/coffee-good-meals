@@ -1,0 +1,388 @@
+/* baased styling */
+
+.width-based {
+    margin: 20px auto;
+    width: 85%
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.company-info-header {
+    position: absolute;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    left: 10%;
+    top: min(100%, 650px);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgb(196 196 196 / 67%);
+}
+
+.card-info-header {
+    margin: auto 20px;
+}
+
+.header-company-info-icon {
+    border-radius: 48%;
+    width: 80px;
+    height: 80px;
+}
+
+.header-info-company {
+    margin: auto;
+}
+
+.header-company-count {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 0;
+    color: #0B132A;
+}
+
+.header-company-people-info {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    align-items: left;
+    color: #4F5665;
+    margin: 0;
+}
+
+.header-desc-section {
+    margin: 150px auto 100px auto;
+    width: 100%;
+}
+
+.header-desc-section-li {
+    margin: auto;
+    padding-left: 70px;
+}
+
+.home-favourite-product {
+    margin: auto auto 100px auto;
+}
+
+
+/* styling components */
+
+.header-wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.bgHeader {
+    object-fit: contain;
+    width: 100%;
+    position: relative;
+}
+
+.header-description-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    width: 80%;
+}
+
+.search-box-home {
+    float: right;
+}
+
+.search-box-home input {
+    border-radius: 25px;
+    background-color: #EFEEEE;
+}
+
+.header-title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #FFFFFF;
+    margin: 30px auto;
+}
+
+.header-text {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    margin: 30px auto;
+}
+
+.btn-get-started {
+    background: #FFBA33;
+    border-radius: 10px;
+    box-shadow: (0px 6px 20px rgba(255, 186, 51, 0.4));
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #6A4029;
+}
+
+.team-work-section {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #0B132A;
+}
+
+.team-work-section {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #4F5665;
+}
+
+.team-work-section-li {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #4F5665;
+    padding-left: 3px;
+}
+
+.bi-check-circle-fill {
+    padding-right: 10px;
+    color: #2FAB73;
+}
+
+.home-product-wrapper-title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    color: #0B132A;
+}
+
+.home-product-wrapper-desc {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+    color: #4F5665;
+    margin-bottom: 70px;
+}
+
+.card-img-top {
+    border-radius: 48%;
+    max-height: 128px;
+    max-width: 128px;
+    margin: 40px auto 20px auto;
+}
+
+.home-card-product-title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #0B132A;
+}
+
+.home-card-product-li {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #4F5665;
+    margin: auto;
+}
+
+.home-card-product-li li {
+    margin: 15px auto auto auto;
+    background-color: white;
+}
+
+.home-card-product-price {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #0B132A;
+    margin: 50px auto 25px auto;
+}
+
+.btn-order-now {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid #FFBA33;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: #6A4029;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.home-Map-Img {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.img-partener-thumbnail {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: flex;
+}
+
+.width-based-product {
+    margin: auto;
+    width: 100%;
+}
+
+.bi-star-fill {
+    color: #FEA250;
+}
+
+.testimonial-section-wrapper {
+    width: 100%;
+    margin: auto;
+}
+
+.user-testimonial-card {
+    border-radius: 48%;
+    width: 50px;
+    height: 50px;
+}
+
+.rate-testimonial {
+    text-align: center;
+}
+
+.card-testimonial-wrapper {
+    background: #FFFFFF;
+    border: 2px solid #6A4029;
+    border-radius: 10px;
+    padding: 30px 50px;
+    margin: 10px 20px;
+}
+
+.testimonial-name-title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: left;
+    margin: 0;
+    color: #0B132A;
+}
+
+.testimonial-name-place {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8rem;
+    align-items: left;
+    color: #4F5665;
+}
+
+.testimonial-card-description {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9rem;
+    align-items: center;
+    color: #0B132A;
+}
+
+.home-left-btn {
+    border-radius: 48%;
+    border: 2px solid #6A4029;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    margin: 5px;
+}
+
+.home-right-btn {
+    border-radius: 48%;
+    border: 2px solid #6A4029;
+    width: 60px;
+    height: 60px;
+    background-color: #6A4029;
+    margin: 5px;
+}
+
+.bi-arrow-left {
+    color: #6A4029;
+    font-size: 2rem;
+}
+
+.bi-arrow-right {
+    color: white;
+    font-size: 2rem;
+}
+
+
+/* pagination */
+
+#paginationDot {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 180px;
+    height: 20px;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 20px;
+    background: #DDE0E4;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease width;
+}
+
+.button:last-child {
+    margin-right: 0;
+}
+
+.button.active {
+    width: 60px;
+    cursor: auto;
+    background-color: #6A4029;
+}
+
+.section-bottom-home {
+    width: 100%;
+    height: auto;
+    margin: 40px auto 150px auto;
+    position: relative;
+}
+
+.signupCard {
+    width: 65%;
+    margin: auto;
+    left: 20%;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 6px 20px rgb(196 196 196 / 67%);
+}

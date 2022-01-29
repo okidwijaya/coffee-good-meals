@@ -10,12 +10,23 @@ import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
 import Product from "./pages/product/Product";
+import Home from "./pages/main/Home";
 import ProductList from "./pages/productlist/productlist";
 import Profile from "./pages/profile/profile";
 
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgotpassword" element={<Forgotpassword />} />
+          <Route path="/products" element={<Product />} />
+          {/* 
     <Router>
       <Routes>
         <Route path="/register" element={<Signup />}/>
@@ -36,12 +47,10 @@ function App() {
           <Route path="add" element={<AddProduct />} />
           <Route path="addCoupon" element={<AddProduct />} />
         </Route> */}
-
-      </Routes>
-      <Footer />
-    </Router>
+        </Routes>
+        <Footer />
+      </Router>
     </PersistGate>
-
   );
 }
 
