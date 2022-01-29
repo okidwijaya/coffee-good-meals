@@ -120,6 +120,7 @@
 .btn-get-started {
     background: #FFBA33;
     border-radius: 10px;
+    height: 60px;
     box-shadow: (0px 6px 20px rgba(255, 186, 51, 0.4));
     font-family: Rubik;
     font-style: normal;
