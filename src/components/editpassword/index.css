@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,600&display=swap');
+
+
+.change-password{
+    margin-top: 5%;
+    border: 3px solid #6A4029;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.form-change-password{
+    margin: auto;
+    /* text-align: center; */
+    font-family: 'Poppins';
+}
+
+.save-change-profile{
+    background-color: #6A4029;
+    color: #FFBA33;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.close-edit-profile{
+    margin-top: 5%;
+    width: 100%;
+    height: 50px;
+    color: #6A4029;
+    background-color: #FFBA33;
+    border-radius: 10px;
+}
