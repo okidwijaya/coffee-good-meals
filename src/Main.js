@@ -5,15 +5,21 @@ import { PersistGate } from "redux-persist/es/integration/react";
 import { persistor } from "./redux/store";
 // import { connect } from "react-redux";
 
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
 import Product from "./pages/product/Product";
 import Home from "./pages/main/Home";
+<<<<<<< HEAD
 import ProductList from "./pages/productlist/productlist";
 import Profile from "./pages/profile/profile";
 import EditPassword from "./components/editpassword/editpassword";
+=======
+// import ProductList from "./pages/productlist/productlist";
+// import Profile from "./pages/profile/profile";
+import Addproduct from "./pages/admin/product/AddProduct";
+>>>>>>> main
 
 function App() {
   return (
@@ -27,10 +33,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/products" element={<Product />} />
+<<<<<<< HEAD
           <Route path="profile" element={<Profile />}>
             <Route path="password" element={<EditPassword />}/>
           </Route>
           <Route path="/product/list" element={<ProductList />} />
+=======
+          <Route path="/add"  element={<Addproduct />} />
+>>>>>>> main
           {/* 
     <Router>
       <Routes>

@@ -1,0 +1,179 @@
+.Add-product-wrapper {
+    margin: 50px auto auto auto;
+    width: 100%;
+    border-top: 1px solid rgba(145, 145, 145, 0.63);
+}
+
+.breadcrumb {
+    background-color: white;
+    padding-left: 100px;
+}
+
+.breadcrumb>li+li:before {
+    content: "\3E"/* Hex code for > */
+}
+
+.breadcrumb-page {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #4F5665;
+}
+
+.active-page {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #6A4029;
+}
+
+.add-product-content {
+    margin: auto;
+    width: 95%;
+}
+
+.add-product-content aside {
+    margin: auto;
+    text-align: center;
+}
+
+.add-image {
+    width: 300px;
+    height: 300px;
+    margin: auto auto 20px auto;
+    border-radius: 48%;
+}
+
+.btn-take-picture {
+    width: 70%;
+    height: 80px;
+    background-color: #0B132A;
+    border-radius: 20px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    margin: 20px auto;
+}
+
+.btn-add-byGallery {
+    margin: 20px auto;
+    height: 80px;
+    border-radius: 20px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-width-container {
+    width: 70%;
+}
+
+.aside-title-input {
+    width: 65%;
+    text-align: left;
+    margin: auto;
+}
+
+.add-product-title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #6A4029;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.start-hour-btn {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    text-align: left;
+    color: #9F9F9F;
+    width: 70%;
+    margin: 10px auto;
+    height: 80px;
+    background-color: white;
+    border: 1px solid #9F9F9F;
+    border-radius: 20px;
+}
+
+.add-product-input {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #9F9F9F;
+}
+
+.add-product-input:focus {
+    border-bottom: 2px solid #e9a317;
+}
+
+.btn-radio {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    border-radius: 35px;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    margin: 10px;
+}
+
+.btn-radio-load {
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
+    border-radius: 35px;
+    background-color: rgba(186, 186, 186, 0.35);
+    text-align: center;
+    font-weight: bolder;
+    color: #4F5665;
+    margin: 10px;
+}
+
+.form-desc {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #9F9F9F;
+}
+
+.btn-width-form-input-add {
+    width: max(150px, 30%);
+}
+
+.btn-take-away {
+    margin: 20px auto;
+    height: 80px;
+    border-radius: 20px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: rgba(186, 186, 186, 0.35);
+    color: #4F5665;
+}
+
+.font-brown-color {
+    color: #6A4029;
+}
+
+.font-white-color {
+    color: white;
+}
+
+.btn-yellow-color {
+    background-color: #FFBA33;
+}
+
+.btn-brown-color {
+    background-color: #6A4029;
+    box-shadow: 0px 6px 20px rgba(106, 64, 41, 0.4);
+}
