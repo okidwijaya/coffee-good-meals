@@ -17,6 +17,8 @@ import EditPassword from "./components/editpassword/editpassword";
 // import ProductList from "./pages/productlist/productlist";
 // import Profile from "./pages/profile/profile";
 import Addproduct from "./pages/admin/product/AddProduct";
+import Editproduct from "./pages/admin/product/EditProduct";
+
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
           </Route>
           <Route path="/product/list" element={<ProductList />} />
           <Route path="/add"  element={<Addproduct />} />
+          <Route path="/edit"  element={<Editproduct />} />
           {/* 
     <Router>
       <Routes>
