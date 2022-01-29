@@ -14,6 +14,8 @@ import Home from "./pages/main/Home";
 // import ProductList from "./pages/productlist/productlist";
 // import Profile from "./pages/profile/profile";
 import Addproduct from "./pages/admin/product/AddProduct";
+import Editproduct from "./pages/admin/product/EditProduct";
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/products" element={<Product />} />
           <Route path="/add"  element={<Addproduct />} />
+          <Route path="/edit"  element={<Editproduct />} />
           {/* 
     <Router>
       <Routes>
