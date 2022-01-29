@@ -1,5 +1,7 @@
 import React from "react";
 import "./index.css";
+import { Outlet } from "react-router";
+import { Link } from "react-router-dom";
 import Navactive from "../../components/navigation/NavActive";
 import imgProfile from "../../assets/default-img.png";
 import iconPen from "../../assets/pen-icon.svg";
@@ -8,56 +10,8 @@ const Profile = () => {
   return (
     <>
       <Navactive />
-      {/* <div className="row profile">
-        <div className="bg-profile">
-            <div className="title-profile">User Profile</div>
-            <div className="detail-profile">
-                <aside className="col-3 col-md-3 edit-profile">
-                    <img src={imgProfile} alt="imageProfile" className="profile-image"/>
-                    <p className="name-profile">Zulaikha</p>
-                    <p className="email-profile">zulaikha17@gmail.com</p>
-                    <button className="btn choose-photo-profile">Choose photo</button>
-                    <button className="btn remove-photo-profile">Remove photo</button>
-                    <button className="btn edit-password-profile">Edit Password</button>
-                    <p className="save-change">Do you want to save the change?</p>
-                    <button className="btn save-profile">Save Change</button>
-                    <button className="btn cancel-profile">Cancel</button>
-                    <button className="btn logout-profile">Log Out</button>
-                </aside>
-                <side className="col-9 col-md-9 detail-profile">
-                    
-                </side>
-            </div>
-        </div>
-      </div> */}
-      {/* <div className="row profile">
-        <div className="bg-profile">
-          <div className="title-profile">User Profile</div>
-          <div className="detail-profile">
-            <aside className="col-3 col-md-3 edit-profile">
-              <img
-                src={imgProfile}
-                alt="imageProfile"
-                className="profile-image"
-              />
-              <p className="name-profile">Zulaikha</p>
-              <p className="email-profile">zulaikha17@gmail.com</p>
-              <button className="btn choose-photo-profile">Choose photo</button>
-              <button className="btn remove-photo-profile">Remove photo</button>
-              <button className="btn edit-password-profile">
-                Edit Password
-              </button>
-              <p className="save-change">Do you want to save the change?</p>
-              <button className="btn save-profile">Save Change</button>
-              <button className="btn cancel-profile">Cancel</button>
-              <button className="btn logout-profile">Log Out</button>
-            </aside>
-            <div className="col-9 col-md-9 profile-detail"></div>
-          </div>
-        </div>
-      </div> */}
       <div className="row bg-profile">
-          <h1 className="title-profile">User Profile</h1>
+        <h1 className="title-profile">User Profile</h1>
         <section className="row profile">
           <aside className="col col-md-4 edit-profile">
             <img
@@ -69,7 +23,11 @@ const Profile = () => {
             <p className="email-profile">zulaikha17@gmail.com</p>
             <button className="btn choose-photo-profile">Choose photo</button>
             <button className="btn remove-photo-profile">Remove photo</button>
-            <button className="btn edit-password-profile">Edit Password</button>
+            <Link to="/profile/password" className="btn edit-password-profile" replace={true}>
+              {/* <Link to="/profile/password" replace={true}> */}
+                Edit Password
+              {/* </Link> */}
+            </Link>
             <p className="save-change">Do you want to save the change?</p>
             <button className="btn save-profile">Save Change</button>
             <button className="btn cancel-profile">Cancel</button>
@@ -128,29 +86,30 @@ const Profile = () => {
               </div>
             </div>
             <div className="radio-button-gender">
-                <div className="form-check form check inline radioButton1">
-                    <input 
-                    className="radio-input"
-                    type="radio"
-                    name="gender"
-                    id="male"
-                    />
-                    <label className="radio-label" htmlFor="inlineRadio1">
-                        Male
-                    </label>
-                </div>
-                <div className="form-check form check inline radioButton2">
-                    <input 
-                    className="radio-input"
-                    type="radio"
-                    name="gender"
-                    id="female"
-                    />
-                    <label className="radio-label" htmlFor="inlineRadio2">
-                        Female
-                    </label>
-                </div>
+              <div className="form-check form check inline radioButton1">
+                <input
+                  className="radio-input"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                />
+                <label className="radio-label" htmlFor="inlineRadio1">
+                  Male
+                </label>
+              </div>
+              <div className="form-check form check inline radioButton2">
+                <input
+                  className="radio-input"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                />
+                <label className="radio-label" htmlFor="inlineRadio2">
+                  Female
+                </label>
+              </div>
             </div>
+            <Outlet />
           </div>
         </section>
       </div>

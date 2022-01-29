@@ -13,6 +13,7 @@ import Product from "./pages/product/Product";
 import Home from "./pages/main/Home";
 import ProductList from "./pages/productlist/productlist";
 import Profile from "./pages/profile/profile";
+import EditPassword from "./components/editpassword/editpassword";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/products" element={<Product />} />
+          <Route path="profile" element={<Profile />}>
+            <Route path="password" element={<EditPassword />}/>
+          </Route>
+          <Route path="/product/list" element={<ProductList />} />
           {/* 
     <Router>
       <Routes>
