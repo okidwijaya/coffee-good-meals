@@ -1,6 +1,6 @@
 import './App.css';
-
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; //Navigate
+// import {Redirect} from 'react';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'; //Navigate
 import {PersistGate} from 'redux-persist/es/integration/react';
 import {persistor} from './redux/store';
 // import { connect } from "react-redux";
@@ -30,6 +30,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='404' element={<InvalidRoute />} />
+          <Route path='*' exact element={<Navigate to='404' />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
