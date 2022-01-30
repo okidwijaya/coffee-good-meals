@@ -10,8 +10,8 @@ const Product = () => {
   return (
     <>
       <Navactive />
-      <div className="row product-page">
-        <aside className="col-3 col-md-3 promo-section-product">
+      <div className="row product-page flex-row-reverse flex-md-row">
+        <aside className="col-12 col-md-3 promo-section-product">
           <p className="promo-product-title">Promo Today</p>
           <p className="promo-product-description">
             Coupons will be updated every weeks.<br /> Check them out!
@@ -73,7 +73,7 @@ const Product = () => {
             </ul>
           </div>
         </aside>
-        <div className="col-9 col-md-9 productsNavigation" id="activeMenu">
+        <div className="col-12 col-md-9 productsNavigation" id="activeMenu">
          <div className="product-link-wrapper">
          <Link className="products-navigation active" to="/products/list">
             Favourite and Promo
