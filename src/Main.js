@@ -23,6 +23,8 @@ import Forgotpassword from "./pages/starter/ForgotPassword";
 // import Profile from "./pages/profile/profile";
 import Addproduct from './pages/admin/product/AddProduct';
 import Editproduct from './pages/admin/product/EditProduct';
+import Payment from './pages/payment';
+
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
           <Route path="/product/detail" element={<ProductList />} />
           <Route path="/add"  element={<Addproduct />} />
           <Route path="/edit"  element={<Editproduct />} />
+          <Route path="/payment" element={<Payment />} />
           {/* 
     <Router>
       <Routes>
