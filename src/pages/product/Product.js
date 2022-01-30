@@ -73,7 +73,7 @@ const Product = () => {
             </ul>
           </div>
         </aside>
-        <div className="col-12 col-md-9 productsNavigation" id="activeMenu">
+        <div className="col-12 col-md-9 productsNavigation order-first order-md-last" id="activeMenu">
          <div className="product-link-wrapper">
          <Link className="products-navigation active" to="/products/list">
             Favourite and Promo
@@ -95,8 +95,8 @@ const Product = () => {
 
           {/* card component */}
           <div className="container product-content-wrapper">
-            <div className="row">
-              <div className="col product-item">
+            <div className="row justify-content-between">
+              <div className="col-5 col-md-3 product-item">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -105,7 +105,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -114,7 +114,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -123,7 +123,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
