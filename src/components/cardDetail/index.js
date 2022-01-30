@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import ColdBrew from "../../assets/Cold brew.png";
 
-const ProductCard = () => {
+const DetailCard = () => {
   return (
     <>
       <div className="row col-md-12 card-detail">
@@ -29,4 +29,4 @@ const ProductCard = () => {
   );
 };
 
-export default ProductCard;
+export default DetailCard;

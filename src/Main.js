@@ -24,6 +24,7 @@ import Forgotpassword from "./pages/starter/ForgotPassword";
 import Addproduct from './pages/admin/product/AddProduct';
 import Editproduct from './pages/admin/product/EditProduct';
 import Payment from './pages/payment';
+import History from './pages/history';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/add"  element={<Addproduct />} />
           <Route path="/edit"  element={<Editproduct />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/history" element={<History />} />
           {/* 
     <Router>
       <Routes>
