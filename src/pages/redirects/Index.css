@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.invalid-main,
+.forbidden-main {
+  background-color: white;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  width: 100%;
+  min-height: max(55vh, 800px);
+}
+.invalid-main .wrapper,
+.forbidden-main .wrapper {
+  margin: auto;
+  width: 100%;
+}
+.coffee {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  inset: auto 0 auto auto;
+}
+.button-404 {
+  border-radius: 25px;
+  background: none;
+  color: #dc483b;
+  border: none;
+  font-size: calc(14px + 0.3vw);
+  cursor: pointer;
+  outline: 2px solid #dc483b;
+}
+.invalid-main .wrapper img {
+  margin: auto;
+  width: calc(150px + 35vw);
+  /* width: 50vw; */
+  height: auto;
+}
+.forbidden-main .wrapper img {
+  height: max(380px, 30vh);
+}
+.forbidden-main .wrapper .four-0-three {
+  color: tomato;
+}
+.invalid-main .wrapper h1,
+.forbidden-main .wrapper h1 {
+  font-size: calc(20px + 10vw);
+  font-family: 'Rubik', sans-serif;
+  color: #dc483b;
+  font-weight: 800;
+}
+.invalid-main h2,
+.forbidden-main h2 {
+  font-size: calc(18px + 3vw);
+}
+.invalid-main .wrapper p,
+.forbidden-main .wrapper p {
+  font-size: calc(15px + 0.5vw);
+  color: #393939;
+  font-weight: 500;
+}
+.invalid-main a,
+.forbidden-main a {
+  font-size: calc(14px + 0.5vw);
+  text-decoration: none;
+  color: #fc8f1c;
+}
+
+@media (min-width: 576px) {
+  .invalid-main,
+  .forbidden-main {
+    /* max-height: 85vh; */
+    padding: 0px;
+    min-height: max(65vh, 500px);
+  }
+  .invalid-main .wrapper h1,
+  .forbidden-main .wrapper h1 {
+    font-size: calc(25px + 5vw);
+  }
+}
+
+@media (min-width: 768px) {
+  .invalid-main,
+  .forbidden-main {
+    min-height: max(65vh, 500px);
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}

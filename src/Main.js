@@ -1,43 +1,44 @@
-import "./App.css";
+import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Navigate
-import { PersistGate } from "redux-persist/es/integration/react";
-import { persistor } from "./redux/store";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; //Navigate
+import {PersistGate} from 'redux-persist/es/integration/react';
+import {persistor} from './redux/store';
 // import { connect } from "react-redux";
 
-import Footer from "./components/Footer";
-import Signup from "./pages/starter/Signup";
-import Login from "./pages/starter/Login";
-import Forgotpassword from "./pages/starter/ForgotPassword";
-import Product from "./pages/product/Product";
-import Home from "./pages/main/Home";
-import ProductList from "./pages/productlist/productlist";
-import Profile from "./pages/profile/profile";
-import EditPassword from "./components/editpassword/editpassword";
+import Footer from './components/footer';
+import Signup from './pages/starter/Signup.js';
+import Login from './pages/starter/Login.js';
+import Forgotpassword from './pages/starter/ForgotPassword.js';
+import Product from './pages/product/Product';
+import Home from './pages/main/Home';
+import ProductList from './pages/productlist/productlist';
+import Profile from './pages/profile/profile';
+import EditPassword from './components/editpassword/editpassword';
+import InvalidRoute from './pages/redirects/InvalidRoute.js';
 // import ProductList from "./pages/productlist/productlist";
 // import Profile from "./pages/profile/profile";
-import Addproduct from "./pages/admin/product/AddProduct";
-import Editproduct from "./pages/admin/product/EditProduct";
-
+import Addproduct from './pages/admin/product/AddProduct';
+import Editproduct from './pages/admin/product/EditProduct';
 
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgotpassword" element={<Forgotpassword />} />
-          <Route path="/products" element={<Product />} />
-          <Route path="profile" element={<Profile />}>
-            <Route path="password" element={<EditPassword />}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/forgotpassword' element={<Forgotpassword />} />
+          <Route path='/products' element={<Product />} />
+          <Route path='profile' element={<Profile />}>
+            <Route path='password' element={<EditPassword />} />
           </Route>
-          <Route path="/product/list" element={<ProductList />} />
-          <Route path="/add"  element={<Addproduct />} />
-          <Route path="/edit"  element={<Editproduct />} />
+          <Route path='/product/list' element={<ProductList />} />
+          <Route path='/add' element={<Addproduct />} />
+          <Route path='/edit' element={<Editproduct />} />
+          <Route path='404' element={<InvalidRoute />} />
           {/* 
     <Router>
       <Routes>
