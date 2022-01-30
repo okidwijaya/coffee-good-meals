@@ -6,7 +6,7 @@ const ProductCard = () => {
   return (
     <>
       <div className="row col-md-12 card-detail">
-        <div className="col col-md-6 detail-card-coffee">
+        <div className="col col-md-5 detail-card-coffee">
             <div className="row detail-card-product">
                 <img src={ColdBrew} alt="coffee" className="product-image"></img>
                 <div className="detail-list-product">

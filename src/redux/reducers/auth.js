@@ -61,6 +61,7 @@ const authReducer = (prevState = initialState, action) => {
           photo: newPhoto,
         }
       }
+      
 
     default:
       return prevState;
