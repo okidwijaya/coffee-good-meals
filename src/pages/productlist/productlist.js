@@ -3,6 +3,7 @@ import "./index.css";
 // import { Link, Outlet } from "react-router-dom";
 import Navactive from "../../components/navigation/NavActive";
 import ColdBrew from "../../assets/Cold brew.png";
+import ProductCard from "../../components/cardProduct";
 
 const ProductList = () => {
   return (
@@ -22,19 +23,40 @@ const ProductList = () => {
           <p className="price-coffee">IDR 30.000</p>
           <button className="btn button-addCart">Add to Cart</button>
           <button className="btn button-askStaff">Ask a Staff</button>
-           <button className="btn button-askStaff">Ask a Staff</button>
         </div>
-        <div className="col col-md-6 bg-success detail-delivery">
-          
-
+        <div className="col col-md-6 detail-delivery">
+          <div className="col col-md-10 detail-name">
+            <p className="delivery-time">
+              Delivery only on <b>Monday to friday</b> at <b>1 - 7 pm</b>
+            </p>
+            <p className="detail-name-delivery">
+              Cold brewing is a method of brewing that combines ground coffee
+              and cool water and uses time instead of heat to extract the
+              flavor. It is brewed in small batches and steeped for as long as
+              48 hours.
+            </p>
+            <p className="choose-size">Choose a size</p>
+            <div className="button-size-choose">
+              <button className="btn btn-radio btn-yellow-color">R</button>
+              <button className="btn btn-radio btn-yellow-color">X</button>
+              <button className="btn btn-radio btn-yellow-color">XL</button>
+            </div>
+          </div>
           <p className="methods-delivery">Choose Delivery Methods</p>
           <div className="button-methods">
             <button className="btn dine">Dine in</button>
             <button className="btn door">Door Delivery</button>
             <button className="btn pick">Pick Up</button>
           </div>
+          <div className="col col-md-8 set-time-choose">
+            <label htmlFor="email" className="form-set-time">
+              Set Time :
+            </label>
+            <input type="text" className="set-time" name="set-time" placeholder="Enter the time you arrived"/>
+          </div>
         </div>
       </section>
+      <ProductCard />
     </>
   );
 };

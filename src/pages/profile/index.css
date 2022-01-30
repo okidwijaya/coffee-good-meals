@@ -16,6 +16,7 @@
     width: 100%;
     height: 100%;
     background-image: url("../../assets/profile-bg.png");
+    /* object-fit: contain;wkwk */
 }
 
 .title-profile{
