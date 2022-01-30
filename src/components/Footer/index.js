@@ -7,9 +7,9 @@ import './style.css';
 
 const Footer = () => {
   return (
-      <footer className="row mx-0 mb-0">
+      <footer className="row mx-0 my-0">
 
-        <div className="col col-lg-8">
+        <div className="col-12 col-md-8">
           <div className="navbar-brand footer-logo">
             <img src={logo} alt="logo" width="30" height="24" />
             <strong>Coffee Shop</strong>
@@ -26,7 +26,7 @@ const Footer = () => {
           <p className="footer-copyright-text">©2020CoffeeStore</p>
         </div>
 
-        <div className="col col-lg-2 footer-list-content">
+        <div className="col-6 col-md-2 footer-list-content">
           <p className="footer-list-title">
             <strong>Product</strong>
           </p>
@@ -39,7 +39,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="col col-lg-2 footer-list-content">
+        <div className="col-6 col-md-2 footer-list-content">
           <p className="footer-list-title">
             <strong>Engage</strong>
           </p>
