@@ -3,8 +3,6 @@ export const ACTION_STRING = {
     authLogout: "AUTH_LOGOUT",
     authUserPhoto: "AUTH_USER_PHOTO",
   
-    userPhoto: "USER_PHOTO",
-  
     pending: "_PENDING",
     fulfilled: "_FULFILLED",
     rejected: "_REJECTED",

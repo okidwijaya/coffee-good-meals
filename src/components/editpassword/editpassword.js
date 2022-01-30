@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
 
-const editPassword = () => {
+const EditPassword = () => {
   return (
     <>
       <div className="row change-password">
@@ -30,4 +30,4 @@ const editPassword = () => {
   );
 };
 
-export default editPassword;
+export default EditPassword;
