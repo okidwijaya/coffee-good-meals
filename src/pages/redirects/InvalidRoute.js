@@ -19,7 +19,7 @@ function InvalidRoute() {
             <h2>WHOOPS!</h2>
             <p>We can't find the page you're looking for.</p>
             <Link to='/'>
-              <button className='button-404 px-3 py-2'>Take me Home</button>
+              <button className='button-404 px-3 py-2 mb-5'>Take me Home</button>
             </Link>
           </div>
           <div className='col-12 col-sm-6 right'>
