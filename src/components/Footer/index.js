@@ -7,7 +7,7 @@ import './style.css';
 
 const Footer = () => {
   return (
-      <footer className="row">
+      <footer className="row mx-0 mb-0">
 
         <div className="col col-lg-8">
           <div className="navbar-brand footer-logo">

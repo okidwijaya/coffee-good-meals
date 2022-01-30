@@ -1,35 +1,37 @@
-import "./App.css";
+import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Navigate
-import { PersistGate } from "redux-persist/es/integration/react";
-import { persistor } from "./redux/store";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; //Navigate
+import {PersistGate} from 'redux-persist/es/integration/react';
+import {persistor} from './redux/store';
 // import { connect } from "react-redux";
 // import { ToastContainer } from "react-toastify";
 
+import Footer from './components/footer';
+import Forgotpassword from './pages/starter/ForgotPassword.js';
+import Product from './pages/product/Product';
+import Home from './pages/main/Home';
+import ProductList from './pages/productlist/productlist';
+import Profile from './pages/profile/profile';
+import EditPassword from './components/editpassword/editpassword';
+import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import Footer from "./components/Footer";
 import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
-import Product from "./pages/product/Product";
-import Home from "./pages/main/Home";
-import ProductList from "./pages/productlist/productlist";
-import Profile from "./pages/profile/profile";
 // import EditPassword from "./components/editpassword/editpassword";
 // import ProductList from "./pages/productlist/productlist";
 // import Profile from "./pages/profile/profile";
-import Addproduct from "./pages/admin/product/AddProduct";
-import Editproduct from "./pages/admin/product/EditProduct";
-
+import Addproduct from './pages/admin/product/AddProduct';
+import Editproduct from './pages/admin/product/EditProduct';
 
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
         <Routes>
+          <Route path='404' element={<InvalidRoute />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/products" element={<Product />} />
