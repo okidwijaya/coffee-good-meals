@@ -1,30 +1,34 @@
 .navActive {
-    padding: 10px 50px;
+  padding: 10px 50px;
 }
 
 .search-nav input {
-    border-radius: 25px;
-    background-color: #EFEEEE;
+  border-radius: 25px;
+  background-color: #efeeee;
 }
 
 .chat-nav {
-    background: none;
+  background: none;
 }
 
 .btn-profile-nav {
-    background: none;
-    padding: 0;
+  background: none;
+  padding: 0;
 }
 
 .chat-img-nav {
-    width: 30px;
-    height: 30px;
-    padding: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
 }
 
 .profile-img-nav {
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
