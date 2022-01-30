@@ -3,7 +3,7 @@ import "./index.css";
 // import { Link, Outlet } from "react-router-dom";
 import Navactive from "../../components/navigation/NavActive";
 import ColdBrew from "../../assets/Cold brew.png";
-import ProductCard from "../../components/cardProduct";
+import DetailCard from "../../components/cardDetail";
 
 const ProductList = () => {
   return (
@@ -56,7 +56,7 @@ const ProductList = () => {
           </div>
         </div>
       </section>
-      <ProductCard />
+      <DetailCard />
     </>
   );
 };
