@@ -6,13 +6,13 @@ import {persistor} from './redux/store';
 // import { connect } from "react-redux";
 // import { ToastContainer } from "react-toastify";
 
-import Footer from './components/footer';
-import Forgotpassword from './pages/starter/ForgotPassword.js';
+// import Footer from './components/footer';
+// import Forgotpassword from './pages/starter/ForgotPassword.js';
 import Product from './pages/product/Product';
 import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
-import EditPassword from './components/editpassword/editpassword';
+// import EditPassword from './components/editpassword/editpassword';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import Footer from "./components/Footer";
 import Signup from "./pages/starter/Signup";
@@ -38,7 +38,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
             {/* <Route path="edit-password" element={<EditPassword />}/>
           </Route> */}
-          <Route path="/product/list" element={<ProductList />} />
+          <Route path="/product/detail" element={<ProductList />} />
           <Route path="/add"  element={<Addproduct />} />
           <Route path="/edit"  element={<Editproduct />} />
           {/* 
