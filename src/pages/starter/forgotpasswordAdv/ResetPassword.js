@@ -1,85 +1,146 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { resetPassword } from "../../../utils/https/auth";
 import "../style.css";
-import Navdefault from "../../../components/navigation/Nav";
 
+class ResetPassword extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: {},
+      errorMsg: {},
+      isValid: false
+    }
+  }
 
-const ResetPassword = () => {
-  // function getEmail() {
-  //   var parameters = {};
-  //   var url = window.location.href;
-  //   console.log(url);
-  //   var parametersString = url.split('?')[1];
-  //   if (typeof parametersString == 'undefined') {
-  //     console.log('no url parameter');
-  //     return;
-  //   }
-  //   var parameterString = parametersString.split('&');
-  //   for (var index in parameterString) {
-  //     var keyValue = parameterString[index].split('=');
-  //     var key = keyValue[0];
-  //     var value = decodeURIComponent(keyValue[1]);
-  //     console.log('Webpage URL parameter key,value: ' + key + ',' + value);
-  //     parameters[key] = value;
-  //   }
+ handleChange = (e) => {
+    let input = this.state.input;
+    input[e.target.name] = e.target.value;
+    this.setState({
+      input,
+    });
+  };
 
-  //   if (typeof parameters.email != 'undefined') {
-  //     if (parameters.email.indexOf('#') !== -1) {
-  //       parameters.email = parameters.email.slice(0, -1);
-  //     }
-  //     return parameters.email;
-  //   }
+  validate = (e) => {
+    let errors = {};
+    let input = this.state.input;
+    let isValid = true;
 
-  // }
-  return (
-    <>
-    <Navdefault/>
-      <div className="reset-password-box">
-        <div className="title-bar">
-          <div className="title">PASSWORD RESET</div>
+    if (
+      typeof input["newPass"] !== "undefined" &&
+      typeof input["confirmPass"] !== "undefined"
+    ) {
+      if (input["newPass"] !== input["confirmPass"]) {
+        isValid = false;
+        errors["confirmPass"] = "Passwords don't match";
+      }
+    }
+    this.setState({
+      errorMsg: errors,
+    });
+    return isValid;
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (this.validate()) {
+      let input = {};
+      input["newPass"] = "";
+      input["confirmPass"] = "";
+      this.setState({ input: input });
+
+      const { newPass } = this.state.input;
+      // console.log(this.state.input);
+    const email = JSON.parse(localStorage["email-user"]);
+    const otp = JSON.parse(localStorage["otp"]);
+
+      const body = {
+        email: email,
+        otp: otp,
+        password: newPass,
+      };
+
+      resetPassword(body)
+        .then((res) => {
+          Swal.fire({
+            icon: "success",
+            title: "Password Reset Successfully",
+            text: "Please login to continue",
+            showCancelButton: false,
+            confirmButtonText: "Ok",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              localStorage.removeItem('email-user');
+              localStorage.removeItem('otp');
+              const { navigate } = this.props;
+              navigate("/login", { replace: true });
+
+              setTimeout(() => {
+                window.location.reload(false);
+              }, 5000);
+            }
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+
+  render() {
+    return (
+      <>
+        <div className="container-reset">
+          <p className="forgotpassword-title">RESET PASSWORD</p>
+          <p className="forgotpassword-text">Please enter your new password</p>
+          <form onSubmit={this.handleSubmit}>
+            <div className="resetPass text-left">
+              <label htmlFor="newPass" className="new-resetPass">
+                New Password :
+              </label>
+              <input
+                className="form-control new"
+                type="password"
+                name="newPass"
+                value={this.state.input.newPass || ""}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="confirmPass" className="confirm-resetPass">
+                Confirm New Password :
+              </label>
+              <input
+                className="form-control confirm"
+                type="password"
+                name="confirmPass"
+                value={this.state.input.confirmPass || ""}
+                onChange={this.handleChange}
+              />
+              <div className="text-danger mb-2" style={{fontSize: "1.2rem", fontWeight: "bold", backgroundColor: "black"}}>
+                {this.state.errorMsg.confirmPass}
+              </div>
+            </div>
+            <div className="btn-resetPass">
+              <button className="btn btn-warning" type="submit">
+                Reset Password
+              </button>
+            </div>
+            {/* <div className="cancel-resetPass mt-4">
+              <button className="btn btn-secondary" type="button">
+                Cancel
+              </button>
+            </div> */}
+          </form>
         </div>
+      </>
+    );
+  }
+}
 
-        {/* <div className="username">
-  <label for="username-input" className="username-label">Username</label>
-  <input type="text" id="username-input" autofocus/>
-</div> */}
+function WrapperResetPass(props) {
+  const navigate = useNavigate();
 
-        <div className="password">
-          <label className="password-label">
-            Old Password
-          </label>
-          <input type="password" id="password-input" />
-        </div>
+  return <ResetPassword {...props} navigate={navigate} />;
+}
 
-        <div className="new-password">
-          <label className="new-password-label">
-            New Password
-          </label>
-          <input type="password" id="new-password-input" />
-        </div>
-
-        <div className="password-verification">
-          <label className="password--verification-label">
-            Password Verification
-          </label>
-          <input type="password" id="password-verification-input" />
-        </div>
-
-        <div className="back-login">
-          <div className="back">
-            <a href="#">
-              <i className="fa fa-angle-double-left"></i> Back to Login
-            </a>
-          </div>
-          <div
-            className="reset-password-button"
-            // onclick="airTableResetPassword()"
-          >
-            <a href="#">Reset Password</a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default ResetPassword;
+export default WrapperResetPass;

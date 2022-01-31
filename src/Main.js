@@ -9,9 +9,9 @@ import {
 import { PersistGate } from "redux-persist/es/integration/react";
 import { persistor } from "./redux/store";
 // import { connect } from "react-redux";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-// import Footer from './components/footer';
 import Product from "./pages/product/Product";
 import Home from "./pages/main/Home";
 import ProductList from "./pages/productlist/productlist";
@@ -32,8 +32,6 @@ import ProductAddOn from "./components/ProductAddOn";
 import ProductCoffee from "./components/ProductCoffee";
 import ProductNonCoffee from "./components/ProductNonCoffee";
 import ProductFoods from "./components/ProductFoods";
-import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword";
-import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp";
 import ManageOrder from "./pages/manageorder";
 import Addpromo from "./pages/admin/promo/AddPromo";
 import Editpromo from "./pages/admin/promo/EditPromo";
@@ -42,6 +40,7 @@ function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
+        <ToastContainer />
         <Routes>
           <Route path="404" element={<InvalidRoute />} />
           <Route path="*" exact element={<Navigate to="404" />} />
@@ -50,8 +49,6 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/forgotpassword" element={<Forgotpassword />} />
-          <Route path="/verify" element={<Verifyotp />} />
-          <Route path="/newpassword" element={<ResetPassword />} />
           {/* </Route> */}
 
           <Route path="profile" element={<Profile />} />
