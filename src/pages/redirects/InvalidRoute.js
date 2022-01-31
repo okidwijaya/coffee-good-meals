@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Index.css';
 import coffee from '../../assets/coffee-bg-cropped.png';
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 
 function InvalidRoute() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 import hazelnut from "../../assets/Haxelnut-latte.png";
 import cardIcon from "../../assets/card-icon.png";
 import bankIcon from "../../assets/Bank-icon.png";

@@ -19,7 +19,7 @@ import {
   updateUserPhoto,
 } from "../../redux/actions/auth";
 
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 import iconPen from "../../assets/pen-icon.svg";
 
 class Profile extends React.Component {
