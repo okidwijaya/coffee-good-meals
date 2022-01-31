@@ -12,7 +12,6 @@ import {persistor} from './redux/store';
 // import { ToastContainer } from "react-toastify";
 
 // import Footer from './components/footer';
-// import Forgotpassword from './pages/starter/ForgotPassword.js';
 import Product from './pages/product/Product';
 import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
@@ -33,6 +32,8 @@ import ProductAddOn from './components/ProductAddOn';
 import ProductCoffee from './components/ProductCoffee';
 import ProductNonCoffee from './components/ProductNonCoffee';
 import ProductFoods from './components/ProductFoods';
+import ResetPassword from './pages/starter/forgotpasswordAdv/ResetPassword';
+import Verifyotp from './pages/starter/forgotpasswordAdv/VerifyOtp';
 
 function App() {
   return (
@@ -44,10 +45,11 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/forgotpassword' element={<Forgotpassword />} />
-            {/* <Route path='verify' element={<ForgotpasswordVerify />} />
-            <Route path='newpassowrd' element={<ReInputPswd />} />
-            </Route> */}
+
+          <Route path='/forgotpassword' element={<Forgotpassword />}>
+          <Route path='verify' element={<Verifyotp/>} />
+            <Route path='newpassowrd' element={<ResetPassword />} />
+          </Route>
 
           <Route path='profile' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />

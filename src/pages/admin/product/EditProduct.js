@@ -2,7 +2,7 @@
 import React from "react";
 import "./style.css";
 import defaultImg from "../../../assets/cold-brew-hd.png";
-import Navactive from "../../../components/navigation/NavActive";
+import Navactive from "../../../components/navigation/Nav";
 
 const Editproduct = () => {
   const [counter, setCounter] = React.useState(1);

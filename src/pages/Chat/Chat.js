@@ -5,7 +5,7 @@ import Jason from "../../assets/jason.png";
 import Cheryn from "../../assets/cheryn.png";
 import Lou from "../../assets/Lou.png";
 
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 import "./index.css";
 
 function Chat() {

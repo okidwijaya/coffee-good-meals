@@ -1,6 +1,6 @@
 import React from 'react';
 import CardHistory from '../../components/historyCard';
-import Navactive from '../../components/navigation/NavActive';
+import Navactive from '../../components/navigation/Nav';
 import "./index.css"
 
 
