@@ -35,6 +35,8 @@ import ProductFoods from "./components/ProductFoods";
 import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword";
 import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp";
 import ManageOrder from "./pages/manageorder";
+import Addpromo from "./pages/admin/promo/AddPromo";
+import Editpromo from "./pages/admin/promo/EditPromo";
 
 function App() {
   return (
@@ -68,6 +70,11 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/history" element={<History />} />
           <Route path="/manage/order" element={<ManageOrder />} />
+
+
+          <Route path="/addpromo" element={<Addpromo />} />
+          <Route path="/editpromo" element={<Editpromo />} />
+
           {/* 
     <Router>
       <Routes>
