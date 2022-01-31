@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Jason from "../../assets/jason.png";
 import Cheryn from "../../assets/cheryn.png";
 import Lou from "../../assets/Lou.png";
+// import searchIcon from "../../assets/Search-icon.png"
 
 import Navactive from "../../components/navigation/NavActive";
 import "./index.css";
@@ -21,6 +22,7 @@ function Chat() {
                 className="form-control search-chat mx-auto mt-5 mb-5"
                 placeholder="Search chat"
               />
+              {/* <img src={searchIcon} alt="search icon" className="search" /> */}
               <p>Choose a staff you want to talk with</p>
               <div className="row staff mt-4">
                 <div className="img-staff col-lg-3 col-md-3">
