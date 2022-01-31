@@ -4,7 +4,7 @@ import logo from "../../assets/icon.svg";
 import "./style.css";
 import { Link, NavLink } from "react-router-dom";
 
-const Navactive = () => {
+const Navdefault = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light navActive">
@@ -59,4 +59,4 @@ const Navactive = () => {
   );
 };
 
-export default Navactive;
+export default Navdefault;
