@@ -44,6 +44,8 @@
     height: 300px;
     margin: auto auto 20px auto;
     border-radius: 48%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .btn-take-picture {
