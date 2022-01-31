@@ -1,34 +1,51 @@
 .navActive {
-  padding: 10px 50px;
+    padding: 10px 50px;
 }
 
 .search-nav input {
-  border-radius: 25px;
-  background-color: #efeeee;
+    border-radius: 25px;
+    background-color: #efeeee;
 }
 
 .chat-nav {
-  background: none;
+    background: none;
 }
 
 .btn-profile-nav {
-  background: none;
-  padding: 0;
+    background: none;
+    padding: 0;
 }
 
 .chat-img-nav {
-  width: 30px;
-  height: 30px;
-  padding: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
 }
 
 .profile-img-nav {
-  border-radius: 50px;
-  width: 30px;
-  height: 30px;
-  padding: 0;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
 }
+
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-nav {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: white;
+    margin: auto 20px;
+    color: #0B132A;
+}
+
+.btn-yellow-nav {
+    width: max(150px, 10%);
+    background-color: #FFBA33;
+    border-radius: 50px;
 }
