@@ -1,51 +1,50 @@
 .product-page {
-    margin: 50px auto;
-    width: 100%;
+  margin: 50px auto;
+  width: 100%;
 }
 
 .promo-section-product {
-    padding-top: 20px;
-    border-top: 1px solid rgb(202, 202, 202);
-    text-align: center;
-    width: 100%;
-    border-right: 1px solid rgb(202, 202, 202);
+  padding-top: 20px;
+  border-top: 1px solid rgb(202, 202, 202);
+  text-align: center;
+  width: 100%;
+  border-right: 1px solid rgb(202, 202, 202);
 }
 
 .product-link-wrapper {
-    margin: auto;
-    width: 100%;
-    text-align: center;
+  margin: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .promo-product-title {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: #6A4029;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #6a4029;
 }
 
 .promo-product-description {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.8rem;
-    text-align: center;
-    color: #000000;
-    margin: auto auto 30px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #000000;
+  margin: auto auto 30px;
 }
 
 .couponCard {
-    padding-top: 10px;
-    padding-left: 2px;
-    height: 85px;
-    border-radius: 20px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
+  padding-top: 10px;
+  padding-left: 2px;
+  height: 85px;
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
 }
-
 
 /* width 1024
 
@@ -60,146 +59,149 @@ width: 30%;
 margin: auto 0px;} */
 
 .green-couponCard {
-    background: #88B788;
+  background: #88b788;
 }
 
 .yellow-couponCard {
-    background: #F5C361;
+  background: #f5c361;
 }
 
 .semi-brown-couponCard {
-    background: #C59378;
+  background: #c59378;
 }
 
 .promo-coupon-img {
-    float: left;
-    width: max(60px, 15%);
-    margin: auto 7px;
+  float: left;
+  width: max(60px, 15%);
+  margin: auto 7px;
 }
 
 .promo-today-title {
-    font-family: Poppins;
-    font-style: normal;
-    font-size: 0.9rem;
-    color: #000000;
-    text-align: left;
-    /* float: right; */
-    margin: 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: left;
+  /* float: right; */
+  margin: 0;
 }
 
 .btn-apply-coupon {
-    background: #6A4029;
-    border-radius: 20px;
-    padding-top: 10px;
-    height: 50px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #FFFFFF;
-    margin: 20px auto 70px auto;
+  background: #6a4029;
+  border-radius: 20px;
+  padding-top: 10px;
+  height: 50px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 20px auto 70px auto;
 }
 
 .li-terms-coupon-title {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #4F5665;
-    text-align: left;
-    margin: 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #4f5665;
+  text-align: left;
+  margin: 0;
 }
 
 .li-terms-coupon {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.7rem;
-    background-color: white;
-    color: #4F5665;
-    text-align: left;
-    padding: 1px 1px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.7rem;
+  background-color: white;
+  color: #4f5665;
+  text-align: left;
+  padding: 1px 1px;
 }
-
 
 /* product listing */
 
 .productsNavigation {
-    padding-top: 20px;
-    border-top: 1px solid rgb(202, 202, 202);
-    padding-left: 40px;
-    padding-right: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(202, 202, 202);
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .products-navigation {
-    text-decoration: none !important;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.2rem;
-    color: #9F9F9F;
-    margin: auto 23px;
+  text-decoration: none !important;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: #9f9f9f;
+  margin: auto 23px;
 }
 
 .active {
-    color: #6A4029;
-    font-weight: bolder;
-    border-bottom: 3px solid #6A4029;
+  color: #6a4029;
+  font-weight: bolder;
+  border-bottom: 3px solid #6a4029;
 }
-
 
 /* content product / product list */
 
 .product-content-wrapper {
-    width: 100%;
-    margin: 30px auto;
-    height: (600px, auto);
-    text-align: center;
+  width: 100%;
+  margin: 30px auto;
+  height: (600px, auto);
+  text-align: center;
 }
 
 .product-item {
-    background-color: white;
-    margin: 10px;
-    height: 250px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 30px;
+  background-color: white;
+  margin: 10px;
+  height: 250px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 30px;
 }
 
 .product-img-container {
-    border-radius: 50%;
-    border: none;
+  border-radius: 50%;
+  border: none;
 }
 
 .product-title {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #000000;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000000;
 }
 
 .product-price {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1rem;
-    text-align: center;
-    color: #6A4029;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: #6a4029;
 }
 
 .has-search .form-control {
-    padding-left: 2.375rem;
+  padding-left: 2.375rem;
 }
 
 .has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.empty-product{
+  font-family: Poppins;
+  font-size: calc(16px + 0.3vw);
 }
