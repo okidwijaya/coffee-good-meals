@@ -11,9 +11,9 @@ class Addproduct extends Component {
     this.endHour = React.createRef();
   }
 
-  handleChange = (e) => {
-    console.log('jam', e.target.value)
-  }
+  // handleChange = (e) => {
+  //   console.log('jam', e.target.value)
+  // }
   render() {
 
     return (

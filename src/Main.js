@@ -34,6 +34,9 @@ import ProductNonCoffee from "./components/ProductNonCoffee";
 import ProductFoods from "./components/ProductFoods";
 import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword";
 import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp";
+import Addpromo from "./pages/admin/promo/AddPromo";
+import EditPromo from "./pages/admin/promo/EditPromo";
+import Editpromo from "./pages/admin/promo/EditPromo";
 
 function App() {
   return (
@@ -66,6 +69,10 @@ function App() {
           <Route path="/edit" element={<Editproduct />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/history" element={<History />} />
+
+          <Route path="/addpromo" element={<Addpromo />} />
+          <Route path="/editpromo" element={<Editpromo />} />
+
           {/* 
     <Router>
       <Routes>
