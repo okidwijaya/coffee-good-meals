@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
-import { Link, Outlet } from "react-router-dom";
-import Navactive from "../../components/navigation/NavActive";
+import { NavLink, Outlet } from "react-router-dom";
+import Navactive from "../../components/navigation/Nav";
 import couponImg from "../../assets/promo-today-st.svg";
 import couponImg2 from "../../assets/promo-today-icon-nd.png";
-import productImg from "../../assets/Veggie-tomato-mix.png";
+// import productImg from "../../assets/Veggie-tomato-mix.png";
 
 const Product = () => {
   return (
@@ -73,30 +73,30 @@ const Product = () => {
             </ul>
           </div>
         </aside>
-        <div className="col-12 col-md-9 productsNavigation" id="activeMenu">
+        <div className="col-12 col-md-9 productsNavigation order-first order-md-last" id="activeMenu">
          <div className="product-link-wrapper">
-         <Link className="products-navigation active" to="/products/list">
+         <NavLink className="products-navigation" to="/products/favourite">
             Favourite and Promo
-          </Link>
-          <Link className="products-navigation" to="/products/search">
+          </NavLink>
+          <NavLink className="products-navigation" to="/products/coffee">
             Coffee
-          </Link>
-          <Link className="products-navigation" to="/products/noncoffee">
+          </NavLink>
+          <NavLink className="products-navigation" to="/products/noncoffee">
             Non Coffee
-          </Link>
-          <Link className="products-navigation" to="/products/foods">
+          </NavLink>
+          <NavLink className="products-navigation" to="/products/foods">
             Foods
-          </Link>
-          <Link className="products-navigation" to="/products/addon">
+          </NavLink>
+          <NavLink className="products-navigation" to="/products/addon">
             Add on
-          </Link>
+          </NavLink>
          </div>
           <Outlet />
 
           {/* card component */}
-          <div className="container product-content-wrapper">
-            <div className="row">
-              <div className="col product-item">
+          {/* <div className="container product-content-wrapper">
+            <div className="row justify-content-between">
+              <div className="col-5 col-md-3 product-item mx-0 p-0">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -105,7 +105,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item mx-0 p-0">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -114,7 +114,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item mx-0 p-0">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -123,7 +123,7 @@ const Product = () => {
                 <p className="product-title">Product Title</p>
                 <p className="product-price">Product Price</p>
               </div>
-              <div className="col product-item">
+              <div className="col-5 col-md-3 product-item mx-0 p-0">
                 <img
                   src={productImg}
                   className="img-thumbnail product-img-container"
@@ -133,7 +133,7 @@ const Product = () => {
                 <p className="product-price">Product Price</p>
               </div>
             </div>
-          </div>
+          </div> */}
           <p>*the price has been cutted by discount appears</p>
         </div>
       </div>

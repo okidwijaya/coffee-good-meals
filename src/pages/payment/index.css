@@ -3,6 +3,7 @@
 
 .payment-page{
     background-image: url("../../assets/paymnet-bg.png");
+    background-position: center;
 }
 
 .title-payment{

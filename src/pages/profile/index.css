@@ -20,6 +20,7 @@
   background-image: url("../../assets/profile-bg.png");
   object-fit: cover;
   object-position: center;
+  background-position: center;
 }
 
 .title-profile {

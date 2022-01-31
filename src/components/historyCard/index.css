@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+.image-vegie{
+    width: 100px;
+    height: 100%;
+    /* border-radius: 100%; */
+}
+
+.card-history{
+    /* background-color: #FFFFFF; */
+    border-radius: 10px;
+    /* width: 100px;
+    height: 100px; */
+}
+
+.brand-history{
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+.priced-history{
+    font-family: 'Poppins';
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #895537;
+    text-align: start;
+}
+
+.delivered-history{
+    font-family: 'Poppins';
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #895537;
+    text-align: start;
+}
+
+.card-history-cek{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}

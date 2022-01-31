@@ -7,7 +7,7 @@ import Samantha from "../../assets/girl-with-red-clothes.png";
 import Checklist from "../../assets/check.svg";
 import cameraIcon from "../../assets/camera-icon.svg";
 
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 import "./index.css";
 
 function Chat() {
