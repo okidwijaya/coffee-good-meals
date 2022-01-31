@@ -5,9 +5,16 @@ import defaultImg from "../../../assets/default-img.png";
 import Navactive from "../../../components/navigation/Nav";
 
 class Addproduct extends Component {
+  constructor(props) {
+    super(props);
+    this.startHour = React.createRef();
+    this.endHour = React.createRef();
+  }
+
+  handleChange = (e) => {
+    console.log('jam', e.target.value)
+  }
   render() {
-    const startHour = React.createRef();
-    const endHour = React.createRef();
 
     return (
       <>
@@ -48,11 +55,11 @@ class Addproduct extends Component {
                     type="text"
                     name="time"
                     className="start-hour-btn px-3"
-                    ref={startHour}
+                    ref={this.startHour}
                     placeholder="Select start hour"
                     // onChange={this.handleChange}
-                    onFocus={() => (startHour.current.type = "time")}
-                    onBlur={() => (startHour.current.type = "text")}
+                    onFocus={() => (this.startHour.current.type = "time")}
+                    onBlur={() => (this.startHour.current.type = "text")}
                   />
                 </div>
                 <div className="delivery-hour">
@@ -60,11 +67,11 @@ class Addproduct extends Component {
                     type="text"
                     name="time"
                     className="start-hour-btn px-3"
-                    ref={endHour}
+                    ref={this.endHour}
                     placeholder="Select end hour"
                     // onChange={this.handleChange}
-                    onFocus={() => (endHour.current.type = "time")}
-                    onBlur={() => (endHour.current.type = "text")}
+                    onFocus={() => (this.endHour.current.type = "time")}
+                    onBlur={() => (this.endHour.current.type = "text")}
                   />
                 </div>
               </div>
