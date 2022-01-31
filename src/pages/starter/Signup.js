@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import homeBg from "../../assets/loginbg.png";
 import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
-import Header from "../../components/Header";
+import Header from "../../components/header";
 import { register } from "../../utils/https/auth";
 import "./style.css";
 
