@@ -9,7 +9,9 @@ import {
 import {PersistGate} from 'redux-persist/es/integration/react';
 import {persistor} from './redux/store';
 // import { connect } from "react-redux";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // import Footer from './components/footer';
 import Product from './pages/product/Product';
@@ -43,6 +45,7 @@ function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
+        <ToastContainer />
         <Routes>
           <Route path='404' element={<InvalidRoute />} />
           <Route path='403' element={<UnAuthorize />} />
@@ -50,10 +53,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-
           <Route path='/forgotpassword' element={<Forgotpassword />} />
           <Route path='/verify' element={<Verifyotp />} />
           <Route path='/newpassword' element={<ResetPassword />} />
+
           {/* </Route> */}
 
           <Route path='profile' element={<Profile />} />
@@ -72,7 +75,6 @@ function App() {
           <Route path='/payment' element={<Payment />} />
           <Route path='/history' element={<History />} />
           <Route path='/manage/order' element={<ManageOrder />} />
-
           <Route path='/addpromo' element={<Addpromo />} />
           <Route path='/editpromo' element={<Editpromo />} />
 
