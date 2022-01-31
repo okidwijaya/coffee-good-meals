@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import "./style.css";
+import "../style.css";
 import defaultImg from "../../../assets/default-img.png";
 import Navactive from "../../../components/navigation/Nav";
 
