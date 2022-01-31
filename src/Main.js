@@ -18,7 +18,7 @@ import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
