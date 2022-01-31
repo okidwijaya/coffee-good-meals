@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+
 import {NavLink, Outlet } from "react-router-dom";
 import Navactive from "../../components/navigation/NavActive";
 import couponImg from "../../assets/promo-today-st.svg";
