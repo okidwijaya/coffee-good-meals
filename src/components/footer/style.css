@@ -1,0 +1,38 @@
+footer {
+    background-color: #F8F8F8;
+    height: max(100%, 280px);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 100px 70px 10px;
+    margin: 50px auto;
+}
+
+.footer-logo {
+    padding-left: 20px;
+}
+
+.footer-text {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #4F5665;
+    margin: 20px auto;
+    padding-left: 20px;
+}
+
+.footer-copyright-text {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+    padding-left: 20px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 5px;
+    background-color: transparent;
+}
