@@ -37,6 +37,8 @@ import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp";
 import ManageOrder from "./pages/manageorder";
 import Addpromo from "./pages/admin/promo/AddPromo";
 import Editpromo from "./pages/admin/promo/EditPromo";
+import Dashboard from "./pages/dashboard";
+
 
 function App() {
   return (
@@ -70,10 +72,9 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/history" element={<History />} />
           <Route path="/manage/order" element={<ManageOrder />} />
-
-
           <Route path="/addpromo" element={<Addpromo />} />
           <Route path="/editpromo" element={<Editpromo />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           {/* 
     <Router>
