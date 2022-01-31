@@ -51,8 +51,8 @@ const Navdefault = () => {
               </li>
             </ul>
           </div>
-          <button className="btn btn-outline-warning">Login</button>
-          <button className="btn btn-warning">SignUp</button>
+          <button className="btn btn-nav">Login</button>
+          <button className="btn btn-warning btn-nav btn-yellow-nav">Sign Up</button>
         </div>
       </nav>
     </>
