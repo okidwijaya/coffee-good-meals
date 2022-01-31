@@ -18,7 +18,7 @@ import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -45,6 +45,10 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forgotpassword' element={<Forgotpassword />} />
+            {/* <Route path='verify' element={<ForgotpasswordVerify />} />
+            <Route path='newpassowrd' element={<ReInputPswd />} />
+            </Route> */}
+
           <Route path='profile' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/room-chat' element={<RoomChat />} />
