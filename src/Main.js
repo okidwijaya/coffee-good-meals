@@ -13,7 +13,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// import Footer from './components/footer';
 import Product from './pages/product/Product';
 import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
@@ -40,6 +39,8 @@ import Verifyotp from './pages/starter/forgotpasswordAdv/VerifyOtp';
 import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
+import Dashboard from "./pages/dashboard";
+
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path='/product/detail' element={<ProductList />} />
           <Route path='/add' element={<Addproduct />} />
           <Route path='/edit' element={<Editproduct />} />
