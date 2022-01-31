@@ -30,10 +30,36 @@
   cursor: pointer;
   outline: 2px solid #dc483b;
 }
+.button-403 {
+  border-radius: 25px;
+  background: none;
+  color: #dc483b;
+  border: none;
+  font-size: calc(14px + 0.3vw);
+  cursor: pointer;
+  outline: 2px solid #dc483b;
+}
+.forbidden-main .forbidden-wrapper {
+  background-color: #f9cce0;
+  height: auto;
+}
+.forbidden-wrapper h1 {
+  color: #f4b211 !important;
+  font-weight: bold;
+  font-size: calc(50px + 10vw);
+  font-family: 'Rubik', sans-serif;
+}
+.forbidden-wrapper h3 {
+  color: #212529;
+  font-size: calc(16px + 1vw);
+}
+.img-middle {
+  width: 100%;
+  height: auto;
+}
 .invalid-main .wrapper img {
   margin: auto;
   width: calc(150px + 35vw);
-  /* width: 50vw; */
   height: auto;
 }
 .forbidden-main .wrapper img {

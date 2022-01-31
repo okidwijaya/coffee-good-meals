@@ -1,5 +1,5 @@
 import React from 'react';
-import coffeeLoading from '../../assets/Coffe-and-Doughnut.gif';
+import coffeeLoading from '../../assets/coffee-and-doughnut-loading.gif';
 import './index.css';
 
 function index() {
