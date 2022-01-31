@@ -100,48 +100,6 @@ const Product = () => {
             </NavLink>
           </div>
           <Outlet />
-
-          {/* card component */}
-          {/* <div className="container product-content-wrapper">
-            <div className="row justify-content-between">
-              <div className="col-5 col-md-3 product-item mx-0 p-0">
-                <img
-                  src={productImg}
-                  className="img-thumbnail product-img-container"
-                  alt="productImg"
-                />
-                <p className="product-title">Product Title</p>
-                <p className="product-price">Product Price</p>
-              </div>
-              <div className="col-5 col-md-3 product-item mx-0 p-0">
-                <img
-                  src={productImg}
-                  className="img-thumbnail product-img-container"
-                  alt="productImg"
-                />
-                <p className="product-title">Product Title</p>
-                <p className="product-price">Product Price</p>
-              </div>
-              <div className="col-5 col-md-3 product-item mx-0 p-0">
-                <img
-                  src={productImg}
-                  className="img-thumbnail product-img-container"
-                  alt="productImg"
-                />
-                <p className="product-title">Product Title</p>
-                <p className="product-price">Product Price</p>
-              </div>
-              <div className="col-5 col-md-3 product-item mx-0 p-0">
-                <img
-                  src={productImg}
-                  className="img-thumbnail product-img-container"
-                  alt="productImg"
-                />
-                <p className="product-title">Product Title</p>
-                <p className="product-price">Product Price</p>
-              </div>
-            </div>
-          </div> */}
           <p>*the price has been cutted by discount appears</p>
         </div>
       </div>
