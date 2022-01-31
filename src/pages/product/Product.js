@@ -1,10 +1,9 @@
 import React from "react";
 import "./style.css";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import {NavLink, Outlet } from "react-router-dom";
 import Navactive from "../../components/navigation/NavActive";
 import couponImg from "../../assets/promo-today-st.svg";
 import couponImg2 from "../../assets/promo-today-icon-nd.png";
-import productImg from "../../assets/Veggie-tomato-mix.png";
 
 const Product = () => {
   return (
