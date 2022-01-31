@@ -45,6 +45,10 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forgotpassword' element={<Forgotpassword />} />
+            {/* <Route path='verify' element={<ForgotpasswordVerify />} />
+            <Route path='newpassowrd' element={<ReInputPswd />} />
+            </Route> */}
+
           <Route path='profile' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/room-chat' element={<RoomChat />} />
