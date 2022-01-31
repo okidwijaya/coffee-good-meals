@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.css";
-
-import {NavLink, Outlet } from "react-router-dom";
-import Navactive from "../../components/navigation/NavActive";
+import { NavLink, Outlet } from "react-router-dom";
+import Navactive from "../../components/navigation/Nav";
 import couponImg from "../../assets/promo-today-st.svg";
 import couponImg2 from "../../assets/promo-today-icon-nd.png";
 

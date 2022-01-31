@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 // import { Link, Outlet } from "react-router-dom";
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 import ColdBrew from "../../assets/Cold brew.png";
 import DetailCard from "../../components/cardDetail";
 

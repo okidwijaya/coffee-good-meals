@@ -1,74 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import logo from '../../assets/icon.svg';
-import chat from '../../assets/chat-icon.png';
-import imgProfile from '../../assets/profile-bg.png';
-import './style.css';
-import {Link, NavLink} from 'react-router-dom';
+import React from "react";
+import chat from "../../assets/chat-icon.png";
+import imgProfile from "../../assets/profile-bg.png";
 
-const Navactive = () => {
+export default function NavActive() {
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light navActive'>
-        <div className='navbar-brand'>
-          <Link to='/'>
-            <img src={logo} alt='logo' width='30' height='24' />
-            <strong>Coffee Shop</strong>
-          </Link>
-        </div>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarTogglerDemo02'
-          aria-controls='navbarTogglerDemo02'
-          aria-expanded='false'
-          aria-label='Toggle navigation'>
-          <span className='navbar-toggler-icon'></span>
-        </button>
-
-        <div className='collapse navbar-collapse' id='navbarTogglerDemo02'>
-          <div className='mx-auto'>
-            <ul className='navbar-nav ml-auto mt-2 mt-lg-0'>
-              <li className='nav-item'>
-                <NavLink to='/' className='nav-link'>
-                  Home
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink to='/products' className='nav-link'>
-                  Product
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink to='/cart' className='nav-link'>
-                  Your Cart
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink to='/history' className='nav-link'>
-                  History
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <form className='form-inline my-2 my-lg-0 search-nav'>
-            <input
-              className='form-control mr-sm-2'
-              type='search'
-              placeholder='Search'
-            />
-          </form>
-          <button className='btn chat-nav'>
-            <img src={chat} alt='chat icon' className='chat-img-nav' />
-          </button>
-          <button className='btn btn-profile-nav'>
-            <img src={imgProfile} className='profile-img-nav' alt='chat icon' />
-          </button>
-        </div>
-      </nav>
+      <form className="form-inline my-2 my-lg-0 search-nav">
+        <input
+          className="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+        />
+      </form>
+      <button className="btn chat-nav">
+        <img src={chat} alt="chat icon" className="chat-img-nav" />
+      </button>
+      <button className="btn btn-profile-nav">
+        <img src={imgProfile} className="profile-img-nav" alt="chat icon" />
+      </button>
     </>
   );
-};
-
-export default Navactive;
+}

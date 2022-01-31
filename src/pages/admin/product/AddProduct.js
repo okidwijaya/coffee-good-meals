@@ -2,7 +2,7 @@
 import React from "react";
 import "./style.css";
 import defaultImg from "../../../assets/default-img.png";
-import Navactive from "../../../components/navigation/NavActive";
+import Navactive from "../../../components/navigation/Nav";
 
 const Addproduct = () => {
   return (

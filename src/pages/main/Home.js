@@ -10,7 +10,7 @@ import spotify from "../../assets/spotify.png";
 import reddit from "../../assets/reddit.png";
 import discord from "../../assets/disscoprd.png";
 import userTestimonial from "../../assets/user-icon.png";
-import Navactive from "../../components/navigation/NavActive";
+import Navactive from "../../components/navigation/Nav";
 
 const Home = () => {
   // pagination Function
