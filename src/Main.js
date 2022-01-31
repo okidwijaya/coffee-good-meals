@@ -12,6 +12,7 @@ import {persistor} from './redux/store';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+
 import Product from './pages/product/Product';
 import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
@@ -36,6 +37,8 @@ import ProductFoods from './components/ProductFoods';
 import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
+import Dashboard from "./pages/dashboard";
+
 
 function App() {
   return (
@@ -49,8 +52,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/forgotpassword' element={<Forgotpassword />} />
+          <Route path='/verify' element={<Verifyotp />} />
+          <Route path='/newpassword' element={<ResetPassword />} />
 
-          <Route path="/forgotpassword" element={<Forgotpassword />} />
           {/* </Route> */}
 
           <Route path='profile' element={<Profile />} />
@@ -63,13 +68,13 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path='/product/detail' element={<ProductList />} />
           <Route path='/add' element={<Addproduct />} />
           <Route path='/edit' element={<Editproduct />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/history' element={<History />} />
           <Route path='/manage/order' element={<ManageOrder />} />
-
           <Route path='/addpromo' element={<Addpromo />} />
           <Route path='/editpromo' element={<Editpromo />} />
 
