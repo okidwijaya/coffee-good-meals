@@ -8,7 +8,7 @@ import NavActive from './NavActive.js';
 
 const Navdefault = (props) => {
   const token = props.token;
-  console.log('token', token);
+  // console.log('token', token);
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-light navActive'>
