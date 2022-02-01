@@ -13,7 +13,7 @@ class ProductFoods extends React.Component {
     const filter = '?keyword=&orderBy=date&category=2&sort=desc';
     searchList(filter)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({
           isSuccess: true,
           dataProduct: response.data.result,
