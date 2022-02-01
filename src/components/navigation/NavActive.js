@@ -6,7 +6,10 @@ import imgProfile from '../../assets/profile-bg.png';
 
 // export default
 function NavActive(props) {
-  const [image, setImage] = useState(props.image);
+  const host = process.env.REACT_APP_HOST;
+  const photo = host + '/users/' + props.image;
+  console.log('photo', photo);
+  const [image, setImage] = useState(photo);
   console.log('props:', props.image);
   useEffect(() => {
     console.log(typeof image);
