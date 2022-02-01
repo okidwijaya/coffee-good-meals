@@ -40,7 +40,7 @@ const Editproduct = () => {
         </div>
 
         <div className="row add-product-content">
-          <aside className="col col-md-5">
+          <aside className="col-11 col-sm-11 col-md-10 col-lg-5">
             <div className="product-img-edit">
               <img src={defaultImg} className="edit-image" alt="edit pic" />
             </div>
@@ -51,7 +51,7 @@ const Editproduct = () => {
             </p>
           </aside>
 
-          <div className="col col-md-6">
+          <div className="col-11 col-sm-11 col-md-10 col-lg-6 mx-auto">
             <form>
               <div className="form-group">
                 <input
@@ -136,7 +136,7 @@ const Editproduct = () => {
               <div className="form-group my-5">
                 {/* counter btn */}
                <div className="row">
-               <div className="col-3 count-wrapper d-flex align-items-md-center">
+               <div className="col-7 col-md-3 mx-auto count-wrapper d-flex align-items-md-center">
                   <div className="btn edit-product-btn-count" onClick={subCounter}>
                     -
                   </div>
@@ -145,7 +145,7 @@ const Editproduct = () => {
                     +
                   </div>
                 </div>
-                <button className="col-5 mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color font-brown-color ">
+                <button className="col-7 col-md-5 mx-auto btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color font-brown-color ">
                   Add to cart
                 </button>
                </div>

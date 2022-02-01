@@ -11,7 +11,8 @@ footer {
 .footer-logo {
     padding-left: 20px;
 }
-.text-decoration-none{
+
+.text-decoration-none {
     text-decoration: none !important;
 }
 
@@ -38,4 +39,22 @@ footer {
     border: none;
     padding: 5px;
     background-color: transparent;
+}
+
+@media screen and (max-width: 426px) {
+    footer {
+        padding: 20px 10px;
+    }
+    .footer-text {
+        font-size: 0.8rem;
+    }
+    .footer-copyright-text {
+        font-size: 0.8rem;
+    }
+    .list-group-item {
+        font-size: 0.8rem;
+    }
+    .footer-list-content {
+        text-align: center;
+    }
 }
