@@ -11,8 +11,10 @@ import reddit from "../../assets/reddit.png";
 import discord from "../../assets/disscoprd.png";
 import userTestimonial from "../../assets/user-icon.png";
 import Navactive from "../../components/navigation/Nav";
+import { connect } from "react-redux";
+// import SignupCard from "../../components/Auth";
 
-const Home = () => {
+const Home = (props) => {
   // pagination Function
   // $(function () {
   //   var button = $(".button");
@@ -29,6 +31,8 @@ const Home = () => {
 
   //   button.on("click", switchToNext);
   // });
+  // console.log(props.auth.userData.token)
+  const token = props.auth.userData.token;
 
   return (
     <>
@@ -39,27 +43,31 @@ const Home = () => {
           <img src={homeBg} className="bgHeader" alt="bgHeader" />
         </div>
         <div className="row header-description-wrapper">
-          <div className="col">
+          <div className="col-8 col-md-7">
             <p className="header-title">
-              Start Your Day with Coffee and Good Meals
+              Start Your Day with <br />
+              Coffee and Good Meals
             </p>
             <p className="header-text">
-              We provide high quality beans, good taste, and healthy meals made
-              by love just for you. Start your day with us for a bigger smile!
+              We provide high quality beans, good taste, and healthy <br />
+              meals made by love just for you. Start your day with us <br />
+              for a bigger smile!
             </p>
-            <button className="col-6 h-20 btn btn-get-started">
+            <button className="col-8 col-md-4 h-20 btn btn-get-started">
               Get Started
             </button>
           </div>
-          <div className="col">
-            <form className="form-inline my-2 my-lg-0 search-box-home">
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-              />
-            </form>
-          </div>
+          {token === null && (
+            <div className="col-4">
+              <form className="form-inline my-2 my-lg-0 search-box-home">
+                <input
+                  className="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search"
+                />
+              </form>
+            </div>
+          )}
         </div>
         {/* middle section card */}
         <div className="row company-info-header align-items-center justify-content-center">
@@ -106,7 +114,7 @@ const Home = () => {
 
         {/* nd section header*/}
         <div className="row header-desc-section d-flex justify-content-center align-items-center">
-          <div className="col col-md-5 header-desc-section-li">
+          <div className="col-12 col-md-5 header-desc-section-li">
             <img src={teamImg} className="home-Map-Img" alt="st img" />
           </div>
           <div className="col col-md-5 header-desc-section-li">
@@ -114,8 +122,8 @@ const Home = () => {
               We Provide Good Coffee and Healthy Meals
             </p>
             <p className="team-work-section-desc">
-              You can explore the menu that we provide with fun and<br/> have their
-              own taste and make your day better.
+              You can explore the menu that we provide with fun and
+              <br /> have their own taste and make your day better.
             </p>
 
             <ul className="list-group team-work-section-li bg-white">
@@ -148,14 +156,14 @@ const Home = () => {
         </p>
 
         <div className="row home-favourite-product width-based">
-          <div className="col">
+          <div className="col-12 col-md-4 col-lg-4 my-3">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
               <div className="card-body">
-                <h5 className="card-title home-card-product-title">
+                <p className="card-title home-card-product-title">
                   Product title
-                </h5>
+                </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
                     <i className="bi bi-check-circle-fill"></i>Item 1
@@ -178,15 +186,15 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="col">
+          <div className="col-12 col-md-4 col-lg-4  my-3">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
 
               <div className="card-body">
-                <h5 className="card-title home-card-product-title">
+                <p className="card-title home-card-product-title">
                   Product title
-                </h5>
+                </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
                     <i className="bi bi-check-circle-fill"></i>Item 1
@@ -209,14 +217,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="col">
+          <div className="col-12 col-md-4 col-lg-4  my-3">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
               <div className="card-body">
-                <h5 className="card-title home-card-product-title">
+                <p className="card-title home-card-product-title">
                   Product title
-                </h5>
+                </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
                     <i className="bi bi-check-circle-fill"></i>Item 1
@@ -258,35 +266,35 @@ const Home = () => {
       <div className="width-based">
         <p className="home-product-wrapper-title">Our Partner</p>
         <div className="row width-based-product">
-          <div className="col-2 width-based-product">
+          <div className="col-4 col-md-2 width-based-product">
             <img
               src={netflix}
               className="img-partener-thumbnail"
               alt="partner img"
             />
           </div>
-          <div className="col-2 width-based-product">
+          <div className="col-4 col-md-2 width-based-product">
             <img
               src={discord}
               className="img-partener-thumbnail"
               alt="partner img"
             />
           </div>
-          <div className="col-2 width-based-product">
+          <div className="col-4 col-md-2 width-based-product">
             <img
               src={reddit}
               className="img-partener-thumbnail"
               alt="partner img"
             />
           </div>
-          <div className="col-2 width-based-product">
+          <div className="col-4 col-md-2 width-based-product">
             <img
               src={amazon}
               className="img-partener-thumbnail"
               alt="partner img"
             />
           </div>
-          <div className="col-2 width-based-product">
+          <div className="col-4 col-md-2 width-based-product">
             <img
               src={spotify}
               className="img-partener-thumbnail"
@@ -306,7 +314,7 @@ const Home = () => {
           <br /> pleasure.
         </p>
         <div className="row testimonial-section-wrapper">
-          <div className="col card-testimonial-wrapper">
+          <div className="col-10 col-md col-lg card-testimonial-wrapper">
             <div className="row">
               <img
                 src={userTestimonial}
@@ -318,7 +326,7 @@ const Home = () => {
                 <p className="testimonial-name-title">Name</p>
                 <p className="testimonial-name-place">place,city</p>
               </div>
-              <div className="col-2 rate-testimonial">
+              <div className="col-2 col-md-3 rate-testimonial">
                 <p style={{ float: "left" }}>Rate</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
@@ -330,7 +338,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="col card-testimonial-wrapper">
+          <div className="col-10 col-md col-lg card-testimonial-wrapper">
             <div className="row">
               <img
                 src={userTestimonial}
@@ -342,7 +350,7 @@ const Home = () => {
                 <p className="testimonial-name-title">Name</p>
                 <p className="testimonial-name-place">place,city</p>
               </div>
-              <div className="col-2 rate-testimonial">
+              <div className="col-2 col-md-3 rate-testimonial">
                 <p style={{ float: "left" }}>Rate</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
@@ -354,7 +362,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="col card-testimonial-wrapper">
+          <div className="col-10 col-md col-lg card-testimonial-wrapper">
             <div className="row">
               <img
                 src={userTestimonial}
@@ -366,7 +374,7 @@ const Home = () => {
                 <p className="testimonial-name-title">Name</p>
                 <p className="testimonial-name-place">place,city</p>
               </div>
-              <div className="col-2 rate-testimonial">
+              <div className="col-2 col-md-3 rate-testimonial">
                 <p style={{ float: "left" }}>Rate</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
@@ -380,11 +388,11 @@ const Home = () => {
         </div>
         <div className="row width-based">
           <div className="col d-flex justify-content-start">
-            <div id="paginationDot">
-              <div className="button active"></div>
-              <div className="button"></div>
-              <div className="button"></div>
-              <div className="button"></div>
+            <div className="paginationDot">
+              <div className="buttonDot active"></div>
+              <div className="buttonDot"></div>
+              <div className="buttonDot"></div>
+              <div className="buttonDot"></div>
             </div>
           </div>
           <div className="col d-flex justify-content-end">
@@ -400,16 +408,16 @@ const Home = () => {
         {/* signpucard inject */}
         <div className="d-inline-flex signupCard justify-content-center align-items-center">
           <div className="mx-auto">
-            <p className="promo-card-signup">
+            <p className="promo-card-signup-home">
               Get your member
               <br />
               card now!
             </p>
-            <p className="promo-card-signup-text">
+            <p className="promo-card-signup-text-home">
               Let's join with our member and enjoy the deals.
             </p>
           </div>
-          <div className="btn btn-warning mx-auto btn-card-promo-signup">
+          <div className="btn btn-warning mx-auto btn-card-promo-signup-home">
             Create Now
           </div>
         </div>
@@ -420,4 +428,10 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Home);

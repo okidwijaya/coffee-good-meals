@@ -83,7 +83,7 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
-          <Route path='product/detail' element={<ProductList />} />
+          <Route path='product/detail/:id' element={<ProductList />} />
           {/* </Route> */}
 
           {/* 

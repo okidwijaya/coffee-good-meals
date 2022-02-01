@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from '../../assets/icon.svg';
 import './style.css';
 import {Link, NavLink} from 'react-router-dom';
@@ -8,7 +8,10 @@ import NavActive from './NavActive.js';
 
 const Navdefault = (props) => {
   const token = props.token;
-  // console.log('token', token);
+  const role = props.role;
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, []);
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-light navActive'>
@@ -42,16 +45,33 @@ const Navdefault = (props) => {
                   Product
                 </NavLink>
               </li>
-              <li className='nav-item'>
-                <NavLink to='/cart' className='nav-link'>
-                  Your Cart
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink to='/history' className='nav-link'>
-                  History
-                </NavLink>
-              </li>
+              {role === '2' ? (
+                <>
+                  <li className='nav-item'>
+                    <NavLink to='/orders' className='nav-link'>
+                      Orders
+                    </NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink to='/dashboard' className='nav-link'>
+                      Dashboard
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className='nav-item'>
+                    <NavLink to='/cart' className='nav-link'>
+                      Your Cart
+                    </NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink to='/history' className='nav-link'>
+                      History
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           {token ? (
@@ -79,7 +99,7 @@ const Navdefault = (props) => {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.userData.token,
-    auth: state.auth,
+    role: state.auth.userData.role,
   };
 };
 export default connect(mapStateToProps)(Navdefault);
