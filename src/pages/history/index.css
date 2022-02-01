@@ -4,7 +4,7 @@
 .history-page{
     background-image: url("../../assets/col-brew-history.png");
     background-position: center;
-    height: max(70vh, 800px);
+    height: max(70vh, 1000px);
 }
 
 .title-history{

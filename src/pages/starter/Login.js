@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginAction } from "../../redux/actions/auth";
+import { toast } from "react-toastify";
 
 import homeBg from "../../assets/loginbg.png";
 import logo from "../../assets/icon.svg";
@@ -9,7 +10,7 @@ import googleIcon from "../../assets/google-icon.svg";
 import SignupCard from "../../components/Auth";
 
 import "./style.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 class Login extends React.Component {
@@ -25,8 +26,18 @@ class Login extends React.Component {
 
   componentDidUpdate() {
     if (this.props.auth.isFulfilled === true) {
+      toast.success("Login successful", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+      });
       const { navigate } = this.props;
       return navigate("/", { replace: true });
+    }
+    if (this.props.auth.isRejected === true) {
+      toast.error("Invalid Email/Password", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+      });
     }
   }
 
@@ -77,12 +88,14 @@ class Login extends React.Component {
                 />
               </div>
               <div className="mb-3">
+                <Link to="/forgotpassword">
                 <div
                   className="btn-forgot-password"
                   style={{ textDecoration: "underline" }}
                 >
                   Forgot Password?
                 </div>
+                </Link>
               </div>
               <div
                 className="d-grid gap-2 col-12 mx-auto p-0"

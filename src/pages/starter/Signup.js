@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import homeBg from "../../assets/loginbg.png";
 import SignupCard from "../../components/Auth";
@@ -21,6 +22,10 @@ const Signup = (props) => {
 
     register(body)
       .then((res) => {
+        toast.success("Registration successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
         return navigate("/login", { replace: true });
       })
       .catch((err) => console.error(err));
