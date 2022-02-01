@@ -26,6 +26,7 @@
   background-color: #6a4029;
   color: #ffffff;
   box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  font-family: 'Poppins';
 }
 
 .button-askStaff {
@@ -36,6 +37,7 @@
   background-color: #ffba33;
   color: #6a4029;
   box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  font-family: 'Poppins';
 }
 
 .methods-delivery {
@@ -84,8 +86,15 @@
   font-size: 1.3rem;
 }
 
+.detail-delivery{
+  padding: 0;
+  /* text-align: center; */
+}
+
 .detail-name {
-  margin: auto;
+  /* margin: auto; */
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10%;
   background-color: #ffffff;
   border-radius: 10px;

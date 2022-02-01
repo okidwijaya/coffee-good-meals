@@ -184,7 +184,7 @@ margin: auto 0px;} */
     font-family: Poppins;
     font-style: normal;
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
     color: #000000;
 }
@@ -226,6 +226,12 @@ margin: auto 0px;} */
     .products-navigation {
         font-size: 1rem;
         margin: auto 18px;
+    }
+    .product-title{
+        font-size: 0.9rem;
+    }
+    .product-price{
+        font-size: 0.9rem;
     }
 }
 
