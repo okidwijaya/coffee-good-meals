@@ -3,8 +3,12 @@ import React from 'react';
 import logo from '../../assets/icon.svg';
 import './style.css';
 import {Link, NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import NavActive from './NavActive.js';
 
-const Navdefault = () => {
+const Navdefault = (props) => {
+  const token = props.token;
+  console.log('token', token);
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-light navActive'>
@@ -50,17 +54,32 @@ const Navdefault = () => {
               </li>
             </ul>
           </div>
-          <Link to='/login' className='btn btn-nav'>
-            Login
-          </Link>
-          <Link to='/signup' className='btn btn-warning btn-nav btn-yellow-nav'>
-            Sign Up
-          </Link>
+          {token ? (
+            <NavActive />
+          ) : (
+            <>
+              <Link to='/login' className='btn btn-nav'>
+                Login
+              </Link>
+              <Link
+                to='/signup'
+                className='btn btn-warning btn-nav btn-yellow-nav'>
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </>
   );
 };
 
-export default Navdefault;
+// export default Navdefault;
 
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.userData.token,
+    auth: state.auth,
+  };
+};
+export default connect(mapStateToProps)(Navdefault);
