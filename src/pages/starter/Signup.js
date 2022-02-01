@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import homeBg from "../../assets/loginbg.png";
 import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
-import Header from "../../components/Header";
+import Header from "../../components/header";
 import { register } from "../../utils/https/auth";
 import "./style.css";
 
