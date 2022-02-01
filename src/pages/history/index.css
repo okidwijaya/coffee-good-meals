@@ -5,6 +5,8 @@
     background-image: url("../../assets/col-brew-history.png");
     background-position: center;
     height: max(70vh, 1000px);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title-history{
