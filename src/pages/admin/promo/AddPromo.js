@@ -21,7 +21,7 @@ const Addpromo = () => {
           </div>
   
           <div className="row add-product-content">
-            <aside className="col col-md-4">
+            <aside className="col-11 col-sm-11 col-md-10 col-lg-5">
               <div>
                 <img src={defaultImg} className="add-image" alt="add pic" />
               </div>
@@ -32,7 +32,7 @@ const Addpromo = () => {
                 Choose from gallery
               </button>
               <div>
-                <p className="add-product-title aside-title-input">
+                <p className="add-product-title">
                   Enter the Discount:
                 </p>
                 <div className="dropdown">
@@ -63,7 +63,7 @@ const Addpromo = () => {
                 </div>
               </div>
               <div className="form-wrapper">
-                <p className="add-product-title aside-title-input">
+                <p className="add-product-title">
                   Expired Date :
                 </p>
                 <div className="dropdown">
@@ -120,7 +120,7 @@ const Addpromo = () => {
                 </div>
               </div>
               <div>
-                <p className="add-product-title aside-title-input">
+                <p className="add-product-title">
                   Input Coupon Code:
                 </p>
                 <div className="dropdown">
@@ -152,7 +152,7 @@ const Addpromo = () => {
               </div>
             </aside>
   
-            <div className="col col-md-6">
+            <div className="col-11 col-sm-11 col-md-10 col-lg-6 mx-auto">
               <form>
                 <div className="form-group">
                   <label className="add-product-title">Name :</label>
@@ -212,23 +212,23 @@ const Addpromo = () => {
                   <p className="form-desc">
                     Click methods you want to use for this product
                   </p>
-                  <div className="row w-100 h-25 mx-0">
-                    <button className="col mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                  <div className="row w-100 h-25 mx-auto">
+                    <button className="col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
                       Home Delivery
                     </button>
-                    <button className="col mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                    <button className="col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
                       Dine in
                     </button>
-                    <button className="col mx-1 btn-take-away border-0 btn-width-form-input-add">
+                    <button className="col-11 col-md col-lg mx-1 btn-take-away border-0 btn-width-form-input-add">
                       Take away
                     </button>
                   </div>
                 </div>
                 <div className="form-group margin-additional">
-                  <button className="col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color">
+                  <button className="col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color">
                     Save Promo
                   </button>
-                  <button className="col col-md-auto btn btn-block btn-take-away">
+                  <button className="col col-md col-lg btn btn-block btn-take-away">
                     Cancel
                   </button>
                 </div>

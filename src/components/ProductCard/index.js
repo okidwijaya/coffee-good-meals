@@ -21,7 +21,7 @@ const loopCard = (data) => {
     console.log('image', data[i].image);
     const element = (
       <div
-        className='col-5 col-md-3 product-item mx-0 p-0'
+        className='col-3 col-md-3 col-lg-3 product-item p-0'
         key={`product-${i}`}>
           <div className="image-product-wrapper">
               <img
