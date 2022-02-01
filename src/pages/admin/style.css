@@ -428,3 +428,6 @@
     color: #6A4029;
     background-color: white;
 }
+.size-selected{
+    border: 2px solid crimson;
+}

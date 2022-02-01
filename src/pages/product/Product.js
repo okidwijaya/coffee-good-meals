@@ -1,11 +1,19 @@
 import React, {useEffect} from 'react';
 import './style.css';
-import {NavLink, Outlet, useLocation, useNavigate} from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import Navactive from '../../components/navigation/Nav';
 import couponImg from '../../assets/promo-today-st.svg';
 import couponImg2 from '../../assets/promo-today-icon-nd.png';
+import {connect} from 'react-redux';
 
-const Product = () => {
+const Product = (props) => {
+  const token = props.token;
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -101,10 +109,26 @@ const Product = () => {
           </div>
           <Outlet />
           <p>*the price has been cutted by discount appears</p>
+          {token && (
+            <>
+              <p>
+                <Link to='/product/edit'>Edit Product</Link>
+              </p>
+              <p>
+                <Link to='/product/add'>Add New Product</Link>
+              </p>
+            </>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default Product;
+// export default Product;
+const mapStateToProps = (state) => {
+  return {
+    role: state.auth.userData.role,
+  };
+};
+export default connect(mapStateToProps)(Product);

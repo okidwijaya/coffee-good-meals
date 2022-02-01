@@ -57,8 +57,8 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route element={<AdminOnly />}>
               <Route path='dashboard' element={<Dashboard />} />
-              <Route path='add' element={<Addproduct />} />
-              <Route path='edit' element={<Editproduct />} />
+              <Route path='product/add' element={<Addproduct />} />
+              <Route path='product/edit/:id' element={<Editproduct />} />
               <Route path='order' element={<ManageOrder />} />
               <Route path='addpromo' element={<Addpromo />} />
               <Route path='editpromo' element={<Editpromo />} />
