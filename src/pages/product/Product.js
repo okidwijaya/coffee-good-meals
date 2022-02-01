@@ -17,20 +17,20 @@ const Product = () => {
     <>
       <Navactive />
       <div className='row product-page flex-row-reverse flex-md-row mb-2'>
-        <aside className='col-12 col-sm-5 col-md-4 promo-section-product'>
+        <aside className='col-12 col-md-3 promo-section-product'>
           <p className='promo-product-title'>Promo Today</p>
           <p className='promo-product-description'>
             Coupons will be updated every weeks.
             <br /> Check them out!
           </p>
-          <div className='col-11 col-md-11 btn couponCard green-couponCard'>
+          <div className='col-9 col-md-9 btn couponCard green-couponCard'>
             <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
             <p className='promo-today-title'>
               <strong>HAPPY MOTHER'S DAY!</strong> <br />
               Get one of our favorite <br /> menu for free!
             </p>
           </div>
-          <div className='col-11 col-md-11 btn couponCard yellow-couponCard '>
+          <div className='col-9 col-md-9 btn couponCard yellow-couponCard '>
             <img src={couponImg2} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className='promo-today-title'>
@@ -39,7 +39,7 @@ const Product = () => {
               </p>
             </div>
           </div>
-          <div className='col-11 col-md-11 btn couponCard green-couponCard '>
+          <div className='col-9 col-md-9 btn couponCard green-couponCard '>
             <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className='promo-today-title'>
@@ -48,7 +48,7 @@ const Product = () => {
               </p>
             </div>
           </div>
-          <div className='col-11 col-md-11 btn couponCard semi-brown-couponCard '>
+          <div className='col-9 col-md-9 btn couponCard semi-brown-couponCard '>
             <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className='promo-today-title'>
@@ -58,7 +58,7 @@ const Product = () => {
             </div>
           </div>
 
-          <div className='col-9 col-md-11 btn btn-apply-coupon'>
+          <div className='col-9 col-md-9 btn btn-apply-coupon'>
             Apply Coupon
           </div>
           <div className='terms'>
@@ -80,7 +80,7 @@ const Product = () => {
           </div>
         </aside>
         <div
-          className='col-12 col-sm-7 col-md-8 productsNavigation order-first order-md-last'
+          className='col-12 col-md-9 productsNavigation order-first order-md-last'
           id='activeMenu'>
           <div className='product-link-wrapper'>
             <NavLink className='products-navigation' to='/products/favourite'>
@@ -100,7 +100,7 @@ const Product = () => {
             </NavLink>
           </div>
           <Outlet />
-          <p className='product-content-bottom-text'>*the price has been cutted by discount appears</p>
+          <p>*the price has been cutted by discount appears</p>
         </div>
       </div>
     </>
