@@ -371,13 +371,13 @@
 
 @media screen and (max-width: 1440px) {
     .member-card {
-        bottom: 5px;
+        bottom: -110px;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .member-card {
-        bottom: 0px;
+        bottom: -230px;
     }
 }
 
