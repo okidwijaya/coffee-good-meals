@@ -24,7 +24,9 @@ function UnAuthorize() {
               <div className='col-12 text-center'>
                 <h2>Forbidden</h2>
                 <h3 className='mb-5'>You don't have access to the page.</h3>
-                <button className='button-403 px-3 py-2 mb-5'>Take me Home</button>
+                <button className='button-403 px-3 py-2 mb-5'>
+                  Take me Home
+                </button>
               </div>
             </div>
           </div>
@@ -38,10 +40,8 @@ function UnAuthorize() {
               <div className='col-12 col-sm-6 left text-center'>
                 <h2>FORBIDDEN!</h2>
                 <p>You don't have access to the page.</p>
-                <Link to='/'>
-                  <button className='button-404 px-3 py-2 mb-5'>
-                    Take me Home
-                  </button>
+                <Link to='/' className='button-404 px-3 py-2 mb-5'>
+                  Take me Home
                 </Link>
               </div>
               <div className='col-12 col-sm-6 right'>

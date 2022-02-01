@@ -15,7 +15,9 @@ const loopCard = (data) => {
     );
   }
   for (let i = 0; i < data.length; i++) {
-    const image = data[i].image ? data[i].image : productImg;
+    const url = process.env.REACT_APP_HOST + '/products/';
+    const image = data[i].image ? url + data[i].image : productImg;
+    console.log('image', data[i].image);
     const element = (
       <div
         className='col-5 col-md-3 product-item mx-0 p-0'
@@ -25,7 +27,6 @@ const loopCard = (data) => {
           className='img-thumbnail product-img-container'
           alt='productImg'
           onError={({currentTarget}) => {
-            console.log(currentTarget);
             currentTarget.onerror = null;
             currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
           }}
