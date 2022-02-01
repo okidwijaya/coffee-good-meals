@@ -42,11 +42,13 @@ const Home = () => {
         <div className="row header-description-wrapper">
           <div className="col-8 col-md-7">
             <p className="header-title">
-              Start Your Day with <br />Coffee and Good Meals
+              Start Your Day with <br />
+              Coffee and Good Meals
             </p>
             <p className="header-text">
-              We provide high quality beans, good taste, and healthy <br/>meals made
-              by love just for you. Start your day with us <br/>for a bigger smile!
+              We provide high quality beans, good taste, and healthy <br />
+              meals made by love just for you. Start your day with us <br />
+              for a bigger smile!
             </p>
             <button className="col-8 col-md-4 h-20 btn btn-get-started">
               Get Started
@@ -72,8 +74,8 @@ const Home = () => {
                 alt="card-testimonial"
               />
               <div className="col header-info-company">
-                <p className="header-company-count">Name</p>
-                <p className="header-company-people-info">place,city</p>
+                <p className="header-company-count">90+</p>
+                <p className="header-company-people-info">staff</p>
               </div>
             </div>
           </div>
@@ -85,8 +87,8 @@ const Home = () => {
                 alt="card-testimonial"
               />
               <div className="col header-info-company">
-                <p className="header-company-count">Name</p>
-                <p className="header-company-people-info">place,city</p>
+                <p className="header-company-count">30+</p>
+                <p className="header-company-people-info">store</p>
               </div>
             </div>
           </div>
@@ -98,8 +100,8 @@ const Home = () => {
                 alt="card-testimonial"
               />
               <div className="col header-info-company">
-                <p className="header-company-count">Name</p>
-                <p className="header-company-people-info">place,city</p>
+                <p className="header-company-count">800+</p>
+                <p className="header-company-people-info">customers</p>
               </div>
             </div>
           </div>
@@ -148,95 +150,103 @@ const Home = () => {
           yours too!
         </p>
 
-        <div className="row home-favourite-product width-based">
-          <div className="col-12 col-md-4 col-lg-4 my-3">
+        <div className="row home-favourite-product">
+          <div className="col-12 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
-              <div className="card-body">
+              <div className="card-body home-li-wrapper">
                 <p className="card-title home-card-product-title">
-                  Product title
+                  Hazelnut Latte
                 </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 1
+                    <i className="bi bi-check-circle-fill"></i>Hazelnut Syrup
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 2
+                    <i className="bi bi-check-circle-fill"></i>Wanilla Whiped
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Ice /Hot
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Sliced Banana on
+                    Top
                   </li>
                 </ul>
-                <p className="card-text home-card-product-price">Price</p>
+              </div>
+                <p className="card-text home-card-product-price">IDR 25.000</p>
                 <button className="btn btn-outline-warning btn-order-now">
                   Order Now
                 </button>
-              </div>
             </div>
           </div>
 
-          <div className="col-12 col-md-4 col-lg-4  my-3">
+          <div className="col-12 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
 
-              <div className="card-body">
+              <div className="card-body home-li-wrapper">
                 <p className="card-title home-card-product-title">
-                  Product title
+                  Pinky Promise
                 </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 1
+                    <i className="bi bi-check-circle-fill"></i>One Shot Coffee
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 2
+                    <i className="bi bi-check-circle-fill"></i>Vanilla Whiped
+                    Cream
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Strawberry Syrup
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Slice Strawberry
+                    on top
                   </li>
                 </ul>
-                <p className="card-text home-card-product-price">Price</p>
+              </div>
+                <p className="card-text home-card-product-price">IDR 30.000</p>
                 <button className="btn btn-outline-warning btn-order-now">
                   Order Now
                 </button>
-              </div>
             </div>
           </div>
 
-          <div className="col-12 col-md-4 col-lg-4  my-3">
+          <div className="col-12 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
-              <div className="card-body">
+              <div className="card-body home-li-wrapper">
                 <p className="card-title home-card-product-title">
-                  Product title
+                  Chicken Wings
                 </p>
                 <ul className="list-group home-card-product-li">
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 1
+                    <i className="bi bi-check-circle-fill"></i>Wings
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 2
+                    <i className="bi bi-check-circle-fill"></i>Dump Sticks
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Mayoniase and
+                    Lemon
                   </li>
                   <li className="list-group-item">
-                    <i className="bi bi-check-circle-fill"></i>Item 3
+                    <i className="bi bi-check-circle-fill"></i>Secret Recipe
+                  </li>
+                  <li className="list-group-item">
+                    <i className="bi bi-check-circle-fill"></i>Buy 1 Get 1 only
+                    for Dine in
                   </li>
                 </ul>
-                <p className="card-text home-card-product-price">Price</p>
+              </div>
+                <p className="card-text home-card-product-price">IDR 40.000</p>
                 <button className="btn btn-outline-warning btn-order-now">
                   Order Now
                 </button>
-              </div>
             </div>
           </div>
         </div>
@@ -316,11 +326,11 @@ const Home = () => {
               />
 
               <div className="col">
-                <p className="testimonial-name-title">Name</p>
-                <p className="testimonial-name-place">place,city</p>
+                <p className="testimonial-name-title">Viezh Robert</p>
+                <p className="testimonial-name-place">Warsaw, Poland</p>
               </div>
               <div className="col-2 col-md-3 rate-testimonial">
-                <p style={{ float: "left" }}>Rate</p>
+                <p style={{ float: "left" }}>4.5</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
             </div>
@@ -340,18 +350,17 @@ const Home = () => {
               />
 
               <div className="col">
-                <p className="testimonial-name-title">Name</p>
-                <p className="testimonial-name-place">place,city</p>
+                <p className="testimonial-name-title">Yessica Christy</p>
+                <p className="testimonial-name-place">Shanxi, China</p>
               </div>
               <div className="col-2 col-md-3 rate-testimonial">
-                <p style={{ float: "left" }}>Rate</p>
+                <p style={{ float: "left" }}>4.5</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
             </div>
             <p className="testimonial-card-description">
-              “Wow... I am very happy to spend my whole day here. the Wi-fi is
-              good, and the coffee and meals tho. I like it here!! Very
-              recommended!
+              “I like it because I like to travel far and still can make my day
+              better just by drinking their Hazelnut Latte
             </p>
           </div>
 
@@ -364,18 +373,18 @@ const Home = () => {
               />
 
               <div className="col">
-                <p className="testimonial-name-title">Name</p>
-                <p className="testimonial-name-place">place,city</p>
+                <p className="testimonial-name-title">Kim Young Jou</p>
+                <p className="testimonial-name-place">Seoul, South Korea</p>
               </div>
               <div className="col-2 col-md-3 rate-testimonial">
-                <p style={{ float: "left" }}>Rate</p>
+                <p style={{ float: "left" }}>4.5</p>
                 <i className="bi bi-star-fill" style={{ float: "right" }}></i>
               </div>
             </div>
             <p className="testimonial-card-description">
-              “Wow... I am very happy to spend my whole day here. the Wi-fi is
-              good, and the coffee and meals tho. I like it here!! Very
-              recommended!
+              “This is very unusual for my taste, I haven’t liked coffee before
+              but their coffee is the best! and yup, you have to order the
+              chicken wings, the best in town!
             </p>
           </div>
         </div>

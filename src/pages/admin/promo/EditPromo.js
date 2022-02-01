@@ -12,12 +12,12 @@ const Editpromo = () => {
         <div aria-label="col breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a className="breadcrumb-page" href="#">
+              <a className="breadcrumb-page" href="/">
                 Favorite & Promo
               </a>
             </li>
             <li className="breadcrumb-item">
-              <a className="active-page" href="#">
+              <a className="active-page" href="/">
                 Add new promo
               </a>
             </li>
@@ -71,13 +71,13 @@ const Editpromo = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Another action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Something else here
                   </a>
                 </div>
@@ -97,13 +97,13 @@ const Editpromo = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Another action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Something else here
                   </a>
                 </div>
@@ -128,13 +128,13 @@ const Editpromo = () => {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Another action
                   </a>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/">
                     Something else here
                   </a>
                 </div>
@@ -234,13 +234,13 @@ const Editpromo = () => {
                       className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <a className="dropdown-item" href="#">
+                      <a className="dropdown-item" href="/">
                         Action
                       </a>
-                      <a className="dropdown-item" href="#">
+                      <a className="dropdown-item" href="/">
                         Another action
                       </a>
-                      <a className="dropdown-item" href="#">
+                      <a className="dropdown-item" href="/">
                         Something else here
                       </a>
                     </div>
