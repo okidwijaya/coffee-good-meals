@@ -1,5 +1,6 @@
 import React from 'react';
 import productImg from '../../assets/Veggie-tomato-mix.png';
+import "../style.css"
 
 const loopCard = (data) => {
   const elements = [];
@@ -22,15 +23,18 @@ const loopCard = (data) => {
       <div
         className='col-5 col-md-3 product-item mx-0 p-0'
         key={`product-${i}`}>
-        <img
-          src={image}
-          className='img-thumbnail product-img-container'
-          alt='productImg'
-          onError={({currentTarget}) => {
-            currentTarget.onerror = null;
-            currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
-          }}
-        />
+          <div className="image-product-wrapper">
+              <img
+            src={image}
+            className='img-thumbnail product-img-container'
+            alt='productImg'
+            onError={({currentTarget}) => {
+              currentTarget.onerror = null;
+              currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
+            }}
+          />
+          </div>
+        
         <p className='product-title'>{data[i].name}</p>
         <p className='product-price'>Rp. {data[i].price}</p>
       </div>

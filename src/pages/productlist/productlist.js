@@ -10,7 +10,7 @@ const ProductList = () => {
     <>
       <Navactive />
       <section className="row">
-        <div className="col col-md-6 image-detail-product">
+        <div className="col-12 col-md-6 image-detail-product">
           <p className="title-productDetail">
             Favorite {"&"} Promo {">"} Cold Brew
           </p>
@@ -24,7 +24,7 @@ const ProductList = () => {
           <button className="btn button-addCart">Add to Cart</button>
           <button className="btn button-askStaff">Ask a Staff</button>
         </div>
-        <div className="col col-md-6 detail-delivery">
+        <div className="col-12 col-md-6 detail-delivery">
           <div className="col col-md-10 detail-name">
             <p className="delivery-time">
               Delivery only on <b>Monday to friday</b> at <b>1 - 7 pm</b>

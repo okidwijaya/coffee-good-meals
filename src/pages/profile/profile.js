@@ -14,10 +14,7 @@ import {
   profile,
 } from "../../utils/https/users";
 import { logout } from "../../utils/https/auth";
-import {
-  logoutAction,
-  updateUserPhoto,
-} from "../../redux/actions/auth";
+import { logoutAction, updateUserPhoto } from "../../redux/actions/auth";
 
 import Navactive from "../../components/navigation/Nav";
 import iconPen from "../../assets/pen-icon.svg";
@@ -286,11 +283,13 @@ class Profile extends React.Component {
           <form onSubmit={this.submitHandler} onReset={this.cancelHandler}>
             <section className="row profile">
               <aside className="col-12 col-md-4 edit-profile">
-                <img
-                  src={profilePic}
-                  alt="imageProfile"
-                  className="profile-image rounded-circle"
-                />
+                <div className="image-profile-wrapper">
+                  <img
+                    src={profilePic}
+                    alt="imageProfile"
+                    className="profile-image rounded-circle"
+                  />
+                </div>
                 <input
                   type="file"
                   onChange={this.fileSelectedHandler}
