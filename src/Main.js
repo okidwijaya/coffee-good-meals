@@ -17,7 +17,7 @@ import Home from "./pages/main/Home";
 import ProductList from "./pages/productlist/productlist";
 import Profile from "./pages/profile/profile";
 import InvalidRoute from "./pages/redirects/InvalidRoute.js";
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 import Signup from "./pages/starter/Signup";
 import Login from "./pages/starter/Login";
 import Forgotpassword from "./pages/starter/ForgotPassword";
@@ -35,7 +35,6 @@ import ProductFoods from "./components/ProductFoods";
 import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword";
 import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp";
 import Addpromo from "./pages/admin/promo/AddPromo";
-import EditPromo from "./pages/admin/promo/EditPromo";
 import Editpromo from "./pages/admin/promo/EditPromo";
 
 function App() {

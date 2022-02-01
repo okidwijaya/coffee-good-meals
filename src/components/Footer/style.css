@@ -36,3 +36,9 @@ footer {
     padding: 5px;
     background-color: transparent;
 }
+
+@media screen and (max-width: 426px) {
+    footer {
+        padding: 20px 10px;
+    }
+}
