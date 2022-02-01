@@ -9,7 +9,7 @@ import {
 import {PersistGate} from 'redux-persist/es/integration/react';
 import {persistor} from './redux/store';
 // import { connect } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Product from './pages/product/Product';
@@ -18,7 +18,7 @@ import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import UnAuthorize from './pages/redirects/UnAuthorize.js';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -36,6 +36,11 @@ import ProductFoods from './components/ProductFoods';
 import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
+import Dashboard from './pages/dashboard';
+import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute';
+import AdminOnly from './components/AdminOnly';
+import UserOnly from './components/UserOnly';
 
 function App() {
   return (
@@ -43,19 +48,34 @@ function App() {
       <Router>
         <ToastContainer />
         <Routes>
+          <Route element={<PublicRoute />}>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/forgotpassword' element={<Forgotpassword />} />
+          </Route>
+
+          <Route element={<PrivateRoute />}>
+            <Route element={<AdminOnly />}>
+              <Route path='dashboard' element={<Dashboard />} />
+              <Route path='add' element={<Addproduct />} />
+              <Route path='edit' element={<Editproduct />} />
+              <Route path='order' element={<ManageOrder />} />
+              <Route path='addpromo' element={<Addpromo />} />
+              <Route path='editpromo' element={<Editpromo />} />
+            </Route>
+            <Route element={<UserOnly />}>
+              <Route path='payment' element={<Payment />} />
+            </Route>
+            <Route path='profile' element={<Profile />} />
+            <Route path='chat' element={<Chat />} />
+            <Route path='room-chat' element={<RoomChat />} />
+            <Route path='history' element={<History />} />
+          </Route>
+
           <Route path='404' element={<InvalidRoute />} />
           <Route path='403' element={<UnAuthorize />} />
           <Route path='*' exact element={<Navigate to='404' />} />
           <Route path='/' element={<Home />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
-
-          <Route path="/forgotpassword" element={<Forgotpassword />} />
-          {/* </Route> */}
-
-          <Route path='profile' element={<Profile />} />
-          <Route path='/chat' element={<Chat />} />
-          <Route path='/room-chat' element={<RoomChat />} />
           <Route path='products' element={<Product />}>
             <Route path='favourite' element={<ProductFavourite />} />
             <Route path='coffee' element={<ProductCoffee />} />
@@ -63,15 +83,8 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
-          <Route path='/product/detail' element={<ProductList />} />
-          <Route path='/add' element={<Addproduct />} />
-          <Route path='/edit' element={<Editproduct />} />
-          <Route path='/payment' element={<Payment />} />
-          <Route path='/history' element={<History />} />
-          <Route path='/manage/order' element={<ManageOrder />} />
-
-          <Route path='/addpromo' element={<Addpromo />} />
-          <Route path='/editpromo' element={<Editpromo />} />
+          <Route path='product/detail' element={<ProductList />} />
+          {/* </Route> */}
 
           {/* 
     <Router>

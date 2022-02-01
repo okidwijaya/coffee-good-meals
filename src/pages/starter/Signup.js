@@ -80,15 +80,6 @@ const Signup = (props) => {
                 >
                   Signup
                 </button>
-
-                <div
-                  className="btn btn-warning btn-signup"
-                  style={{ width: "100%" }}
-                  type="button"
-                >
-                  Signup
-                </div>
-
                 <div
                   className="btn btn-light btn-signup btn-signup-custom"
                   style={{ width: "100%" }}
@@ -101,7 +92,7 @@ const Signup = (props) => {
             </form>
           </section>
 
-          <aside className="col-6 col-lg-6 signup-img-wrapper">
+          <aside className="col-12 col-md-12 col-lg-6 signup-img-wrapper">
             <img src={homeBg} className="img-fluid" alt="Responsive" />
           </aside>
         </div>

@@ -45,7 +45,7 @@ function ProductCard(props) {
   //   const elements = loopCard(dataProduct.data);
   return (
     <>
-      <div className='row justify-content-between'>
+      <div className='row'>
         {loopCard(data)}
         {/* <div className='col-5 col-md-3 product-item mx-0 p-0'>
           <img
