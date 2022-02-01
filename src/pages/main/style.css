@@ -66,7 +66,8 @@
 }
 
 .home-favourite-product {
-    margin: auto auto 100px auto;
+    margin: auto;
+    width: 95%;
 }
 
 
@@ -81,6 +82,15 @@
     object-fit: contain;
     width: 100%;
     position: relative;
+}
+
+div.card {
+    border: none;
+}
+
+.home-li-wrapper {
+    height: 310px;
+    margin: 20px auto;
 }
 
 .header-description-wrapper {
@@ -200,12 +210,18 @@
     font-weight: normal;
     font-size: 0.9rem;
     color: #4F5665;
-    margin: auto;
+    margin: 15px auto auto 40px;
+    text-align: left;
+    background-color: white;
 }
 
-.home-card-product-li li {
-    margin: 15px auto auto auto;
-    background-color: white;
+.home-card-popular {
+    width: max(330px, 60%);
+    height: 725px;
+    margin: 20px 10px;
+    background-color: #FFFFFF;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
 }
 
 .home-card-product-price {
@@ -215,7 +231,7 @@
     font-size: 1.3rem;
     text-align: center;
     color: #0B132A;
-    margin: 50px auto 25px auto;
+    margin: 20px auto 25px auto;
 }
 
 .btn-order-now {
@@ -265,6 +281,15 @@
 }
 
 .rate-testimonial {
+    text-align: center;
+}
+
+.rate-testimonial p {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #0B132A;
     text-align: center;
 }
 

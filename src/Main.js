@@ -18,7 +18,7 @@ import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import UnAuthorize from './pages/redirects/UnAuthorize.js';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -83,7 +83,7 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
-          <Route path='product/detail' element={<ProductList />} />
+          <Route path='product/detail/:id' element={<ProductList />} />
           {/* </Route> */}
 
           {/* 

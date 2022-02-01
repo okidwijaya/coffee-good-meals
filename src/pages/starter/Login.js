@@ -44,7 +44,7 @@ class Login extends React.Component {
     return (
       <>
         <main>
-          <section className="col-12 col-sm-6 col-lg-6 signup-form-wrapper">
+          <section className="col-12 col-sm-6 col-lg-6 login-form-wrapper">
             <nav className="navbar navbar-light navbar-expand-lg login-nav-bar">
               <div className="container-fluid">
                 <div className="col-sm-2 ml-0 container">
@@ -63,8 +63,8 @@ class Login extends React.Component {
               </div>
             </nav>
 
-            <form className="signup-form" onSubmit={this.submitHandler}>
-              <p className="signup-form-title">Login</p>
+            <form className="login-form" onSubmit={this.submitHandler}>
+              <p className="login-form-title">Login</p>
               <div className="mb-3">
                 <label className="form-label">Email address:</label>
                 <input

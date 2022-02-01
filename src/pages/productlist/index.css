@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,600&display=swap");
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .image-detail-product {
   text-align: center;
   padding: 2% 5%;
@@ -16,7 +10,10 @@
 }
 
 .coffee-productDetail {
-  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .button-addCart {
@@ -76,7 +73,7 @@
 
 .brand-coffee {
   font-family: "Poppins";
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-weight: 900;
 }
 
@@ -145,8 +142,25 @@
   border-right: 0;
 }
 
+
+@media (max-width: 1024px) {
+  .coffee-productDetail {
+    width: 250px;
+    height: 250px;
+  }
+  .brand-coffee {
+    font-size: 2.1rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .coffee-productDetail {
-      width: 100%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .brand-coffee {
+    font-size: 1.9rem;
   }
 }

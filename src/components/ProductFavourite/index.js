@@ -14,7 +14,7 @@ class ProductFavourite extends React.Component {
     const filter = '?orderBy=popular&sort=desc&page=1';
     searchList(filter)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({
           isSuccess: true,
           dataProduct: response.data.result,
