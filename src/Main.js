@@ -41,7 +41,6 @@ import Dashboard from "./pages/dashboard";
 import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword"
 import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp"
 
-
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>

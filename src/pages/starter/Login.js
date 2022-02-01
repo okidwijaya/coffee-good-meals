@@ -45,18 +45,18 @@ class Login extends React.Component {
     return (
       <>
         <main>
-          <section className="col-6 col-lg-6 signup-form-wrapper">
-            <nav className="navbar navbar-light bg-light navbar-expand-lg">
+          <section className="col-12 col-sm-6 col-lg-6 signup-form-wrapper">
+            <nav className="navbar navbar-light navbar-expand-lg login-nav-bar">
               <div className="container-fluid">
-                <div className="container">
+                <div className="col-sm-2 ml-0 container">
                   <div className="navbar-brand">
-                    <img src={logo} alt="logo" width="30" height="24" />
+                    <img src={logo}  alt="logo" width="30" height="24" />
                     <strong>Coffee Shop</strong>
                   </div>
                 </div>
                 <div className="d-flex">
                   <div className="btn btn-warning btn-login" type="submit">
-                    Login
+                    Sign Up
                   </div>
                 </div>
               </div>
@@ -120,8 +120,8 @@ class Login extends React.Component {
             </form>
           </section>
 
-          <aside className="col-6 col-lg-6 signup-img-wrapper">
-            <img src={homeBg} className="img-fluid" alt="Responsive" />
+          <aside className="col-12 col-md-12 col-lg-6 signup-img-wrapper">
+            <img src={homeBg} className="img-fluid img-responsive-starter" alt="Responsive" />
           </aside>
         </main>
         <SignupCard />
