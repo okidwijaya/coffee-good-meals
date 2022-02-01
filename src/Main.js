@@ -38,6 +38,8 @@ import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
 import Dashboard from "./pages/dashboard";
+import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword"
+import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp"
 
 
 function App() {
