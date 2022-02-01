@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import productImg from "../../assets/Veggie-tomato-mix.png";
+import "../style.css"
 
 const loopCard = (data) => {
   const elements = [];
