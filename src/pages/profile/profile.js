@@ -285,7 +285,7 @@ class Profile extends React.Component {
           <h1 className="title-profile">User Profile</h1>
           <form onSubmit={this.submitHandler} onReset={this.cancelHandler}>
             <section className="row profile">
-              <aside className="col col-md-4 edit-profile">
+              <aside className="col-12 col-md-4 edit-profile">
                 <img
                   src={profilePic}
                   alt="imageProfile"
@@ -341,7 +341,7 @@ class Profile extends React.Component {
                   Log Out
                 </button>
               </aside>
-              <div className="col col-md-8 profile-detail">
+              <div className="col-12 col-md-8 profile-detail">
                 <div className="col-md-12 px-0 mb-1 d-flex title-edit-profile">
                   <h2 className="contact">Contacts</h2>
                   <img
