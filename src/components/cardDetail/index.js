@@ -11,6 +11,7 @@ const DetailCard = (props) => {
         <div className="col-12 col-md-5 detail-card-coffee">
             <div className="row detail-card-product">
                 <img src={image} alt="coffee" className="product-image"></img>
+
                 <div className="detail-list-product">
                     <p className="brand-detail-list">{detailProduct.name}</p>
                     <p className="size-detail">x1 (Large)</p>
@@ -23,8 +24,8 @@ const DetailCard = (props) => {
                 </div>
             </div>
         </div>
-        <div className="col-12 col-md-2 checkout">
-            <p className="checkout-detail">Checkout</p>
+        <div className="col col-md-2 checkout">
+            <button className="btn checkout-detail">Checkout</button>
         </div>
       </div>
     </>

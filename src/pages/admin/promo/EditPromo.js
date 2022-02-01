@@ -8,8 +8,8 @@ const Editpromo = () => {
     <>
       <Navactive />
       <div className="Add-product-wrapper">
-        <div className="row d-flex justify-content-between mx-5 mt-2">
-        <div aria-label="col breadcrumb">
+        <div className="row d-flex justify-content-between mx-auto mt-2 w-100">
+        <div aria-label="col-5 col-sm breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
               <a className="breadcrumb-page" href="/">
@@ -23,20 +23,20 @@ const Editpromo = () => {
             </li>
           </ol>
         </div>
-          <button className="col-1 btn btn-cancel-edit-promo">cancel</button>
+          <button className="col-3 mx-8 mb-5 btn btn-cancel-edit-promo">cancel</button>
         </div>
 
         <div className="row add-product-content">
-          <aside className="col col-md-4">
+          <aside className="col col-md-5">
             <div className="card-coupon-edit align-item-center align-content-center">
               <div>
                 <img
                   src={defaultImg}
-                  className="cuopon-edit-img"
+                  className="coupon-edit-img"
                   alt="product img promo"
                 />
                 <button className="change-promo-img-btn">
-                  <i class="bi bi-pencil"></i>
+                  <i className="bi bi-pencil"></i>
                 </button>
               </div>
               <p className="coupon-edit-card-title">Beef Spaghetti</p>
@@ -53,7 +53,7 @@ const Editpromo = () => {
             </div>
 
             <div className="form-wrapper">
-              <p className="add-product-title aside-title-input">
+              <p className="add-product-title">
                 Expired Date :
               </p>
               <div className="dropdown">
@@ -110,7 +110,7 @@ const Editpromo = () => {
               </div>
             </div>
             <div>
-              <p className="add-product-title aside-title-input">
+              <p className="add-product-title">
                 Input Coupon Code:
               </p>
               <div className="dropdown">
@@ -203,20 +203,20 @@ const Editpromo = () => {
                   Click methods you want to use for this product
                 </p>
                 <div className="row w-100 h-25 mx-0">
-                  <button className="col mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                  <button className="col-8 col-sm-7 col-md-7 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
                     Home Delivery
                   </button>
-                  <button className="col mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                  <button className="col-8 col-sm-7 col-md-7 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
                     Dine in
                   </button>
-                  <button className="col mx-1 btn-take-away border-0 btn-width-form-input-add">
+                  <button className="col-8 col-sm-7 col-md-7 btn-take-away border-0 btn-width-form-input-add">
                     Take away
                   </button>
                 </div>
               </div>
               <div className="form-group">
                 <div>
-                  <p className="add-product-title aside-title-input">
+                  <p className="add-product-title">
                     Enter the Discount:
                   </p>
                   <div className="dropdown">
@@ -246,7 +246,7 @@ const Editpromo = () => {
                     </div>
                   </div>
                 </div>
-                <button className="col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color">
+                <button className="col col-md-auto btn btn-block btn-save-changes btn-brown-color font-white-color">
                   Save Changes
                 </button>
               </div>

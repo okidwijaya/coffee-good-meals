@@ -71,8 +71,28 @@
   font-size: 1.2rem;
 }
 
+.btn-save-changes {
+  margin: 20px auto;
+  height: 80px;
+  border-radius: 20px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn-add-toCart {
+  /* margin: 20px auto; */
+  height: 80px;
+  border-radius: 20px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .margin-additional {
-  margin-top: 130px;
+  margin-top: 30px;
 }
 
 .btn-width-container {
@@ -80,7 +100,7 @@
 }
 
 .aside-title-input {
-  width: 65%;
+  width: 90%;
   text-align: left;
   margin: auto;
 }
@@ -93,6 +113,7 @@
   color: #6a4029;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .start-hour-btn {
@@ -393,7 +414,7 @@
   border-top: 3px dashed rgb(7, 7, 7);
 }
 
-.cuopon-edit-img {
+.coupon-edit-img {
   width: 180px;
   height: 180px;
   border-radius: 90px;
@@ -439,24 +460,37 @@
   .btn-take-picture {
     width: 90%;
     font-size: 1rem;
+    margin: 5px;
   }
   .btn-add-byGallery {
+    font-size: 0.9rem;
+    width: 100%;
+    border-radius: 10px;
+    height: 60px;
+    margin: 5px;
+  }
+  .btn-add-toCart {
     font-size: 1rem;
     width: 90%;
     border-radius: 10px;
     height: 40px;
+  }
+  .count-wrapper {
+    height: 43px;
+    margin: auto 19px auto 17px;
   }
   .btn-take-picture {
     font-size: 1rem;
     width: 90%;
     border-radius: 10px;
-    height: 40px;
+    height: 60px;
   }
   .btn-take-away {
     font-size: 1rem;
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
-    height: 40px;
+    height: 60px;
+    margin: 5px;
   }
   .start-hour-btn {
     border-radius: 10px;
@@ -476,13 +510,99 @@
   }
   .add-product-title {
     font-size: 1rem;
+    text-align: left;
+  }
+  .edit-product-input {
+    font-size: 2rem;
+    width: 90%;
+  }
+  .edit-product-input-price {
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .description-product-input {
+    font-size: 1rem;
+    width: 90%;
+  }
+  .card-coupon-edit {
+    width: 100%;
+  }
+  .coupon-edit-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 80px;
+    margin-top: 20%;
+  }
+  .dashed {
+    margin: 2rem auto;
+  }
+  .change-promo-img-btn {
+    top: 143px;
+    right: 117px;
+  }
+  .coupon-edit-card-title {
+    font-size: 1.8rem;
+  }
+  .coupon-edit-card-desc-product {
+    font-size: 1rem;
+  }
+  .coupon-edit-card-desc-title {
+    font-size: 1.8rem;
+  }
+  .coupon-edit-card-regulation {
+    font-size: 0.9rem;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .btn-take-away {
+    font-size: 0.8rem;
+    width: 100%;
+    margin: 5px auto;
+  }
+  .btn-add-byGallery {
+    font-size: 0.8rem;
+    width: 100%;
+    margin: 5px auto;
+  }
+  .start-hour-btn-coupon {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .btn-take-picture {
+    width: 100%;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 426px) {
+  .edit-product-btn-count {
+    font-size: 1rem;
+  }
+  .bi-trash {
+    font-size: 1rem;
+  }
+  .change-img-btn {
+    border: 3px solid #e9a317;
+  }
+  .edit-product-input {
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .edit-product-input::placeholder {
+    font-size: 1rem;
+  }
+  .edit-product-input-price {
+    font-size: 1rem;
+    width: 90%;
+  }
+  .edit-product-input-price::placeholder {
+    font-size: 1rem;
+  }
+  .description-product-input {
+    font-size: 0.8rem;
+    width: 90%;
+  }
 }
 .size-selected {
   border: 2px solid crimson;

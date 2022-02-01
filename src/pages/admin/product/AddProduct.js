@@ -300,11 +300,11 @@ class Addproduct extends Component {
                     </button>
                   </div>
                 </div>
-                <div className='form-group my-5'>
-                  <button className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color'>
+                <div className="form-group my-5">
+                  <button className="col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color">
                     Save Product
                   </button>
-                  <button className='col col-md-auto btn btn-block btn-take-away'>
+                  <button className="col col-md col-lg btn btn-block btn-take-away">
                     Cancel
                   </button>
                 </div>
