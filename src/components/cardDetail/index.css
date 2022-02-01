@@ -25,7 +25,7 @@
     border-radius: 100%;
     width: 100px;
     height: 100px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .checkout{
@@ -99,5 +99,24 @@
 }
 
 @media screen and (max-width: 768px) {
-  
+    .minus-detail, .plus-detail {
+        height: 35px;
+        font-size: 1rem;
+    }
+    .checkout-detail{
+        padding-top: 60%;
+    }
+}
+
+@media (max-width: 425px) {
+    .card-detail{
+        margin-left: 0;
+    }
+    .checkout {
+        margin-top: 5%;
+        margin-left: 0;
+    }
+    .checkout-detail{
+        padding-top: 5%;
+    }
 }

@@ -11,9 +11,10 @@ import reddit from "../../assets/reddit.png";
 import discord from "../../assets/disscoprd.png";
 import userTestimonial from "../../assets/user-icon.png";
 import Navactive from "../../components/navigation/Nav";
+import { connect } from "react-redux";
 // import SignupCard from "../../components/Auth";
 
-const Home = () => {
+const Home = (props) => {
   // pagination Function
   // $(function () {
   //   var button = $(".button");
@@ -30,6 +31,8 @@ const Home = () => {
 
   //   button.on("click", switchToNext);
   // });
+  // console.log(props.auth.userData.token)
+  const token = props.auth.userData.token;
 
   return (
     <>
@@ -54,15 +57,17 @@ const Home = () => {
               Get Started
             </button>
           </div>
-          <div className="col-4">
-            <form className="form-inline my-2 my-lg-0 search-box-home">
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-              />
-            </form>
-          </div>
+          {token === null && (
+            <div className="col-4">
+              <form className="form-inline my-2 my-lg-0 search-box-home">
+                <input
+                  className="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search"
+                />
+              </form>
+            </div>
+          )}
         </div>
         {/* middle section card */}
         <div className="row company-info-header align-items-center justify-content-center">
@@ -430,4 +435,10 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
