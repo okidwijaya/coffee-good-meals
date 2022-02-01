@@ -26,6 +26,7 @@ const DetailCard = (props) => {
         </div>
         <div className="col col-md-2 checkout">
             <button className="btn checkout-detail">Checkout</button>
+
         </div>
       </div>
     </>
