@@ -30,7 +30,16 @@ class Addproduct extends Component {
           categories: response.data.result.data,
         });
       })
-      .catch();
+      .catch((error) => {
+        toast.error(
+          `Something went wrong.
+        Please refresh the page.`,
+          {
+            position: 'top-right',
+            autoClose: 5000,
+          },
+        );
+      });
   }
   getBase64(e) {
     var file = e.target.files[0];
@@ -300,11 +309,11 @@ class Addproduct extends Component {
                     </button>
                   </div>
                 </div>
-                <div className="form-group my-5">
-                  <button className="col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color">
+                <div className='form-group my-5'>
+                  <button className='col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color'>
                     Save Product
                   </button>
-                  <button className="col col-md col-lg btn btn-block btn-take-away">
+                  <button className='col col-md col-lg btn btn-block btn-take-away'>
                     Cancel
                   </button>
                 </div>
