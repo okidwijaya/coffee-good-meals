@@ -156,6 +156,14 @@ class Profile extends React.Component {
     let input = this.state.input;
     let isValid = true;
 
+    if(typeof input["newPass"] !== "undefined") {
+      const validPass = new RegExp('^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$');
+      if (!validPass.test(input["newPass"])) {
+        isValid = false;
+        errors["newPass"] = "Password must be at least 6 characters, including uppercase letter and numbers"
+      }
+    }
+
     if (
       typeof input["newPass"] !== "undefined" &&
       typeof input["confirmPass"] !== "undefined"
@@ -521,6 +529,9 @@ class Profile extends React.Component {
                   value={this.state.input.newPass || ""}
                   onChange={this.changeHandler}
                 />
+                <div className="text-danger mb-2">
+                  {this.state.errorMsg.newPass}
+                </div>
                 <label htmlFor="confirmPass" className="confirm-pass">
                   Confirm New Password :
                 </label>
