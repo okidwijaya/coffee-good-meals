@@ -156,7 +156,7 @@ class Addproduct extends Component {
                   <p className="form-desc">
                     Click methods you want to use for this product
                   </p>
-                  <div className="row w-100 h-25 mx-0">
+                  <div className="row w-100 h-25 mx-auto">
                     <button className="col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
                       Home Delivery
                     </button>
@@ -169,10 +169,10 @@ class Addproduct extends Component {
                   </div>
                 </div>
                 <div className="form-group my-5">
-                  <button className="col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color">
+                  <button className="col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color">
                     Save Product
                   </button>
-                  <button className="col col-md-auto btn btn-block btn-take-away">
+                  <button className="col col-md col-lg btn btn-block btn-take-away">
                     Cancel
                   </button>
                 </div>
