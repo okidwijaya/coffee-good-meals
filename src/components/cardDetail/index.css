@@ -4,7 +4,7 @@
     /* margin: 5% 5%; */
     /* margin-top: 5%; */
     /* margin-left: 15%; */
-    margin-left: auto;
+    margin-left: 20%;
     margin-right: auto;
     margin-top: 5%;
 }
@@ -96,6 +96,10 @@
     font-weight: 900;
     font-family: 'Poppins';
     font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  
 }
 
 @media screen and (max-width: 768px) {

@@ -5,9 +5,10 @@ import ColdBrew from "../../assets/Cold brew.png";
 const DetailCard = () => {
   return (
     <>
-      <div className="row col-md-8 card-detail">
-        <div className="col col-md-6 detail-card-coffee">
+      <div className="row col-md-12 card-detail">
+        <div className="col col-md-4 detail-card-coffee">
             <div className="row detail-card-product">
+              <div className="image-card-product-wrapper"></div>
                 <img src={ColdBrew} alt="coffee" className="product-image"></img>
                 <div className="detail-list-product">
                     <p className="brand-detail-list">Cold Brew</p>
@@ -21,7 +22,7 @@ const DetailCard = () => {
                 </div>
             </div>
         </div>
-        <div className="col col-md-3 checkout">
+        <div className="col col-md-2 checkout">
             <button className="btn checkout-detail">Checkout</button>
         </div>
       </div>
