@@ -7,7 +7,6 @@ const DetailCard = (props) => {
   // console.log('product', detailProduct)
   return (
     <>
-
       <div className="row col-md-12 card-detail mb-5">
         <div className="col-12 col-md-5 detail-card-coffee">
             <div className="row detail-card-product">
@@ -25,7 +24,6 @@ const DetailCard = (props) => {
                 </div>
             </div>
         </div>
-
         <div className="col col-md-2 checkout">
             <button className="btn checkout-detail">Checkout</button>
 
