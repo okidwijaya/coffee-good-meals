@@ -45,20 +45,7 @@ const Navdefault = (props) => {
                   Product
                 </NavLink>
               </li>
-              {role === '1' ? (
-                <>
-                  <li className='nav-item'>
-                    <NavLink to='/cart' className='nav-link'>
-                      Your Cart
-                    </NavLink>
-                  </li>
-                  <li className='nav-item'>
-                    <NavLink to='/history' className='nav-link'>
-                      History
-                    </NavLink>
-                  </li>
-                </>
-              ) : (
+              {role === '2' ? (
                 <>
                   <li className='nav-item'>
                     <NavLink to='/orders' className='nav-link'>
@@ -68,6 +55,19 @@ const Navdefault = (props) => {
                   <li className='nav-item'>
                     <NavLink to='/dashboard' className='nav-link'>
                       Dashboard
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className='nav-item'>
+                    <NavLink to='/cart' className='nav-link'>
+                      Your Cart
+                    </NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink to='/history' className='nav-link'>
+                      History
                     </NavLink>
                   </li>
                 </>
