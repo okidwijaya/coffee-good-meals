@@ -1,11 +1,11 @@
 import React from "react";
 import "./index.css";
-// import { Outlet } from "react-router";
-// import { Link } from "react-router-dom";
+
 import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 import {
   deletePhoto,
@@ -18,6 +18,7 @@ import { logoutAction, updateUserPhoto } from "../../redux/actions/auth";
 
 import Navactive from "../../components/navigation/Nav";
 import iconPen from "../../assets/pen-icon.svg";
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -114,9 +115,17 @@ class Profile extends React.Component {
           this.props.dispatch(updateUserPhoto(image));
         }
         this.getUserData();
+        toast.success("Profile updated successfully", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
       })
       .catch((err) => {
         console.error(err);
+        toast.error("Profile update is failed", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
       });
   };
 
