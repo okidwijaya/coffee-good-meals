@@ -175,7 +175,7 @@ margin: auto 0px;} */
     height: calc(100px + 5vw);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 30px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 .card-item > a:hover {
     text-decoration: none;
