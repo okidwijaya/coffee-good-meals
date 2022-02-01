@@ -9,16 +9,17 @@ import {
 import {PersistGate} from 'redux-persist/es/integration/react';
 import {persistor} from './redux/store';
 // import { connect } from "react-redux";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-// import Footer from './components/footer';
+
 import Product from './pages/product/Product';
 import Home from './pages/main/Home';
 import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import UnAuthorize from './pages/redirects/UnAuthorize.js';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -33,16 +34,19 @@ import ProductAddOn from './components/ProductAddOn';
 import ProductCoffee from './components/ProductCoffee';
 import ProductNonCoffee from './components/ProductNonCoffee';
 import ProductFoods from './components/ProductFoods';
-import ResetPassword from './pages/starter/forgotpasswordAdv/ResetPassword';
-import Verifyotp from './pages/starter/forgotpasswordAdv/VerifyOtp';
 import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
+import Dashboard from "./pages/dashboard";
+import ResetPassword from "./pages/starter/forgotpasswordAdv/ResetPassword"
+import Verifyotp from "./pages/starter/forgotpasswordAdv/VerifyOtp"
+
 
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
+        <ToastContainer />
         <Routes>
           <Route path='404' element={<InvalidRoute />} />
           <Route path='403' element={<UnAuthorize />} />
@@ -50,10 +54,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-
           <Route path='/forgotpassword' element={<Forgotpassword />} />
           <Route path='/verify' element={<Verifyotp />} />
           <Route path='/newpassword' element={<ResetPassword />} />
+
           {/* </Route> */}
 
           <Route path='profile' element={<Profile />} />
@@ -66,13 +70,13 @@ function App() {
             <Route path='foods' element={<ProductFoods />} />
             <Route path='addon' element={<ProductAddOn />} />
           </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path='/product/detail' element={<ProductList />} />
           <Route path='/add' element={<Addproduct />} />
           <Route path='/edit' element={<Editproduct />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/history' element={<History />} />
           <Route path='/manage/order' element={<ManageOrder />} />
-
           <Route path='/addpromo' element={<Addpromo />} />
           <Route path='/editpromo' element={<Editpromo />} />
 
