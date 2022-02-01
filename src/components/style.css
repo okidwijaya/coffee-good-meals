@@ -1,8 +1,8 @@
 .image-product-wrapper{
     margin-left: auto;
     margin-right: auto;
-    width: 150px;
-    height: 150px;
+    width: calc(100px + 5vw);
+    height: calc(100px + 5vw);
 }
 
 .product-img-container{

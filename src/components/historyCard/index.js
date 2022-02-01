@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 
 import imageVegie from "../../assets/vegie.png";
+import chickenWings from "../../assets/chicken-wings.png"
 
 function CardHistory() {
   return (
@@ -11,11 +12,13 @@ function CardHistory() {
           <div className="row col-md-12 card-history-cek w-100">
             <div className="row w-100">
               <div className="col col-md-4">
-                <img
-                  src={imageVegie}
-                  alt="imageHistory"
-                  className="image-vegie"
-                />
+                <div className="image-history-wrapper">
+                  <img
+                    src={imageVegie}
+                    alt="imageHistory"
+                    className="image-vegie"
+                  />
+                </div>
               </div>
               <div className="col col-md-8">
                 <p className="brand-history mt-2">Veggie tomato mix</p>
@@ -36,11 +39,13 @@ function CardHistory() {
           <div className="row col-md-12 w-100 card-history-cek">
             <div className="row w-100">
               <div className="col col-md-4">
-                <img
-                  src={imageVegie}
-                  alt="imageHistory"
-                  className="image-vegie"
-                />
+                <div className="image-history-wrapper">
+                  <img
+                    src={imageVegie}
+                    alt="imageHistory"
+                    className="image-vegie"
+                  />
+                </div>
               </div>
               <div className="col col-md-8">
                 <p className="brand-history mt-2">Veggie tomato mix</p>
@@ -61,11 +66,14 @@ function CardHistory() {
           <div className="row col-md-12 w-100 card-history-cek">
             <div className="row w-100">
               <div className="col col-md-4">
-                <img
-                  src={imageVegie}
+                <div className="image-history-wrapper">
+                  <img
+                  src={chickenWings}
                   alt="imageHistory"
                   className="image-vegie"
                 />
+                </div>
+                
               </div>
               <div className="col col-md-8">
                 <p className="brand-history mt-2">Veggie tomato mix</p>

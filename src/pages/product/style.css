@@ -238,7 +238,7 @@ margin: auto 0px;} */
     }
 }
 
-@media screen and (max-width: 786px) {
+@media screen and (max-width: 768px) {
     .promo-today-title {
         font-size: 0.6rem;
         padding-top: 15px;
