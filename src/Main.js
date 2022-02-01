@@ -18,7 +18,7 @@ import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import UnAuthorize from './pages/redirects/UnAuthorize.js';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -57,8 +57,8 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route element={<AdminOnly />}>
               <Route path='dashboard' element={<Dashboard />} />
-              <Route path='add' element={<Addproduct />} />
-              <Route path='edit' element={<Editproduct />} />
+              <Route path='product/add' element={<Addproduct />} />
+              <Route path='product/edit/:id' element={<Editproduct />} />
               <Route path='order' element={<ManageOrder />} />
               <Route path='addpromo' element={<Addpromo />} />
               <Route path='editpromo' element={<Editpromo />} />
