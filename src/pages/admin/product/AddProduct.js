@@ -82,7 +82,7 @@ class Addproduct extends Component {
       body.append('price', e.target.price.value);
       body.append('category_id', e.target.category.value);
       body.append('description', e.target.description.value);
-      body.append('size', this.state.size);
+      body.append('size', this.state.selectedSize);
       body.append('delivery_methods', this.state.deliveryMethods);
       body.append('delivery_hours_start', e.target.deliveryStart.value);
       body.append('delivery_hours_end', e.target.deliveryEnd.value);
