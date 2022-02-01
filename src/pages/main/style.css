@@ -66,7 +66,8 @@
 }
 
 .home-favourite-product {
-    margin: auto auto 100px auto;
+    margin: auto;
+    width: 95%;
 }
 
 
@@ -81,6 +82,15 @@
     object-fit: contain;
     width: 100%;
     position: relative;
+}
+
+div.card {
+    border: none;
+}
+
+.home-li-wrapper {
+    height: 310px;
+    margin: 20px auto;
 }
 
 .header-description-wrapper {
@@ -200,12 +210,18 @@
     font-weight: normal;
     font-size: 0.9rem;
     color: #4F5665;
-    margin: auto;
+    margin: 15px auto auto 40px;
+    text-align: left;
+    background-color: white;
 }
 
-.home-card-product-li li {
-    margin: 15px auto auto auto;
-    background-color: white;
+.home-card-popular {
+    width: max(330px, 60%);
+    height: 725px;
+    margin: 20px 10px;
+    background-color: #FFFFFF;
+    border: 2px solid #DDDDDD;
+    border-radius: 10px;
 }
 
 .home-card-product-price {
@@ -215,7 +231,7 @@
     font-size: 1.3rem;
     text-align: center;
     color: #0B132A;
-    margin: 50px auto 25px auto;
+    margin: 20px auto 25px auto;
 }
 
 .btn-order-now {
@@ -268,6 +284,15 @@
     text-align: center;
 }
 
+.rate-testimonial p {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #0B132A;
+    text-align: center;
+}
+
 .card-testimonial-wrapper {
     background: #FFFFFF;
     border: 2px solid #6A4029;
@@ -307,8 +332,8 @@
 .home-left-btn {
     border-radius: 48%;
     border: 2px solid #6A4029;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: white;
     margin: 5px;
 }
@@ -335,7 +360,7 @@
 
 /* pagination */
 
-#paginationDot {
+.paginationDot {
     position: absolute;
     top: 50%;
     right: 0;
@@ -348,7 +373,7 @@
     z-index: 1;
 }
 
-.button {
+.buttonDot {
     width: 15px;
     height: 15px;
     float: left;
@@ -363,7 +388,7 @@
     margin-right: 0;
 }
 
-.button.active {
+.buttonDot.active {
     width: 60px;
     cursor: auto;
     background-color: #6A4029;
@@ -386,4 +411,275 @@
     position: absolute;
     z-index: 1;
     box-shadow: 0px 6px 20px rgb(196 196 196 / 67%);
+}
+
+.btn-card-promo-signup-home {
+    width: 250px;
+    height: 60px;
+    padding: 15px;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #6A4029;
+    background: #FFBA33;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+}
+
+.promo-card-signup-home {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.promo-card-signup-text-home {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: #4F5665;
+}
+
+
+/* responsive */
+
+@media screen and (max-width: 1024px) {
+    .header-title {
+        font-size: 2rem;
+        margin: 20px auto;
+    }
+    .header-text {
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    .company-info-header {
+        top: 428px;
+    }
+    .width-based {
+        width: 95%;
+    }
+    .card-testimonial-wrapper {
+        padding: 11px 25px;
+        margin: 10px 10px;
+    }
+    .rate-testimonial {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-title {
+        font-size: 1.6rem;
+        margin: 10px auto;
+    }
+    .header-text {
+        margin: 10px auto;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    .header-description-wrapper {
+        top: 97px;
+        width: 96%;
+        left: 43px;
+    }
+    .company-info-header {
+        top: 358px;
+        height: 130px;
+    }
+    .header-company-info-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .header-company-count {
+        font-size: 1rem;
+    }
+    .header-company-people-info {
+        font-size: 0.7rem;
+    }
+    .header-desc-section-li {
+        padding-left: 0;
+    }
+    .team-work-section-li {
+        font-size: 0.6rem;
+    }
+    .team-work-section-desc {
+        font-size: 0.8rem
+    }
+    .team-work-section {
+        font-size: 0.8rem
+    }
+    .signupCard {
+        height: 131px;
+    }
+    .btn-card-promo-signup-home {
+        width: 134px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .bgHeader {
+        object-fit: cover;
+        height: 256px;
+    }
+    .header-title {
+        font-size: 1rem;
+        margin: 10px auto;
+        height: auto;
+    }
+    .header-text {
+        margin: 10px auto;
+        font-weight: 500;
+        font-size: 0.6rem;
+    }
+    .btn-get-started {
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    .header-desc-section {
+        margin: 94px auto;
+    }
+    .header-description-wrapper {
+        top: 67px;
+        width: 100%;
+        left: 0;
+        margin: auto;
+        height: auto;
+    }
+    .search-box-home input {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+    .company-info-header {
+        top: 258px;
+        height: 130px;
+        width: 95%;
+        left: 3%;
+        padding-left: 5px;
+    }
+    .home-Map-Img {
+        padding: 0;
+        margin: auto;
+    }
+    .header-company-info-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .card-info-header {
+        margin: auto 3px;
+    }
+    .home-product-wrapper-title {
+        font-size: 1rem;
+    }
+    .home-product-wrapper-desc {
+        font-size: 0.7rem;
+        margin-bottom: 30px;
+    }
+    .header-company-count {
+        font-size: 0.8rem;
+    }
+    .header-company-people-info {
+        font-size: 0.6rem;
+    }
+    .header-desc-section-li {
+        padding-left: 20px;
+    }
+    .team-work-section-li {
+        font-size: 0.6rem;
+    }
+    .team-work-section-desc {
+        font-size: 0.8rem
+    }
+    .team-work-section {
+        font-size: 0.8rem
+    }
+    .user-testimonial-card {
+        width: 30px;
+        height: 30px;
+    }
+    .testimonial-name-title {
+        font-size: 0.8rem
+    }
+    .testimonial-name-place {
+        font-size: 0.6rem
+    }
+    .rate-testimonial {
+        font-size: 0.8rem
+    }
+    .card-testimonial-wrapper {
+        margin: 10px auto;
+    }
+    .testimonial-card-description {
+        font-size: 0.7rem
+    }
+    .paginationDot {
+        width: 130px;
+    }
+    .buttonDot {
+        width: 10px;
+        height: 10px;
+        float: left;
+        margin-right: 10px;
+    }
+    .buttonDot.active {
+        width: 30px;
+    }
+    .home-left-btn {
+        width: 30px;
+        height: 30px;
+    }
+    .home-right-btn {
+        width: 30px;
+        height: 30px;
+    }
+    .bi-arrow-left {
+        font-size: 1rem;
+    }
+    .bi-arrow-right {
+        font-size: 1rem;
+    }
+    .signupCard {
+        width: 90%;
+        left: 5%;
+    }
+    .btn-card-promo-signup-home {
+        width: 100px;
+        font-size: 0.8rem;
+        height: 40px;
+        padding-top: 10px;
+        margin-right: 40px;
+    }
+    .promo-card-signup-home {
+        font-size: 0.8rem;
+        margin-left: 10px;
+    }
+    .promo-card-signup-text-home {
+        font-size: 0.6rem;
+        margin-left: 10px;
+        width: 130px;
+    }
+    .home-card-product-price {
+        margin: 15px auto;
+        font-size: 1rem;
+    }
+    .btn-order-now {
+        font-size: 0.8rem;
+    }
+    .home-card-product-li {
+        font-size: 0.7rem;
+    }
+    .home-card-product-title {
+        font-size: 1.1rem;
+    }
+    .card-img-top {
+        max-height: 100px;
+        max-width: 100px;
+        margin: 28px auto 9px auto;
+    }
 }

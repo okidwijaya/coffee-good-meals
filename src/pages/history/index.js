@@ -9,7 +9,7 @@ function History() {
     <>
     <Navactive />
     <main className="history-page">
-        <div className="row">
+        <div className="row col-12">
             <div className="col col-md-12 title-history">
                 <h1 className="title-history-detail">Let's see what you have bought!</h1>
                 <p className="select-history-item">Select item to delete</p>
