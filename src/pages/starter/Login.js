@@ -12,7 +12,6 @@ import SignupCard from "../../components/Auth";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 
-
 class Login extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
@@ -50,14 +49,16 @@ class Login extends React.Component {
               <div className="container-fluid">
                 <div className="col-sm-2 ml-0 container">
                   <div className="navbar-brand">
-                    <img src={logo}  alt="logo" width="30" height="24" />
+                    <img src={logo} alt="logo" width="30" height="24" />
                     <strong>Coffee Shop</strong>
                   </div>
                 </div>
                 <div className="d-flex">
-                  <div className="btn btn-warning btn-login" type="submit">
-                    Sign Up
-                  </div>
+                  <Link to="/signup">
+                    <div className="btn btn-warning btn-login" type="submit">
+                      Sign Up
+                    </div>
+                  </Link>
                 </div>
               </div>
             </nav>
@@ -89,12 +90,12 @@ class Login extends React.Component {
               </div>
               <div className="mb-3">
                 <Link to="/forgotpassword">
-                <div
-                  className="btn-forgot-password"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Forgot Password?
-                </div>
+                  <div
+                    className="btn-forgot-password"
+                    style={{ textDecoration: "underline" }}
+                  >
+                    Forgot Password?
+                  </div>
                 </Link>
               </div>
               <div
@@ -121,7 +122,11 @@ class Login extends React.Component {
           </section>
 
           <aside className="col-12 col-md-12 col-lg-6 signup-img-wrapper">
-            <img src={homeBg} className="img-fluid img-responsive-starter" alt="Responsive" />
+            <img
+              src={homeBg}
+              className="img-fluid img-responsive-starter"
+              alt="Responsive"
+            />
           </aside>
         </main>
         <SignupCard />
