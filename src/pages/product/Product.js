@@ -14,6 +14,8 @@ import {connect} from 'react-redux';
 
 const Product = (props) => {
   const token = props.token;
+  const role = props.role;
+  console.log(role, typeof role);
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -86,6 +88,22 @@ const Product = (props) => {
               </li>
             </ul>
           </div>
+          <div className='text-left ml-1'>
+            {token && role === '2' && (
+              <>
+                <p className='mt-2'>
+                  <Link to='/editpromo' className='font-weight-bold'>
+                    Edit Promo
+                  </Link>
+                </p>
+                <p>
+                  <Link to='/addpromo' className='font-weight-bold'>
+                    Add New Promo
+                  </Link>
+                </p>
+              </>
+            )}
+          </div>
         </aside>
         <div
           className='col-12 col-md-9 productsNavigation order-first order-md-last'
@@ -108,16 +126,20 @@ const Product = (props) => {
             </NavLink>
           </div>
           <Outlet />
-          <p className='product-content-bottom-text'>
+          <p className='product-content-bottom-text mb-2'>
             *the price has been cutted by discount appears
           </p>
-          {token && (
+          {token && role === '2' && (
             <>
-              <p>
-                <Link to='/product/edit'>Edit Product</Link>
+              <p className='mt-2'>
+                <Link to='/product/edit' className='font-weight-bold'>
+                  Edit Product
+                </Link>
               </p>
               <p>
-                <Link to='/product/add'>Add New Product</Link>
+                <Link to='/product/add' className='font-weight-bold'>
+                  Add New Product
+                </Link>
               </p>
             </>
           )}
@@ -131,6 +153,7 @@ const Product = (props) => {
 const mapStateToProps = (state) => {
   return {
     role: state.auth.userData.role,
+    token: state.auth.userData.token,
   };
 };
 export default connect(mapStateToProps)(Product);
