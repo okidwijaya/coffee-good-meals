@@ -1,17 +1,17 @@
-.image-product-wrapper{
+/* .image-product-wrapper{
     margin-left: auto;
     margin-right: auto;
     width: calc(100px + 5vw);
-    height: calc(100px + 5vw);
-}
+    height: calc(50px + 5vw);
+} */
 
-.product-img-container{
+/* .product-img-container{
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
-.product-title{
+/* .product-title{
     padding: 0 5%;
 }
 
@@ -21,4 +21,4 @@
 
 .product-item{
     margin-left: 10px;
-}
+} */
