@@ -58,8 +58,6 @@ function App() {
           <Route path='/verify' element={<Verifyotp />} />
           <Route path='/newpassword' element={<ResetPassword />} />
 
-          {/* </Route> */}
-
           <Route path='profile' element={<Profile />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/room-chat' element={<RoomChat />} />

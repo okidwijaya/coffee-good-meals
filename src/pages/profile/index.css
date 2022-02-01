@@ -3,7 +3,8 @@
 
 .profile {
   width: 90%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: max(70vh, 750px);
   margin: 0;
   background-color: #ffffff;
   border-radius: 20px;
@@ -11,8 +12,6 @@
   /* background-image: url("../../assets/profile-bg.png"); */
   margin-bottom: 10%;
 }
-
-
 
 .bg-profile {
   width: 100%;
@@ -33,12 +32,12 @@
 
 .edit-profile {
   text-align: center;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   margin-bottom: 5%;
 }
 
 .profile-image {
-  width: 50%;
+  width: 45%;
   height: 23%;
   object-fit: cover;
   object-position: center;
@@ -220,4 +219,18 @@
   color: #393939;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-image {
+    width: 70%;
+    height: 20%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile-image {
+    width: 50%;
+    height: 25%;
+  }
 }
