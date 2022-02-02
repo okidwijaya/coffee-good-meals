@@ -20,7 +20,7 @@ class Addproduct extends Component {
     selectedFile: null,
     selectedSize: 'R',
     categories: null,
-    deliveryMethods: 'Home Delivery',
+    deliveryMethods: 'Home Delivery.',
   };
   componentDidMount() {
     getCategory()

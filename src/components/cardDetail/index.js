@@ -10,7 +10,15 @@ const DetailCard = (props) => {
       <div className='row col-md-12 card-detail mb-5'>
         <div className='col-12 col-md-5 detail-card-coffee'>
           <div className='row detail-card-product'>
-            <img src={image} alt='coffee' className='product-image'></img>
+            <img
+              src={image}
+              alt='coffee'
+              className='product-image'
+              onError={({currentTarget}) => {
+                console.log(currentTarget);
+                currentTarget.onerror = null;
+                currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
+              }}></img>
 
             <div className='detail-list-product'>
               <p className='brand-detail-list'>{detailProduct.name}</p>
