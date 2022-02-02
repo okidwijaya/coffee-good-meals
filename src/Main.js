@@ -18,7 +18,7 @@ import ProductList from './pages/productlist/productlist';
 import Profile from './pages/profile/profile';
 import InvalidRoute from './pages/redirects/InvalidRoute.js';
 import UnAuthorize from './pages/redirects/UnAuthorize.js';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Signup from './pages/starter/Signup';
 import Login from './pages/starter/Login';
 import Forgotpassword from './pages/starter/ForgotPassword';
@@ -36,11 +36,12 @@ import ProductFoods from './components/ProductFoods';
 import ManageOrder from './pages/manageorder';
 import Addpromo from './pages/admin/promo/AddPromo';
 import Editpromo from './pages/admin/promo/EditPromo';
-import Dashboard from './pages/dashboard';
+// import Dashboard from './pages/dashboard';
 import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
 import AdminOnly from './components/AdminOnly';
 import UserOnly from './components/UserOnly';
+import Dashboard from './pages/admin/Dashboard';
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
               <Route path='addpromo' element={<Addpromo />} />
               <Route path='editpromo' element={<Editpromo />} />
             </Route>
+            <Route path='dashboard' element={<Dashboard />} />
             <Route element={<UserOnly />}>
               <Route path='payment' element={<Payment />} />
             </Route>

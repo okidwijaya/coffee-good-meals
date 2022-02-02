@@ -23,9 +23,9 @@ const loopCard = (data) => {
     // console.log("image", data[i].image);
     const element = (
       <div
-        className="col-5 col-md-3 product-item card-item mx-0 p-0"
-        key={`product-${i}`}
-      >
+        className='col-3 product-item'
+        key={`product-${i}`}>
+          <div className="image-product-wrapper">
         <Link to={`/product/detail/${id}`}>
           <img
             src={image}
@@ -39,6 +39,7 @@ const loopCard = (data) => {
           <p className="product-title">{data[i].name}</p>
           <p className="product-price">Rp. {data[i].price}</p>
         </Link>
+      </div>
       </div>
     );
     elements.push(element);
