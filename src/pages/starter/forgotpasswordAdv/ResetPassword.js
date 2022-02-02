@@ -27,6 +27,14 @@ class ResetPassword extends React.Component {
     let input = this.state.input;
     let isValid = true;
 
+    if(typeof input["newPass"] !== "undefined") {
+      const validPass = new RegExp('^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$');
+      if (!validPass.test(input["newPass"])) {
+        isValid = false;
+        errors["newPass"] = "Password must be at least 6 characters, including uppercase letter and numbers"
+      }
+    }
+
     if (
       typeof input["newPass"] !== "undefined" &&
       typeof input["confirmPass"] !== "undefined"
@@ -106,6 +114,9 @@ class ResetPassword extends React.Component {
                 value={this.state.input.newPass || ""}
                 onChange={this.handleChange}
               />
+              <div className="text-danger mb-2" style={{fontSize: "1.2rem", fontWeight: "bold", backgroundColor: "black"}}>
+                {this.state.errorMsg.newPass}
+              </div>
               <label htmlFor="confirmPass" className="confirm-resetPass">
                 Confirm New Password :
               </label>
