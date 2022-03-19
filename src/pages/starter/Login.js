@@ -8,19 +8,23 @@ import logo from "../../assets/icon.svg";
 import googleIcon from "../../assets/google-icon.svg";
 
 import SignupCard from "../../components/Auth";
+import CobaLoading from "../../components/loadingCek/CobaLoading"
 
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 
 class Login extends React.Component {
+  state = {
+    isLoading: false,
+  }
   submitHandler = (e) => {
     e.preventDefault();
     const body = {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-
     this.props.dispatch(loginAction(body));
+    this.setState({isLoading : true})
   };
 
   componentDidUpdate() {
@@ -107,7 +111,9 @@ class Login extends React.Component {
                   style={{ width: "100%" }}
                   type="submit"
                 >
-                  Login
+                  {/* Login */} {
+                    this.state.isLoading === true ? <CobaLoading /> : "Login"
+                  }
                 </button>
                 <div
                   className="btn btn-light btn-signup btn-signup-custom"
