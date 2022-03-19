@@ -156,7 +156,7 @@ const Home = (props) => {
         </p>
 
         <div className="row home-favourite-product">
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
@@ -187,7 +187,7 @@ const Home = (props) => {
             </div>
           </div>
 
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
@@ -220,7 +220,7 @@ const Home = (props) => {
             </div>
           </div>
 
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />

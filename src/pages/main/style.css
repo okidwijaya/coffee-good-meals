@@ -14,6 +14,7 @@
     width: 80%;
     height: 200px;
     margin: auto;
+    z-index: 1;
     left: 10%;
     top: min(100%, 650px);
     background-color: white;
@@ -461,6 +462,7 @@ div.card {
     }
     .company-info-header {
         top: 428px;
+        z-index: 1;
     }
     .width-based {
         width: 95%;
@@ -492,6 +494,7 @@ div.card {
     .company-info-header {
         top: 358px;
         height: 130px;
+        z-index: 1;
     }
     .header-company-info-icon {
         width: 50px;
@@ -559,6 +562,7 @@ div.card {
     .company-info-header {
         top: 258px;
         height: 130px;
+        z-index: 1;
         width: 95%;
         left: 3%;
         padding-left: 5px;
@@ -673,6 +677,7 @@ div.card {
     }
     .home-card-product-li {
         font-size: 0.7rem;
+        margin: auto;
     }
     .home-card-product-title {
         font-size: 1.1rem;
@@ -681,5 +686,12 @@ div.card {
         max-height: 100px;
         max-width: 100px;
         margin: 28px auto 9px auto;
+    }
+    .home-card-popular {
+        margin: 20px auto;
+        height: 500px;
+    }
+    .home-li-wrapper {
+        height: 210px;
     }
 }
