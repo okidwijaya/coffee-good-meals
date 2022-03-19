@@ -22,7 +22,7 @@ class ProductList extends React.Component {
     this.state = {
       detailProduct: {},
       imgProduct: require('../../assets/Veggie-tomato-mix.png'),
-      selectedSize: null,
+      selectedSize: 'R',
     };
     this.target = React.createRef();
   }
@@ -145,11 +145,6 @@ class ProductList extends React.Component {
               </p>
               <p className='detail-name-delivery'>{description}</p>
               <p className='choose-size'>Choose a size</p>
-              {/* <div className='button-size-choose'>
-                <button className='btn btn-radio btn-yellow-color'>R</button>
-                <button className='btn btn-radio btn-yellow-color'>X</button>
-                <button className='btn btn-radio btn-yellow-color'>XL</button>
-              </div> */}
               <div className='button-size-choose'>
                 <SelectRound
                   value='R'

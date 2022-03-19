@@ -17,13 +17,14 @@
 }
 .selectedItemRound {
   border: 5px solid black;
-  outline: none;
+  outline: 0px;
 }
 .no-outline {
-  outline: none;
+  outline: 0px;
 }
-.no-outline:focus {
-  outline: none;
+.no-outline:focus,
+.no-outline:active {
+  outline: 0px;
 }
 .selectRoundText {
   font-size: 17px;
