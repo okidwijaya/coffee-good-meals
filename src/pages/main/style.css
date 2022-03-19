@@ -82,6 +82,7 @@
 .bgHeader {
     object-fit: contain;
     width: 100%;
+    z-index: -2;
     position: relative;
 }
 
@@ -96,6 +97,7 @@ div.card {
 
 .header-description-wrapper {
     position: absolute;
+    z-index: -1;
     top: 100px;
     left: 10%;
     width: 80%;
