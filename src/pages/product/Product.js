@@ -1,11 +1,23 @@
-import React, { useEffect } from "react";
-import "./style.css";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import Navactive from "../../components/navigation/Nav";
-import couponImg from "../../assets/promo-today-st.svg";
-import couponImg2 from "../../assets/promo-today-icon-nd.png";
 
-const Product = () => {
+import React, {useEffect} from 'react';
+import './style.css';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+import Navactive from '../../components/navigation/Nav';
+import couponImg from '../../assets/promo-today-st.svg';
+import couponImg2 from '../../assets/promo-today-icon-nd.png';
+import {connect} from 'react-redux';
+
+
+const Product = (props) => {
+  const token = props.token;
+  const role = props.role;
+  console.log(role, typeof role);
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -78,6 +90,22 @@ const Product = () => {
               </li>
             </ul>
           </div>
+          <div className='text-left ml-1'>
+            {token && role === '2' && (
+              <>
+                <p className='mt-2'>
+                  <Link to='/editpromo' className='font-weight-bold'>
+                    Edit Promo
+                  </Link>
+                </p>
+                <p>
+                  <Link to='/addpromo' className='font-weight-bold'>
+                    Add New Promo
+                  </Link>
+                </p>
+              </>
+            )}
+          </div>
         </aside>
         <div
           className="col-12 col-sm-8 col-md-8 col-lg-9 productsNavigation order-first order-md-last"
@@ -101,13 +129,34 @@ const Product = () => {
             </NavLink>
           </div>
           <Outlet />
-          <p className="product-content-bottom-text">
+          <p className='product-content-bottom-text mb-2'>
             *the price has been cutted by discount appears
           </p>
+          {token && role === '2' && (
+            <>
+              <p className='mt-2'>
+                <Link to='/product/edit' className='font-weight-bold'>
+                  Edit Product
+                </Link>
+              </p>
+              <p>
+                <Link to='/product/add' className='font-weight-bold'>
+                  Add New Product
+                </Link>
+              </p>
+            </>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default Product;
+// export default Product;
+const mapStateToProps = (state) => {
+  return {
+    role: state.auth.userData.role,
+    token: state.auth.userData.token,
+  };
+};
+export default connect(mapStateToProps)(Product);

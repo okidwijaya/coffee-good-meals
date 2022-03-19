@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import productImg from "../../assets/Veggie-tomato-mix.png";
-import "../style.css"
+import React from 'react';
+import {Link} from 'react-router-dom';
+import productImg from '../../assets/Veggie-tomato-mix.png';
+import '../style.css';
 
 const loopCard = (data) => {
   const elements = [];
   if (data.length === 0) {
     return (
       <>
-        <div className="col-12 mx-auto my-5">
-          <h3 className="empty-product">
+        <div className='col-12 mx-auto my-5'>
+          <h3 className='empty-product'>
             Sorry, we can't find any mathces, please try something different.
           </h3>
         </div>
@@ -17,7 +17,7 @@ const loopCard = (data) => {
     );
   }
   for (let i = 0; i < data.length; i++) {
-    const url = process.env.REACT_APP_HOST + "/products/";
+    const url = process.env.REACT_APP_HOST + '/products/';
     const image = data[i].image ? url + data[i].image : productImg;
     const id = data[i].id;
     // console.log("image", data[i].image);
@@ -53,7 +53,7 @@ function ProductCard(props) {
   //   const elements = loopCard(dataProduct.data);
   return (
     <>
-      <div className="row">
+      <div className='row'>
         {loopCard(data)}
         {/* <div className='col-5 col-md-3 product-item mx-0 p-0'>
           <img

@@ -4,6 +4,7 @@
 .payment-page{
     background-image: url("../../assets/paymnet-bg.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .title-payment{
@@ -145,6 +146,7 @@
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 5%;
+    font-family: 'Poppins';
 }
 
 .payment-detail-summary{
@@ -173,4 +175,86 @@
 
 .button-payment{
     margin-top: 5%;
+}
+
+@media screen and (max-width: 1024px) {
+    .title-payment{
+        font-size: 1.8rem;
+    }
+    .title-order-summary{
+        font-size: 1.7rem;
+    }
+    .name-order-summary, .count-summary, .size-summary{
+        font-size: 1rem;
+    }
+    .pricing{
+        font-size: 1rem;
+    }
+    .total-order-summary{
+        font-size: 1.6rem;
+    }
+    .total-price-summary{
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title-payment{
+        font-size: 1.6rem;
+    }
+    .title-order-summary{
+        font-size: 1.8rem;
+    }
+    .name-order-summary, .count-summary, .size-summary{
+        font-size: 1rem;
+    }
+    .pricing{
+        font-size: 1rem;
+    }
+    .total-order-summary{
+        font-size: 1.4rem;
+    }
+    .total-price-summary{
+        font-size: 1.4rem;
+    }
+    .hazelnut-image{
+        width: 100px;
+        height: 100px;
+    }
+    .tax-fees-summary, .subtotal-summary, .shipping-summary{
+        font-size: 0.9rem;
+    }
+    .price-order-summary{
+        font-size: 0.9rem;
+    }
+    .address-details-title{
+        font-size: 1.3rem;
+    }
+    .edit-address{
+        font-size: 0.9rem;
+    }
+    .detail-address{
+        font-size: 1rem;
+    }
+    .address-summary-detail{
+        font-size: 1rem;
+    }
+    .payment-methods-title{
+        font-size: 1.3rem;
+        margin-top: 5%;
+    }
+    .button-confirm-pay{
+        height: 50px;
+    }
+    .button-payment{
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    .edit-address{
+        text-align: end;
+    }
+}
+
+@media screen and (max-width: 426px) {
+
 }
