@@ -216,7 +216,7 @@
 .forgotpassword-bg {
   position: relative;
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   object-fit: cover;
 }
 
@@ -248,7 +248,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 1.2rem;
-  color: #9f9f9f;
+  color: #747474;
 }
 
 .btn-send-email {
@@ -300,11 +300,14 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-align: center;
   color: #ffffff;
+  background-color: #6a4029;
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .btn-resend {
   width: 100%;
   height: 100px;
@@ -329,8 +332,28 @@
   align-items: space-around;
   justify-content: center;
 }
-
 .userInput {
+  display: flex;
+  justify-content: center;
+}
+.otpInput input {
+  margin-right: 10px;
+  padding: 30px 45px;
+  color: rgba(106, 64, 41, 0.46);
+}
+.toggleReset1, .toggleReset2 {
+  position: absolute;
+  top: 72%;
+  right: 21%;
+  color: #666565;
+}
+.toggleReset2 {
+    top: 104%;
+  }
+  .resetIcon {
+    top: 115%;
+  }
+/* .userInput {
   display: flex;
   justify-content: center;
 }
@@ -346,7 +369,7 @@
   font-size: 1.7rem;
   background: #eef2f3;
   padding: 50px 0;
-}
+} */
 
 .new-resetPass,
 .confirm-resetPass {
