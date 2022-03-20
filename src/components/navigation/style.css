@@ -3,6 +3,12 @@
     z-index: 9999;
 }
 
+@media (max-width: 1020px) {
+    .collapse {
+        height: 350px;
+    }
+}
+
 .text-decoration-none {
     text-decoration: none !important;
 }

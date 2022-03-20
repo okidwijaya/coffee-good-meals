@@ -60,11 +60,9 @@
 }
 
 /* width 1024
-
 .couponCard {
     padding: 10px 30px;
     ---padding change
-
 .promo-coupon-img {
     float: left;
     left: 0;
@@ -135,10 +133,6 @@ margin: auto 0px;} */
 
 /* product listing */
 
-.product-card-wrapper {
-    margin: 10px;
-}
-
 .productsNavigation {
   padding-top: 20px;
   border-top: 1px solid rgb(202, 202, 202);
@@ -164,31 +158,6 @@ margin: auto 0px;} */
 
 /* content product / product list */
 
-.image-product-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 150px;
-    height: 150px;
-}
-
-.product-img-container {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.product-title {
-    padding: 0 5%;
-}
-
-.product-price {
-    padding: 0 5%;
-}
-
-.image-product-wrapper {
-    margin: 0;
-}
-
 .product-content-wrapper {
   width: 100%;
   margin: 30px auto;
@@ -197,15 +166,6 @@ margin: auto 0px;} */
 }
 
 .product-item {
-    background-color: white;
-    margin: 0;
-    height: 250px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 30px;
-}
-
-.card-item>a:hover {
-    text-decoration: none;
   margin: 10px;
   height: calc(250px + 1vw);
 }
