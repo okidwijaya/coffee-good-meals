@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import Swal from 'sweetalert2';
 import {toast} from 'react-toastify';
 import SelectRound from '../../components/SelectRound';
+import LoadingComponent from '../../components/LoadingComponent';
 
 function ProductDetail(props) {
   const params = useParams();
@@ -72,6 +73,7 @@ class ProductList extends React.Component {
         console.log('delete', token);
         deleteProducts(id, token)
           .then((response) => {
+            console.log(response);
             const usenavigate = this.props.usenavigate;
             toast.success('Product deleted.', {
               position: 'bottom-right',
@@ -90,8 +92,10 @@ class ProductList extends React.Component {
     });
   };
   render() {
+    console.log('props', this.props.token, this.props.role);
     const {name, price, description} = this.state.detailProduct;
     const {imgProduct, selectedMethods} = this.state;
+
     const role = this.props.role;
     const id = this.props.id;
     console.log('role', role);
@@ -121,23 +125,29 @@ class ProductList extends React.Component {
             <p className='price-coffee'>{formatPrice}</p>
             {role === '1' ? (
               <>
-                <button className='btn button-addCart'>Add to Cart</button>
+                <Link to={'/payment'}>
+                  <button className='btn button-addCart'>Add to Cart</button>
+                </Link>
                 <button className='btn button-askStaff'>Ask a Staff</button>
               </>
             ) : (
               <>
                 <button className='btn button-addCart mb-3'>Add to Cart</button>
-                <Link
-                  className='btn button-editCart'
-                  to={`/product/edit/${id}`}>
-                  Edit Product
-                </Link>
-                <button
-                  className='btn button-askStaff'
-                  onClick={this.onDelete}
-                  type='button'>
-                  Delete
-                </button>
+                {this.props.token && this.props.role === '2' && (
+                  <>
+                    <Link
+                      className='btn button-editCart'
+                      to={`/product/edit/${id}`}>
+                      Edit Product
+                    </Link>
+                    <button
+                      className='btn button-askStaff'
+                      onClick={this.onDelete}
+                      type='button'>
+                      Delete
+                    </button>
+                  </>
+                )}
               </>
             )}
           </div>
@@ -183,7 +193,7 @@ class ProductList extends React.Component {
                     selectedMethods: 'Dine In',
                   });
                 }}>
-                Dine n
+                Dine In
               </button>
               <button
                 className={`btn delivery-methods ${

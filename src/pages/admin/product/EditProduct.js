@@ -3,11 +3,16 @@ import React from 'react';
 import '../style.css';
 import defaultImg from '../../../assets/cold-brew-hd.png';
 import Navactive from '../../../components/navigation/Nav';
-import {getDetailProduct, updateProduct} from '../../../utils/https/products';
+import {
+  deleteProducts,
+  getDetailProduct,
+  updateProduct,
+} from '../../../utils/https/products';
 import {toast} from 'react-toastify';
 import {connect} from 'react-redux';
 import {Link, useNavigate, useParams} from 'react-router-dom';
 import LoadingComponent from '../../../components/LoadingComponent';
+import Swal from 'sweetalert2';
 
 class Editproduct extends React.Component {
   constructor(props) {
@@ -75,6 +80,37 @@ class Editproduct extends React.Component {
         );
       });
   }
+  handleDeleteItem = () => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Are you sure you want to delete this product?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const token = this.props.token;
+        const id = this.props.id;
+        console.log('delete', token);
+        deleteProducts(id, token)
+          .then((response) => {
+            const usenavigate = this.props.usenavigate;
+            toast.success('Product deleted.', {
+              position: 'bottom-right',
+              autoClose: 5000,
+            });
+            usenavigate('/products');
+          })
+          .catch((error) => {
+            console.log(error.response);
+            toast.error(error.response.data.msg, {
+              position: 'bottom-right',
+              autoClose: 5000,
+            });
+          });
+      }
+    });
+  };
   render() {
     const {counter, productDetail, image} = this.state;
     const handleSubmit = (e) => {
@@ -158,7 +194,7 @@ class Editproduct extends React.Component {
                     className='btn change-img-btn'
                     type='button'
                     onClick={() => {
-                      console.log('delete this shit');
+                      this.handleDeleteItem();
                     }}>
                     <i className='bi bi-trash'></i>
                   </button>

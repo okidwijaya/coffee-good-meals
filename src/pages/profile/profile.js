@@ -261,7 +261,7 @@ class Profile extends React.Component {
 
   deletePhoto = () => {
     Swal.fire({
-      icon: 'warning',
+      icon: 'error',
       title: 'Are you sure you want to remove this photo?',
       showCancelButton: true,
       confirmButtonText: 'Yes',
