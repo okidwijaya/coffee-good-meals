@@ -23,23 +23,25 @@ const loopCard = (data) => {
     // console.log("image", data[i].image);
     const element = (
       <div
-        className='col-3 product-item'
+        className='col-6 col-md-3 product-item card-item mx-0 p-0 my-3'
         key={`product-${i}`}>
-          <div className="image-product-wrapper">
-        <Link to={`/product/detail/${id}`}>
-          <img
-            src={image}
-            className="img-thumbnail product-img-container"
-            alt="productImg"
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.src = require("../../assets/Veggie-tomato-mix.png");
-            }}
-          />
-          <p className="product-title">{data[i].name}</p>
-          <p className="product-price">Rp. {data[i].price}</p>
-        </Link>
-      </div>
+        <div className='product-card-wrapper mx-2'>
+          <Link to={`/product/detail/${id}`}>
+            <div className='img-card-wrapper'>
+              <img
+                src={image}
+                className='img-thumbnail product-img-container'
+                alt='productImg'
+                onError={({currentTarget}) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
+                }}
+              />
+            </div>
+            <p className='product-title'>{data[i].name}</p>
+            <p className='product-price w-100'>Rp. {data[i].price}</p>
+          </Link>
+        </div>
       </div>
     );
     elements.push(element);
