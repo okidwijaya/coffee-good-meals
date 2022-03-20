@@ -41,21 +41,21 @@ const Home = (props) => {
       <div className="header-wrapper">
         <div>
           <img src={homeBg} className="bgHeader" alt="bgHeader" />
-        </div>
-        <div className="row header-description-wrapper">
-          <div className="col-8 col-md-7">
-            <p className="header-title">
-              Start Your Day with <br />
-              Coffee and Good Meals
-            </p>
-            <p className="header-text">
-              We provide high quality beans, good taste, and healthy <br />
-              meals made by love just for you. Start your day with us <br />
-              for a bigger smile!
-            </p>
-            <button className="col-8 col-md-4 h-20 btn btn-get-started">
-              Get Started
-            </button>
+          <div className="row header-description-wrapper">
+            <div className="col-8 col-md-7">
+              <p className="header-title">
+                Start Your Day with <br />
+                Coffee and Good Meals
+              </p>
+              <p className="header-text">
+                We provide high quality beans, good taste, and healthy <br />
+                meals made by love just for you. Start your day with us <br />
+                for a bigger smile!
+              </p>
+              <button className="col-8 col-md-4 h-20 btn btn-get-started">
+                Get Started
+              </button>
+            </div>
           </div>
           {token === null && (
             <div className="col-4">
@@ -156,7 +156,7 @@ const Home = (props) => {
         </p>
 
         <div className="row home-favourite-product">
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
@@ -180,14 +180,14 @@ const Home = (props) => {
                   </li>
                 </ul>
               </div>
-                <p className="card-text home-card-product-price">IDR 25.000</p>
-                <button className="btn btn-outline-warning btn-order-now">
-                  Order Now
-                </button>
+              <p className="card-text home-card-product-price">IDR 25.000</p>
+              <button className="btn btn-outline-warning btn-order-now">
+                Order Now
+              </button>
             </div>
           </div>
 
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
@@ -213,14 +213,14 @@ const Home = (props) => {
                   </li>
                 </ul>
               </div>
-                <p className="card-text home-card-product-price">IDR 30.000</p>
-                <button className="btn btn-outline-warning btn-order-now">
-                  Order Now
-                </button>
+              <p className="card-text home-card-product-price">IDR 30.000</p>
+              <button className="btn btn-outline-warning btn-order-now">
+                Order Now
+              </button>
             </div>
           </div>
 
-          <div className="col-12 col-md home-card-popular">
+          <div className="col-8 col-md home-card-popular">
             {/* carsd perlu dibesarkan */}
             <div className="card">
               <img className="card-img-top" src={cardImg} alt="Card cap" />
@@ -248,10 +248,10 @@ const Home = (props) => {
                   </li>
                 </ul>
               </div>
-                <p className="card-text home-card-product-price">IDR 40.000</p>
-                <button className="btn btn-outline-warning btn-order-now">
-                  Order Now
-                </button>
+              <p className="card-text home-card-product-price">IDR 40.000</p>
+              <button className="btn btn-outline-warning btn-order-now">
+                Order Now
+              </button>
             </div>
           </div>
         </div>

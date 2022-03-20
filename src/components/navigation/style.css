@@ -1,5 +1,12 @@
 .navActive {
     padding: 10px 50px;
+    z-index: 9999;
+}
+
+@media (max-width: 1020px) {
+    .collapse {
+        height: 350px;
+    }
 }
 
 .text-decoration-none {
@@ -9,6 +16,16 @@
 .search-nav input {
     border-radius: 25px;
     background-color: #efeeee;
+}
+
+
+/* .navbar-collapse {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+} */
+
+.collapse {
+    /* height: 500px; */
+    z-index: 9999;
 }
 
 .chat-nav {

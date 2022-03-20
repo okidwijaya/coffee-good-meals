@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import homeBg from "../../assets/loginbg.png";
 import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
-import "./style.css";
 import CobaLoading from "../../components/loadingCek/CobaLoading";
+import { validateSignup } from "../../helpers/validation";
+import "./style.css";
 
 function WrapperRegister(props) {
   const navigate = useNavigate();
@@ -16,181 +17,171 @@ function WrapperRegister(props) {
   return <Signup {...props} navigate={navigate} />;
 }
 
-class Signup extends React.Component {
-  state = {
-    input: {},
-    errorMsg: {},
-    isValid: false,
-    isLoading: false,
-  };
+function Signup(props) {
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState("far fa-eye-slash");
+  const [values, setValues] = useState({
+    phone: "",
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
 
-  changeHandler = (e) => {
-    let input = this.state.input;
-    input[e.target.name] = e.target.value;
-    this.setState({
-      input,
+  const changeHandler = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
     });
   };
 
-  validate = (e) => {
-    let errors = {};
-    let input = this.state.input;
-    let isValid = true;
-
-    if (typeof input["email"] !== "undefined") {
-      const validEmail = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-      if (!validEmail.test(input["email"])) {
-        isValid = false;
-        errors["email"] = "Email is not valid";
-      }
+  const handleToggle = () => {
+    if (type === "password") {
+      setIcon("far fa-eye");
+      setType("text");
+    } else {
+      setIcon("far fa-eye-slash");
+      setType("password");
     }
-
-    if (typeof input["password"] !== "undefined") {
-      const validPass = new RegExp(
-        "^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$"
-      );
-      if (!validPass.test(input["password"])) {
-        isValid = false;
-        errors["password"] =
-          "Password must be at least 6 characters, including uppercase letter and numbers";
-      }
-    }
-
-    if (typeof input["phone"] !== "undefined") {
-      const pattern = new RegExp("^([0-9]{10,12})$");
-      if (!pattern.test(input["phone"])) {
-        isValid = false;
-        errors["phone"] = "Phone number must contain 10-12 digits";
-      }
-    }
-
-    this.setState({
-      errorMsg: errors,
-    });
-    return isValid;
   };
 
-  submitHandler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    if (this.validate()) {
-      let input = {};
-      input["email"] = "";
-      input["password"] = "";
-      input["phone"] = "";
-      this.setState({ input: input });
+    setError(validateSignup(values));
+    const validateBody = validateSignup(values);
 
-      const { email, password, phone } = this.state.input;
+    const body = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+      phone: e.target.phone.value,
+    };
 
-      const body = {
-        email: email,
-        password: password,
-        phone: phone,
-      };
-
-      this.setState({isLoading: true})
-
+    if (Object.keys(validateBody).length === 0) {
+      setIsSubmit(true);
+      setIsLoading(true);
       register(body)
         .then((res) => {
+          setIsLoading(false);
           toast.success("Registration successful!", {
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 3000,
           });
-          const { navigate } = this.props;
+          const { navigate } = props;
           return navigate("/login", { replace: true });
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          setIsLoading(false);
+          console.log(err);
+          let errors = {};
+          errors.form = "Email already exist";
+          setError(errors);
+        });
     }
   };
 
-  render() {
-    return (
-      <>
-        <main>
-          <div className="starter-wrapper">
-            <section className="col-6 col-lg-6 signup-form-wrapper">
-              <Header />
-              <form className="signup-form" onSubmit={this.submitHandler}>
-                <p className="signup-form-title">Sign Up</p>
-                <div className="mb-3">
-                  <label className="form-label">Email address:</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="inputEmail1"
-                    name="email"
-                    placeholder="Enter your email address"
-                    value={this.state.input.email || ""}
-                    onChange={this.changeHandler}
-                  />
-                  <div className="text-danger mb-2">
-                    {this.state.errorMsg.email}
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Password:</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    placeholder="Enter your password"
-                    id="inputPassword1"
-                    value={this.state.input.password || ""}
-                    onChange={this.changeHandler}
-                  />
-                  <div className="text-danger mb-2">
-                    {this.state.errorMsg.password}
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Phone Number:</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Enter your phone number"
-                    className="form-control"
-                    id="inputPhoneNumber"
-                    value={this.state.input.phone || ""}
-                    onChange={this.changeHandler}
-                  />
-                  <div className="text-danger mb-2">
-                    {this.state.errorMsg.phone}
-                  </div>
-                </div>
-                <div
-                  className="d-grid gap-2 col-12 mx-auto p-0"
+  useEffect(() => {
+    if (Object.keys(error).length === 0 && isSubmit) {
+      console.log("isSubmit", isSubmit);
+      console.log("useEff error", error);
+    }
+  });
+
+  return (
+    <>
+      <main>
+        <div className="starter-wrapper">
+          <section className="col-6 col-lg-6 signup-form-wrapper">
+            <Header />
+            <form className="signup-form" onSubmit={submitHandler} noValidate>
+              <p className="signup-form-title">Sign Up</p>
+              <div className="mb-3">
+                <label className="form-label">Email address:</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="inputEmail1"
+                  name="email"
+                  placeholder="Enter your email address"
+                  value={values.email}
+                  onChange={changeHandler}
+                />
+                {error.email && (
+                  <div className="text-danger error">{error.email}</div>
+                )}
+                {error.form && (
+                  <div className="text-danger error">{error.form}</div>
+                )}
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Password:</label>
+                <input
+                  type={type}
+                  className="form-control"
+                  name="password"
+                  placeholder="Enter your password"
+                  id="inputPassword1"
+                  value={values.password}
+                  onChange={changeHandler}
+                />
+                {error.password && (
+                  <div className="text-danger error">{error.password}</div>
+                )}
+              </div>
+              <div
+                className={error.email ? "icon-toggle toggle" : "icon-toggle"}
+                onClick={handleToggle}
+              >
+                <i className={icon}></i>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Phone Number:</label>
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  className="form-control"
+                  id="inputPhoneNumber"
+                  value={values.phone}
+                  onChange={changeHandler}
+                />
+                {error.phone && (
+                  <div className="text-danger error">{error.phone}</div>
+                )}
+              </div>
+              <div
+                className="d-grid gap-2 col-12 mx-auto p-0"
+                style={{ width: "100%" }}
+              >
+                <button
+                  className="btn btn-warning btn-signup"
                   style={{ width: "100%" }}
+                  type="submit"
                 >
-                  <button
-                    className="btn btn-warning btn-signup"
-                    style={{ width: "100%" }}
-                    type="submit"
-                  >
-                    {/* Signup */} {
-                    this.state.isLoading === true ? <CobaLoading /> : "Sign Up"
-                  }
-                  </button>
-                  <div
-                    className="btn btn-light btn-signup btn-signup-custom"
-                    style={{ width: "100%" }}
-                    type="button"
-                  >
-                    <img src={googleIcon} alt="logo" width="20" height="20" />
-                    Signup with Google
-                  </div>
+                  {/* Signup */}
+                  {isLoading ? <CobaLoading /> : "Sign Up"}
+                </button>
+                <div
+                  className="btn btn-light btn-signup btn-signup-custom"
+                  style={{ width: "100%" }}
+                  type="button"
+                >
+                  <img src={googleIcon} alt="logo" width="20" height="20" />
+                  Signup with Google
                 </div>
-              </form>
-            </section>
+              </div>
+            </form>
+          </section>
 
-            <aside className="col-12 col-md-12 col-lg-6 signup-img-wrapper">
-              <img src={homeBg} className="img-fluid" alt="Responsive" />
-            </aside>
-          </div>
-        </main>
+          <aside className="col-12 col-md-12 col-lg-6 signup-img-wrapper">
+            <img src={homeBg} className="img-fluid" alt="Responsive" />
+          </aside>
+        </div>
+      </main>
 
-        <SignupCard />
-      </>
-    );
-  }
+      <SignupCard />
+    </>
+  );
 }
 
 export default WrapperRegister;
