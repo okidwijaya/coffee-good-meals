@@ -14,8 +14,8 @@ const Payment = () => {
         <h1 className="title-payment">
           Checkout your <br /> item now!
         </h1>
-        <div className="row">
-          <div className="col col-md-6">
+        <div className="row col-12 col-md-12">
+          <div className="col-12 col-md-6">
             <div className="col col-md-10 order-summary">
               <h2 className="title-order-summary">Order Summary</h2>
               <div className="row detail-summary">
@@ -96,12 +96,12 @@ const Payment = () => {
               <div className="row col-md-10 payment-methods-summary">
                 <input type="radio" className="select-card"></input>
                 <img src={bankIcon} alt="iconCard" className="iconCard" />
-                <p className="select-payment-summary">Card</p>
+                <p className="select-payment-summary">Bank Account</p>
               </div>
               <div className="row col-md-10 payment-methods-summary">
                 <input type="radio" className="select-card"></input>
                 <img src={cash} alt="iconCard" className="iconCard" />
-                <p className="select-payment-summary">Card</p>
+                <p className="select-payment-summary">Cash on Delivery</p>
               </div>
             </div>
             <div className="col col-md-12 button-payment">
