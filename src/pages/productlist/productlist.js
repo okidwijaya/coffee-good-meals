@@ -116,7 +116,7 @@ class ProductList extends React.Component {
             ) : (
               <>
                 <button className='btn button-addCart mb-3'>Add to Cart</button>
-                <Link className='btn button-addCart' to={`/product/edit/${id}`}>
+                <Link className='btn button-editCart' to={`/product/edit/${id}`}>
                   Edit Product
                 </Link>
                 <button
