@@ -9,7 +9,7 @@ import logo from "../../assets/icon.svg";
 import googleIcon from "../../assets/google-icon.svg";
 
 import SignupCard from "../../components/Auth";
-import CobaLoading from "../../components/loadingCek/CobaLoading";
+import CobaLoading from "../../components/loadingComp/LoadingComp";
 import "./style.css";
 import { validateLogin } from "../../helpers/validation";
 
