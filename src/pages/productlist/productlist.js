@@ -8,6 +8,7 @@ import {getDetailProduct, deleteProducts} from '../../utils/https/products';
 import {connect} from 'react-redux';
 import Swal from 'sweetalert2';
 import {toast} from 'react-toastify';
+import SelectRound from '../../components/SelectRound';
 
 function ProductDetail(props) {
   const params = useParams();
@@ -21,9 +22,18 @@ class ProductList extends React.Component {
     this.state = {
       detailProduct: {},
       imgProduct: require('../../assets/Veggie-tomato-mix.png'),
+      selectedSize: 'R',
     };
     this.target = React.createRef();
   }
+  // state = {
+  // };
+
+  onChangeSize = (value) => {
+    this.setState({
+      selectedSize: value,
+    });
+  };
 
   componentDidMount() {
     const productId = this.props.id;
@@ -116,7 +126,7 @@ class ProductList extends React.Component {
             ) : (
               <>
                 <button className='btn button-addCart mb-3'>Add to Cart</button>
-                <Link className='btn button-addCart' to={`/product/edit/${id}`}>
+                <Link className='btn button-editCart' to={`/product/edit/${id}`}>
                   Edit Product
                 </Link>
                 <button
@@ -136,9 +146,27 @@ class ProductList extends React.Component {
               <p className='detail-name-delivery'>{description}</p>
               <p className='choose-size'>Choose a size</p>
               <div className='button-size-choose'>
-                <button className='btn btn-radio btn-yellow-color'>R</button>
-                <button className='btn btn-radio btn-yellow-color'>X</button>
-                <button className='btn btn-radio btn-yellow-color'>XL</button>
+                <SelectRound
+                  value='R'
+                  isSelected={this.state.selectedSize === 'R'}
+                  onChange={(val) => {
+                    this.onChangeSize(val);
+                  }}
+                />
+                <SelectRound
+                  value='X'
+                  isSelected={this.state.selectedSize === 'X'}
+                  onChange={(val) => {
+                    this.onChangeSize(val);
+                  }}
+                />
+                <SelectRound
+                  value='XL'
+                  isSelected={this.state.selectedSize === 'XL'}
+                  onChange={(val) => {
+                    this.onChangeSize(val);
+                  }}
+                />
               </div>
             </div>
             <p className='methods-delivery'>Choose Delivery Methods</p>

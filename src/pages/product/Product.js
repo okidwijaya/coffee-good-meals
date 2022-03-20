@@ -28,22 +28,22 @@ const Product = (props) => {
   return (
     <>
       <Navactive />
-      <div className="row product-page flex-row-reverse flex-md-row mb-2">
-        <aside className="col-12 col-sm-4 col-md-4 col-lg-3 promo-section-product">
-          <p className="promo-product-title">Promo Today</p>
-          <p className="promo-product-description">
+      <div className='row product-page flex-row-reverse flex-md-row mb-2'>
+        <aside className='col-12 col-md-3 promo-section-product'>
+          <p className='promo-product-title'>Promo Today</p>
+          <p className='promo-product-description'>
             Coupons will be updated every weeks.
             <br /> Check them out!
           </p>
-          <div className="col-11 col-md-11 btn couponCard green-couponCard">
-            <img src={couponImg} alt="promoImg" className="promo-coupon-img" />
-            <p className="promo-today-title">
+          <div className='col-9 col-md-9 btn couponCard green-couponCard'>
+            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
+            <p className='promo-today-title'>
               <strong>HAPPY MOTHER'S DAY!</strong> <br />
               Get one of our favorite <br /> menu for free!
             </p>
           </div>
-          <div className="col-11 col-md-11 btn couponCard yellow-couponCard ">
-            <img src={couponImg2} alt="promoImg" className="promo-coupon-img" />
+          <div className='col-9 col-md-9 btn couponCard yellow-couponCard '>
+            <img src={couponImg2} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className="promo-today-title">
                 <strong>HAPPY MOTHER'S DAY!</strong> <br />
@@ -51,8 +51,8 @@ const Product = (props) => {
               </p>
             </div>
           </div>
-          <div className="col-11 col-md-11 btn couponCard green-couponCard ">
-            <img src={couponImg} alt="promoImg" className="promo-coupon-img" />
+          <div className='col-9 col-md-9 btn couponCard green-couponCard '>
+            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className="promo-today-title">
                 <strong>HAPPY MOTHER'S DAY!</strong> <br />
@@ -60,8 +60,8 @@ const Product = (props) => {
               </p>
             </div>
           </div>
-          <div className="col-11 col-md-11 btn couponCard semi-brown-couponCard ">
-            <img src={couponImg} alt="promoImg" className="promo-coupon-img" />
+          <div className='col-9 col-md-9 btn couponCard semi-brown-couponCard '>
+            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
             <div>
               <p className="promo-today-title">
                 <strong>HAPPY MOTHER'S DAY!</strong> <br />
@@ -70,7 +70,7 @@ const Product = (props) => {
             </div>
           </div>
 
-          <div className="col-9 col-md-11 btn btn-apply-coupon">
+          <div className='col-9 col-md-9 btn btn-apply-coupon'>
             Apply Coupon
           </div>
           <div className="terms">
@@ -108,11 +108,10 @@ const Product = (props) => {
           </div>
         </aside>
         <div
-          className="col-12 col-sm-8 col-md-8 col-lg-9 productsNavigation order-first order-md-last"
-          id="activeMenu"
-        >
-          <div className="product-link-wrapper">
-            <NavLink className="products-navigation" to="/products/favourite">
+          className='col-12 col-md-9 productsNavigation order-first order-md-last'
+          id='activeMenu'>
+          <div className='product-link-wrapper'>
+            <NavLink className='products-navigation' to='/products/favourite'>
               Favourite and Promo
             </NavLink>
             <NavLink className="products-navigation" to="/products/coffee">

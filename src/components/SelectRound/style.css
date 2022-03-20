@@ -1,0 +1,32 @@
+.selectRoundWrapper {
+  margin-inline: 5px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+.selectRound {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffba33;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.selectedItemRound {
+  border: 5px solid black;
+  outline: 0px;
+}
+.no-outline {
+  outline: 0px;
+}
+.no-outline:focus,
+.no-outline:active {
+  outline: 0px;
+}
+.selectRoundText {
+  font-size: 17px;
+  font-weight: bold;
+}
