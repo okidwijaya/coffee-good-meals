@@ -49,15 +49,15 @@
   text-align: center;
 }
 
-.dine,
-.door,
-.pick {
+/* .dine,
+.door, */
+.delivery-methods {
   margin: 1%;
   box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
   border-radius: 10px;
 }
 
-.dine {
+.active-delivery {
   background-color: #6a4029;
   color: #ffffff;
 }

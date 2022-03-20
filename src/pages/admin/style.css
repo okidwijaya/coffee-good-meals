@@ -330,8 +330,11 @@
 }
 
 .edit-image {
-  width: 100%;
-  height: max(100%, 600px);
+  /* width: 100%;
+  height: max(100%, 600px); */
+  width: max(50%, 600px);
+  height: 600px;
+  object-fit: cover;
   margin: auto auto 20px auto;
 }
 

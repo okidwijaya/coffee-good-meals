@@ -154,7 +154,12 @@ class Editproduct extends React.Component {
                       }}
                     />
                   </div>
-                  <button className='btn change-img-btn'>
+                  <button
+                    className='btn change-img-btn'
+                    type='button'
+                    onClick={() => {
+                      console.log('delete this shit');
+                    }}>
                     <i className='bi bi-trash'></i>
                   </button>
                   <p className='product-time-desc'>
