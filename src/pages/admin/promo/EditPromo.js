@@ -13,7 +13,7 @@ const Editpromo = () => {
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
               <a className="breadcrumb-page" href="/">
-                Favorite & Promo
+                Favorite {" & "} Promo
               </a>
             </li>
             <li className="breadcrumb-item">
@@ -177,9 +177,15 @@ const Editpromo = () => {
                   Click size you want to use for this product
                 </p>
                 <div>
-                  <button className="btn btn-radio btn-yellow-color">R</button>
-                  <button className="btn btn-radio btn-yellow-color">X</button>
-                  <button className="btn btn-radio btn-yellow-color">XL</button>
+                  <div className="btn btn-radio btn-yellow-color">
+                    <p className="textSize">R</p>
+                  </div>
+                  <div className="btn btn-radio btn-yellow-color">
+                    <p className="textSize">X</p>
+                  </div>
+                  <div className="btn btn-radio btn-yellow-color">
+                    <p className="textSize">XL</p>
+                  </div>
                   <button className="btn btn-radio-load">
                     200
                     <br />
