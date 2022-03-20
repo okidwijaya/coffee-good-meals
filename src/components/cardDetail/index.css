@@ -99,7 +99,9 @@
 }
 
 @media screen and (max-width: 1024px) {
-  
+  .checkout{
+      /* height: ; */
+  }
 }
 
 @media screen and (max-width: 768px) {

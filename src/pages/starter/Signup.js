@@ -5,9 +5,10 @@ import { toast } from "react-toastify";
 import homeBg from "../../assets/loginbg.png";
 import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
 import "./style.css";
+import CobaLoading from "../../components/loadingCek/CobaLoading";
 
 function WrapperRegister(props) {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ class Signup extends React.Component {
     input: {},
     errorMsg: {},
     isValid: false,
+    isLoading: false,
   };
 
   changeHandler = (e) => {
@@ -84,6 +86,8 @@ class Signup extends React.Component {
         password: password,
         phone: phone,
       };
+
+      this.setState({isLoading: true})
 
       register(body)
         .then((res) => {
@@ -161,7 +165,9 @@ class Signup extends React.Component {
                     style={{ width: "100%" }}
                     type="submit"
                   >
-                    Signup
+                    {/* Signup */} {
+                    this.state.isLoading === true ? <CobaLoading /> : "Sign Up"
+                  }
                   </button>
                   <div
                     className="btn btn-light btn-signup btn-signup-custom"

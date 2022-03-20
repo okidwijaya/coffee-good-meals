@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 
+
 import imageVegie from "../../assets/vegie.png";
 import chickenWings from "../../assets/chicken-wings.png"
 

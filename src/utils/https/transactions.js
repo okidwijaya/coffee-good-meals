@@ -1,7 +1,9 @@
 import axios from 'axios';
-const url = process.env.REACT_APP_HOST + '/transaction';
+
+
+const URL = process.env.REACT_APP_HOST + '/transactions';
 
 export const getTransactions = (id)=>{
-    const urlDetail = `${url}/${id}`
-    return axios.get(urlDetail);
+    const urlHistory = `${URL}/${id}`
+    return axios.get(urlHistory);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/icon.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,9 +14,11 @@ const Header = () => {
             </div>
           </div>
           <div className="d-flex">
-            <div className="btn btn-warning btn-login" type="submit">
-              Login
-            </div>
+            <Link to="/login">
+              <div className="btn btn-warning btn-login" type="submit">
+                Login
+              </div>
+            </Link>
           </div>
         </div>
       </nav>
