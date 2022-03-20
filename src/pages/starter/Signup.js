@@ -7,7 +7,7 @@ import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
 import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
-import CobaLoading from "../../components/loadingCek/CobaLoading";
+import CobaLoading from "../../components/loadingComp/LoadingComp";
 import { validateSignup } from "../../helpers/validation";
 import "./style.css";
 
