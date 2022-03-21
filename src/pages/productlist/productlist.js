@@ -75,18 +75,12 @@ class ProductList extends React.Component {
           .then((response) => {
             console.log(response);
             const usenavigate = this.props.usenavigate;
-            toast.success('Product deleted.', {
-              position: 'bottom-right',
-              autoClose: 5000,
-            });
+            toast.success('Product deleted.');
             usenavigate('/products');
           })
           .catch((error) => {
             console.log(error.response);
-            toast.error(error.response.data.msg, {
-              position: 'bottom-right',
-              autoClose: 5000,
-            });
+            toast.error(error.response.data.msg);
           });
       }
     });

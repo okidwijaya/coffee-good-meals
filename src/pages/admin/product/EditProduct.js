@@ -75,10 +75,6 @@ class Editproduct extends React.Component {
         toast.error(
           `Something went wrong.
         Please refresh the page.`,
-          {
-            position: 'top-right',
-            autoClose: 5000,
-          },
         );
       });
   }
@@ -97,10 +93,7 @@ class Editproduct extends React.Component {
         deleteProducts(id, token)
           .then((response) => {
             const usenavigate = this.props.usenavigate;
-            toast.success('Product deleted.', {
-              position: 'bottom-right',
-              autoClose: 5000,
-            });
+            toast.success('Product deleted.');
             usenavigate('/products');
           })
           .catch((error) => {
@@ -110,17 +103,11 @@ class Editproduct extends React.Component {
                 error.response.data.err_code === 'INVALID_TOKEN'
               ) {
                 this.props.dispatch(logoutAction());
-                toast.warning('Token Expired', {
-                  position: toast.POSITION.TOP_RIGHT,
-                  autoClose: 3000,
-                });
+                toast.warning('Token Expired');
               }
             } else {
               console.log(error.response);
-              toast.error(error.response.data.msg, {
-                position: 'bottom-right',
-                autoClose: 5000,
-              });
+              toast.error(error.response.data.msg);
             }
           });
       }
@@ -151,10 +138,7 @@ class Editproduct extends React.Component {
       console.log('body', body);
       updateProduct(body, token)
         .then((response) => {
-          toast.success('Product Updated.', {
-            position: 'top-right',
-            autoClose: 5000,
-          });
+          toast.success('Product Updated.');
           this.setState({
             isSaved: true,
           });
@@ -168,17 +152,11 @@ class Editproduct extends React.Component {
               error.response.data.err_code === 'INVALID_TOKEN'
             ) {
               this.props.dispatch(logoutAction());
-              toast.warning('Token Expired', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 3000,
-              });
+              toast.warning('Token Expired');
             }
           } else {
             console.log(error.response);
-            toast.success('Something went wrong.', {
-              position: 'top-right',
-              autoClose: 5000,
-            });
+            toast.success('Something went wrong.');
           }
         });
     };

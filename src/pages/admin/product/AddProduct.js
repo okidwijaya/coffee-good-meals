@@ -95,10 +95,6 @@ class Addproduct extends Component {
         toast.error(
           `Something went wrong.
         Please refresh the page.`,
-          {
-            position: 'top-right',
-            autoClose: 5000,
-          },
         );
       });
   }
@@ -173,10 +169,7 @@ class Addproduct extends Component {
       console.log('body', body);
       addProduct(body, token)
         .then((response) => {
-          toast.success('Product Added.', {
-            position: 'top-right',
-            autoClose: 5000,
-          });
+          toast.success('Product Added.');
           const navigate = this.props.usenavigate;
           navigate('/products');
         })
