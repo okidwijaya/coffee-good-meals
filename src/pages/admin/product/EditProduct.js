@@ -3,11 +3,17 @@ import React from 'react';
 import '../style.css';
 import defaultImg from '../../../assets/cold-brew-hd.png';
 import Navactive from '../../../components/navigation/Nav';
-import {getDetailProduct, updateProduct} from '../../../utils/https/products';
+import {
+  deleteProducts,
+  getDetailProduct,
+  updateProduct,
+} from '../../../utils/https/products';
 import {toast} from 'react-toastify';
 import {connect} from 'react-redux';
 import {Link, useNavigate, useParams} from 'react-router-dom';
 import LoadingComponent from '../../../components/LoadingComponent';
+import Swal from 'sweetalert2';
+import {logoutAction} from '../../../redux/actions/auth';
 
 class Editproduct extends React.Component {
   constructor(props) {
@@ -19,6 +25,7 @@ class Editproduct extends React.Component {
   state = {
     image: defaultImg,
     counter: 1,
+    isSaved: false,
     selectedFile: null,
     selectedSize: 'R',
     productDetail: null,
@@ -68,15 +75,47 @@ class Editproduct extends React.Component {
         toast.error(
           `Something went wrong.
         Please refresh the page.`,
-          {
-            position: 'top-right',
-            autoClose: 5000,
-          },
         );
       });
   }
+  handleDeleteItem = () => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Are you sure you want to delete this product?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const token = this.props.token;
+        const id = this.props.id;
+        console.log('delete', token);
+        deleteProducts(id, token)
+          .then((response) => {
+            const usenavigate = this.props.usenavigate;
+            toast.success('Product deleted.');
+            usenavigate('/products');
+          })
+          .catch((error) => {
+            if (error.response.data.err_code) {
+              if (
+                error.response.data.err_code === 'TOKEN_EXPIRED' ||
+                error.response.data.err_code === 'INVALID_TOKEN'
+              ) {
+                this.props.dispatch(logoutAction());
+                toast.warning('Token Expired');
+              }
+            } else {
+              console.log(error.response);
+              toast.error(error.response.data.msg);
+            }
+          });
+      }
+    });
+  };
   render() {
     const {counter, productDetail, image} = this.state;
+    console.log('pd', productDetail);
     const handleSubmit = (e) => {
       e.preventDefault();
       const token = this.props.token;
@@ -99,19 +138,26 @@ class Editproduct extends React.Component {
       console.log('body', body);
       updateProduct(body, token)
         .then((response) => {
-          toast.success('Product Updated.', {
-            position: 'top-right',
-            autoClose: 5000,
+          toast.success('Product Updated.');
+          this.setState({
+            isSaved: true,
           });
-          const navigate = this.props.usenavigate;
-          navigate('/products');
+          // const navigate = this.props.usenavigate;
+          // navigate('/products');
         })
         .catch((error) => {
-          console.log(error.response);
-          toast.success('Something went wrong.', {
-            position: 'top-right',
-            autoClose: 5000,
-          });
+          if (error.response.data.err_code) {
+            if (
+              error.response.data.err_code === 'TOKEN_EXPIRED' ||
+              error.response.data.err_code === 'INVALID_TOKEN'
+            ) {
+              this.props.dispatch(logoutAction());
+              toast.warning('Token Expired');
+            }
+          } else {
+            console.log(error.response);
+            toast.success('Something went wrong.');
+          }
         });
     };
     return (
@@ -154,7 +200,12 @@ class Editproduct extends React.Component {
                       }}
                     />
                   </div>
-                  <button className='btn change-img-btn'>
+                  <button
+                    className='btn change-img-btn'
+                    type='button'
+                    onClick={() => {
+                      this.handleDeleteItem();
+                    }}>
                     <i className='bi bi-trash'></i>
                   </button>
                   <p className='product-time-desc'>
@@ -258,11 +309,20 @@ class Editproduct extends React.Component {
                         Add to cart
                       </button>
                     </div>
-                    <button
-                      className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
-                      type='submit'>
-                      Save Changes
-                    </button>
+                    {!this.state.isSaved ? (
+                      <button
+                        className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
+                        type='submit'>
+                        Save Changes
+                      </button>
+                    ) : (
+                      <button
+                        className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
+                        type='submit'
+                        disabled={true}>
+                        Saved
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

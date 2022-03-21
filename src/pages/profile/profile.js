@@ -33,6 +33,12 @@ class Profile extends React.Component {
       input: {},
       errorMsg: {},
       isValid: false,
+      icon1: 'far fa-eye-slash',
+      icon2: 'far fa-eye-slash',
+      icon3: 'far fa-eye-slash',
+      type1: 'password',
+      type2: 'password',
+      type3: 'password',
     };
   }
 
@@ -60,7 +66,18 @@ class Profile extends React.Component {
           selectedGender: res.data.result.data.gender,
         });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err.response);
+        if (err.response.data.err_code) {
+          if (
+            err.response.data.err_code === 'TOKEN_EXPIRED' ||
+            err.response.data.err_code === 'INVALID_TOKEN'
+          ) {
+            this.props.dispatch(logoutAction());
+            toast.warning('Token Expired');
+          }
+        }
+      });
   };
 
   componentDidMount() {
@@ -81,6 +98,48 @@ class Profile extends React.Component {
       selectedFile: e.target.files[0],
       profilePic: URL.createObjectURL(uploaded),
     });
+  };
+
+  handleToggle1 = () => {
+    if (this.state.type1 === 'password') {
+      this.setState({
+        icon1: 'far fa-eye',
+        type1: 'text',
+      });
+    } else {
+      this.setState({
+        icon1: 'far fa-eye-slash',
+        type1: 'password',
+      });
+    }
+  };
+
+  handleToggle2 = () => {
+    if (this.state.type2 === 'password') {
+      this.setState({
+        icon2: 'far fa-eye',
+        type2: 'text',
+      });
+    } else {
+      this.setState({
+        icon2: 'far fa-eye-slash',
+        type2: 'password',
+      });
+    }
+  };
+
+  handleToggle3 = () => {
+    if (this.state.type3 === 'password') {
+      this.setState({
+        icon3: 'far fa-eye',
+        type3: 'text',
+      });
+    } else {
+      this.setState({
+        icon3: 'far fa-eye-slash',
+        type3: 'password',
+      });
+    }
   };
 
   // Edit profile
@@ -114,17 +173,21 @@ class Profile extends React.Component {
           this.props.dispatch(updateUserPhoto(image));
         }
         this.getUserData();
-        toast.success('Profile updated successfully', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.success('Profile updated successfully');
       })
       .catch((err) => {
         console.error(err);
-        toast.error('Profile update is failed', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        if (err.response.data.err_code) {
+          if (
+            err.response.data.err_code === 'TOKEN_EXPIRED' ||
+            err.response.data.err_code === 'INVALID_TOKEN'
+          ) {
+            this.props.dispatch(logoutAction());
+            toast.warning('Token Expired');
+          }
+        } else {
+          toast.error('Profile update is failed');
+        }
       });
   };
 
@@ -162,7 +225,7 @@ class Profile extends React.Component {
       if (!validPass.test(input['newPass'])) {
         isValid = false;
         errors['newPass'] =
-          'Password must be at least 6 characters, including uppercase letter and numbers';
+          'Password must be at least 6 characters, including lowercase, uppercase and numbers';
       }
     }
 
@@ -184,12 +247,6 @@ class Profile extends React.Component {
   submitPasswordHandler = (e) => {
     e.preventDefault();
     if (this.validate()) {
-      let input = {};
-      input['currentPass'] = '';
-      input['newPass'] = '';
-      input['confirmPass'] = '';
-      this.setState({input: input});
-
       const {currentPass, newPass} = this.state.input;
       // console.log(this.state.input);
 
@@ -202,24 +259,16 @@ class Profile extends React.Component {
 
       editPassword(data, token)
         .then((res) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Password Updated Successfully',
-            text: 'Please login again to continue',
-            showCancelButton: false,
-            confirmButtonText: 'Ok',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              this.props.dispatch(logoutAction());
-              const {navigate} = this.props;
-              navigate('/login', {replace: true});
-
-              setTimeout(() => {
-                window.location.reload(false);
-              }, 5000);
-            }
+          this.setState({
+            show: false,
           });
-          // console.log("update success")
+          let input = {};
+          input['currentPass'] = '';
+          input['newPass'] = '';
+          input['confirmPass'] = '';
+          this.setState({input: input});
+
+          toast.success('Password updated successfully');
         })
         .catch((err) => {
           let errors = {};
@@ -333,10 +382,6 @@ class Profile extends React.Component {
                   onClick={this.deletePhoto}>
                   Remove photo
                 </button>
-                {/* <Link to="/profile/edit-password" className="btn edit-password-profile" replace={true}>
-                {/* <Link to="/profile/password" replace={true}> */}
-                {/* Edit Password */}
-                {/* </Link> */}
                 <button
                   className='btn edit-password-profile'
                   type='button'
@@ -512,54 +557,86 @@ class Profile extends React.Component {
                 </label>
                 <input
                   className='form-control current mb-3'
-                  type='password'
+                  type={this.state.type1}
                   name='currentPass'
-                  value={this.state.input.currentPass || ''}
+                  value={this.state.input.currentPass}
                   onChange={this.changeHandler}
                 />
                 <div className='text-danger mb-2'>
                   {this.state.errorMsg.currentPass}
+                </div>
+                <div
+                  className={
+                    this.state.errorMsg.newPass
+                      ? 'toggle-icon error1'
+                      : 'toggle-icon'
+                  }
+                  onClick={this.handleToggle1}>
+                  <i className={this.state.icon1}></i>
                 </div>
                 <label htmlFor='newPass' className='new-pass'>
                   New Password :
                 </label>
                 <input
                   className='form-control new'
-                  type='password'
+                  type={this.state.type2}
                   name='newPass'
-                  value={this.state.input.newPass || ''}
+                  value={this.state.input.newPass}
                   onChange={this.changeHandler}
                 />
                 <div className='text-danger mb-2'>
                   {this.state.errorMsg.newPass}
+                </div>
+                <div
+                  className={
+                    // this.state.errorMsg.currentPass
+                    //   ? "error2 toggle-icon toggle-newPass"
+                    //   : "toggle-icon toggle-newPass" ||
+                    this.state.errorMsg.newPass
+                      ? 'error2-1 toggle-icon toggle-newPass'
+                      : 'toggle-icon toggle-newPass'
+                  }
+                  onClick={this.handleToggle2}>
+                  <i className={this.state.icon2}></i>
                 </div>
                 <label htmlFor='confirmPass' className='confirm-pass'>
                   Confirm New Password :
                 </label>
                 <input
                   className='form-control confirm'
-                  type='password'
+                  type={this.state.type3}
                   name='confirmPass'
-                  value={this.state.input.confirmPass || ''}
+                  value={this.state.input.confirmPass}
                   onChange={this.changeHandler}
                 />
                 <div className='text-danger mb-2'>
                   {this.state.errorMsg.confirmPass}
                 </div>
-                <div className='col-md-12 text-center mt-5 changePass'>
-                  <button type='submit' className='btn btn-warning'>
-                    Change Password
-                  </button>
+                <div
+                  className={
+                    this.state.errorMsg.currentPass
+                      ? 'toggle-icon toggle-confirm error3'
+                      : 'toggle-icon toggle-confirm'
+                  }
+                  onClick={this.handleToggle3}>
+                  <i className={this.state.icon3}></i>
                 </div>
-                <div className='col-md-12 text-center mt-3 cancel-edit'>
-                  <button
-                    type='button'
-                    className='btn'
-                    onClick={() => {
-                      this.setState({show: !this.state.show});
-                    }}>
-                    Cancel
-                  </button>
+                <div className='row'>
+                  <div className='col-md-6 text-center mt-4 mb-3 cancel-edit'>
+                    <button
+                      type='button'
+                      className='btn'
+                      onClick={() => {
+                        this.setState({show: !this.state.show});
+                      }}>
+                      Cancel
+                    </button>
+                  </div>
+                  <div className='col-md-6 text-center mt-4 mb-3 changePass'>
+                    <button type='submit' className='btn btn-warning'>
+                      Change Password
+                    </button>
+                  </div>
                 </div>
               </form>
             </Modal.Body>

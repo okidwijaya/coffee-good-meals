@@ -64,14 +64,14 @@ class Forgotpassword extends React.Component {
                   Send
                 </button>
               </form>
-              <p className="forgotpasssword-information">
+              {/* <p className="forgotpasssword-information">
                 Click here if you didn't recieve any link <br />
                 in 2 minutes
               </p>
               <div className="btn btn-resend col-3 d-flex justify-content-center align-items-center">
                 Resend Link
               </div>
-              <p className="forgotpasssword-countdown">01:54</p>
+              <p className="forgotpasssword-countdown">01:54</p> */}
             </>
           ) : (
             <Verifyotp/>

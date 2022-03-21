@@ -6,45 +6,17 @@ import { toast } from "react-toastify";
 import { addPostPromo } from "../../../utils/https/promo";
 import { useSelector } from "react-redux";
 // import axios from "axios";
-// import defaultImg from "../../../assets/default-img.png";
+import defaultImg from "../../../assets/default-img.png";
 import { logout } from "../../../utils/https/auth";
 import { logoutAction } from "../../../redux/actions/auth";
-
-// import { Link, useNavigate } from "react-router-dom";
+import SelectRound from "../../../components/SelectRound";
 
 const Addpromo = (props) => {
   const token = useSelector((state) => state.auth.userData.token);
   console.log("my token", token);
-  const [valuepdp, setValue] = useState({ discount: 10 });
   const [categories, setCategory] = useState([]);
   const [image, setImage] = useState(null);
   const [imgPrev, setImagePrev] = useState(null);
-
-  // const handleSubmitDpd = (e) => {
-  //   e.preventDefault();
-  // };
-
-  // const handleChangedpd = (e) => {
-  //   setValue({ value: e.target.value });
-  //   console.log(valuepdp);
-  // };
-
-  // CATEGORY LOOPING
-  // let obj = {
-  //   array: [],
-  // };
-  // for (var l = 0; l < 100; l++) {
-  //   obj.array[l] = l + 1;
-  // }
-  // return (
-  //     <div>
-  //         <select>
-  //             {obj.array.length > 0 && obj.array.map((item) =>
-  //                 <option key={item.array}>{item.array}</option>
-  //              )}
-  //         </select>
-  //     </div>
-  // )
 
   useEffect(() => {
     const fetchBusinesses = () => {
@@ -70,6 +42,15 @@ const Addpromo = (props) => {
     discount_start: "",
     discount_end: "",
     image: "",
+    R: true,
+    X: true,
+    XL: true,
+    dine_in: true,
+    home_delivery: true,
+    take_away: true,
+    categories: null,
+    selectedCategory: null,
+    canSubmit: false,
   });
 
   const handleImage = (e) => {
@@ -82,53 +63,33 @@ const Addpromo = (props) => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-
-    setValue({ value: e.target.value });
-    console.log("value pdp", valuepdp);
-    // console.log(image, file);
-    // console.log("atrger", e.target);
     setData({
       ...data,
-      // setValue(e.target.code):value,
       [e.target.name]: value,
-      [e.target.id_category]: value,
-      [e.target.description]: value,
-      [e.target.code]: value,
-      [e.target.discount]: value,
-      [e.target.discount_start]: value,
-      [e.target.discount_end]: value,
-      [e.target.image]: value,
     });
   };
 
-  console.log("image1 : ", image);
-
-  // const body = {
-  //   name: data.name,
-  //   id_category: data.id_category,
-  //   description: data.description,
-  //   code: data.code,
-  //   discount: data.valuepdp,
-  //   discount_start: data.discount_start,
-  //   discount_end: data.discount_end,
-  //   image: data.image,
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("fomradta token : ", token);
     let body = new FormData();
-    body.append("name", e.target.name.value);
-    body.append("id_category", e.target.id_category.value);
-    body.append("description", e.target.description.value);
-    body.append("code", e.target.code.value);
-    body.append("discount", valuepdp.value);
-    body.append("discount_start", e.target.discount_start.value);
-    body.append("discount_end", e.target.discount_end.value);
+    body.append("name", data.name);
+    body.append("id_category", data.id_category);
+    body.append("description", data.description);
+    body.append("code", data.code);
+    body.append("discount", data.discount);
+    body.append("discount_start", data.discount_start);
+    body.append("discount_end", data.discount_end);
+    body.append("R", data.R);
+    body.append("X", data.X);
+    body.append("XL", data.XL);
+    body.append("dine_in", data.dine_in);
+    body.append("home_delivery", data.home_delivery);
+    body.append("take_away", data.take_away);
     if (image) body.append("image", image);
 
     console.log("body data : ", body);
     console.log(body.discount);
-    // console.log("image : ", image);
     addPostPromo(body, token)
       .then((response) => {
         console.log("resposnse pos req", body);
@@ -153,7 +114,6 @@ const Addpromo = (props) => {
         }
       });
   };
-  // console.log(data);
 
   return (
     <>
@@ -181,44 +141,42 @@ const Addpromo = (props) => {
               // value={image.file}
               // name="image"
               >
-                {image && (
+                {image &&
+                <img src={imgPrev} className="add-image" alt="add pic" /> !==
+                  null ? (
                   <img src={imgPrev} className="add-image" alt="add pic" />
+                ) : (
+                  <img src={defaultImg} className="add-image" alt="add pic" />
                 )}
               </div>
-              <input
-                type="file"
-                onChange={(e) => handleImage(e)}
-                {...data}
-                // value={image.file}
-              />
+              <div className="input-file-btn btn-add-byGallery btn-width-container btn-yellow-color font-brown-color">
+                <input
+                  type="file"
+                  id="file"
+                  onChange={(e) => handleImage(e)}
+                  {...data}
+                />
+                <label htmlFor="file"> Choose From Gallery</label>
+              </div>
               <div className="btn btn-block btn-take-picture">
                 Take a picture
-              </div>
-              <div className="btn btn-block btn-add-byGallery btn-width-container btn-yellow-color font-brown-color">
-                Choose from gallery
               </div>
 
               <div>
                 <label className="add-product-title">Enter the Discount:</label>
                 <select
-                  value={valuepdp.value}
                   name="discount"
                   onChange={handleChange}
                   className="start-hour-btn"
                 >
                   <option value="none" selected disabled>
-                    {/* hidden */}
                     Select an Option
                   </option>
-                  {/* <option selected disabled>
-                    Set Discount
-                  </option> */}
                   <option value="10">10%</option>
                   <option value="20">20%</option>
                   <option value="30">30%</option>
                   <option value="50">50%</option>
                 </select>
-                {/* <input type="submit" value="Submit" /> */}
               </div>
 
               <div className="form-wrapper">
@@ -228,7 +186,6 @@ const Addpromo = (props) => {
                   className="form-control start-hour-btn"
                   id="formGroupExampleInput"
                   placeholder="Select Start Date"
-                  // value={data.discount_start}
                   name="discount_start"
                   onChange={handleChange}
                 />
@@ -237,7 +194,6 @@ const Addpromo = (props) => {
                   className="form-control start-hour-btn"
                   id="formGroupExampleInput"
                   placeholder="Select End Date"
-                  // value={data.discount_end}
                   name="discount_end"
                   onChange={handleChange}
                 />
@@ -252,7 +208,6 @@ const Addpromo = (props) => {
                     className="form-control start-hour-btn"
                     id="formGroupExampleInput"
                     placeholder="Type promo name min. 50 characters"
-                    // value={data.code}
                     name="code"
                     onChange={handleChange}
                   />
@@ -280,7 +235,7 @@ const Addpromo = (props) => {
                   value={categories.id}
                   name="id_category"
                   onChange={handleChange}
-                  className="start-hour-btn"
+                  className="start-hour-btn-ctg"
                 >
                   <option value="none" selected disabled hidden>
                     Select an Option
@@ -311,24 +266,30 @@ const Addpromo = (props) => {
                   Click size you want to use for this product
                 </p>
                 <div>
-                  <button className="btn btn-radio btn-yellow-color">R</button>
-                  <button className="btn btn-radio btn-yellow-color">X</button>
-                  <button className="btn btn-radio btn-yellow-color">XL</button>
-                  <button className="btn btn-radio-load">
-                    200
-                    <br />
-                    gr
-                  </button>
-                  <button className="btn btn-radio-load">
-                    300
-                    <br />
-                    gr
-                  </button>
-                  <button className="btn btn-radio-load">
-                    500
-                    <br />
-                    gr
-                  </button>
+                  <SelectRound
+                    value="R"
+                    name="R"
+                    isSelected={data.R}
+                    onChange={(val) => {
+                      setData({ ...data, R: !data.R });
+                    }}
+                  />
+                  <SelectRound
+                    value="X"
+                    name="X"
+                    isSelected={data.X}
+                    onChange={(val) => {
+                      setData({ ...data, X: !data.X });
+                    }}
+                  />
+                  <SelectRound
+                    value="XL"
+                    name="XL"
+                    isSelected={data.XL}
+                    onChange={(val) => {
+                      setData({ ...data, XL: !data.XL });
+                    }}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -336,14 +297,44 @@ const Addpromo = (props) => {
                 <p className="form-desc">
                   Click methods you want to use for this product
                 </p>
-                <div className="row w-100 h-25 mx-auto">
-                  <button className="col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                <div className="row w-100 h-25 mx-0">
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.home_delivery && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({ ...data, home_delivery: !data.home_delivery });
+                    }}
+                  >
                     Home Delivery
                   </button>
-                  <button className="col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
-                    Dine in
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.dine_in && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({
+                        ...data,
+                        dine_in: !data.dine_in,
+                      });
+                    }}
+                  >
+                    Dine In
                   </button>
-                  <button className="col-11 col-md col-lg mx-1 btn-take-away border-0 btn-width-form-input-add">
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.take_away && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({
+                        ...data,
+                        take_away: !data.take_away,
+                      });
+                    }}
+                  >
                     Take away
                   </button>
                 </div>
@@ -368,64 +359,3 @@ const Addpromo = (props) => {
 };
 
 export default Addpromo;
-
-{
-  /* <div>
-                <p className="add-product-title">Enter the Discount:</p>
-                <div className="dropdown">
-                  <div
-                    className="btn start-hour-btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Input discount
-                  </div>
-                  <div
-                    className="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <a className="dropdown-item" href="/">
-                      Action
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Another action
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </div>
-                </div>
-              </div> */
-}
-
-{
-  /* <div className="dropdown">
-                  <button
-                    className="btn start-hour-btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Input Coupon Code
-                  </button>
-                  <div
-                    className="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <a className="dropdown-item" href="/">
-                      Action
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Another action
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </div>
-                </div> */
-}

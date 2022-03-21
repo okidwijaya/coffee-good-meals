@@ -48,46 +48,8 @@
     width: 300px;
     height: 300px;
     position: relative;
-    animation: example 4s infinite;
+    /* animation: example 4s infinite; */
     /* inset: auto 0 auto auto; */
-}
-
-@keyframes example {
-    0% {
-        /* background-color: red; */
-        left: -100px;
-        top: -500px;
-    }
-    15% {
-        /* background-color: yellow; */
-        left: 250px;
-        top: 30px;
-    }
-    20% {
-        /* background-color: yellow; */
-        left: 340px;
-        top: 10px;
-    }
-    35% {
-        /* background-color: yellow; */
-        left: 80px;
-        top: 350px;
-    }
-    50% {
-        /* background-color: blue; */
-        left: 200px;
-        top: 200px;
-    }
-    75% {
-        /* background-color: green; */
-        left: -190px;
-        top: 500px;
-    }
-    100% {
-        /* background-color: red; */
-        left: 0px;
-        top: 0px;
-    }
 }
 
 .button-404 {
@@ -95,7 +57,7 @@
     background-color: #f4b211;
     color: #6A4029;
     border: none;
-    font-size: calc(14px + 0.3vw);
+    font-size: calc(14px+0.3vw);
     cursor: pointer;
     font-weight: bold;
     width: 200px;
@@ -109,7 +71,7 @@
     background: none;
     color: #dc483b;
     border: none;
-    font-size: calc(14px + 0.3vw);
+    font-size: calc(14px+0.3vw);
     cursor: pointer;
     outline: 2px solid #dc483b;
 }
@@ -122,13 +84,13 @@
 .forbidden-wrapper h1 {
     color: #f4b211 !important;
     font-weight: bold;
-    font-size: calc(50px + 10vw);
+    font-size: calc(50px+10vw);
     font-family: 'Rubik', sans-serif;
 }
 
 .forbidden-wrapper h3 {
     color: #212529;
-    font-size: calc(16px + 1vw);
+    font-size: calc(16px+1vw);
 }
 
 .img-middle {
@@ -138,7 +100,7 @@
 
 .invalid-main .wrapper img {
     margin: auto;
-    width: calc(150px + 35vw);
+    width: calc(150px+35vw);
     height: auto;
 }
 
@@ -152,7 +114,7 @@
 
 .invalid-main .wrapper h1,
 .forbidden-main .wrapper h1 {
-    font-size: calc(20px + 10vw);
+    font-size: calc(20px+10vw);
     font-family: 'Rubik', sans-serif;
     color: #dc483b;
     font-weight: 800;
@@ -160,19 +122,19 @@
 
 .invalid-main h2,
 .forbidden-main h2 {
-    font-size: calc(18px + 3vw);
+    font-size: calc(18px+3vw);
 }
 
 .invalid-main .wrapper p,
 .forbidden-main .wrapper p {
-    font-size: calc(15px + 0.5vw);
+    font-size: calc(15px+0.5vw);
     color: #393939;
     font-weight: 500;
 }
 
 .invalid-main a,
 .forbidden-main a {
-    font-size: calc(14px + 0.5vw);
+    font-size: calc(14px+0.5vw);
     text-decoration: none;
     color: #fc8f1c;
 }

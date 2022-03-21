@@ -6,15 +6,15 @@ import { editPromoCoupon, getPromoDetail } from "../../../utils/https/promo";
 import { useSelector } from "react-redux";
 import { logout } from "../../../utils/https/auth";
 import { logoutAction } from "../../../redux/actions/auth";
+import defaultImg from "../../../assets/default-img.png";
+import SelectRound from "../../../components/SelectRound";
 
 // import axios from "axios";
 // import { editPromoCoupon } from "../../../utils/https/category";
-// import defaultImg from "../../../assets/cold-brew-hd.png";
 
 const Editpromo = (props) => {
   const token = useSelector((state) => state.auth.userData.token);
   console.log("my token", token);
-  const [valuepdp, setValue] = useState({ discount: 10 });
   const [image, setImage] = useState(null);
   const [imgPrev, setImagePrev] = useState(null);
   const [getPromo, setGetPromo] = useState([]);
@@ -42,6 +42,15 @@ const Editpromo = (props) => {
     discount_start: "",
     discount_end: "",
     image: "",
+    R: true,
+    X: true,
+    XL: true,
+    dine_in: true,
+    home_delivery: true,
+    take_away: true,
+    categories: null,
+    selectedCategory: null,
+    canSubmit: false,
   });
 
   const handleImage = (e) => {
@@ -50,46 +59,36 @@ const Editpromo = (props) => {
     setImage(file);
     setImagePrev(URL.createObjectURL(file));
   };
-  console.log("image file upl : ", image);
 
   const handleChange = (e) => {
     const value = e.target.value;
-
-    setValue({ value: e.target.value });
-    console.log("value pdp", valuepdp);
-    // console.log(image, file);
-    // console.log("atrger", e.target);
     setData({
       ...data,
-      // setValue(e.target.code):value,
       [e.target.name]: value,
-      [e.target.id]: value,
-      [e.target.description]: value,
-      [e.target.code]: value,
-      [e.target.discount]: value,
-      [e.target.discount_start]: value,
-      [e.target.discount_end]: value,
-      [e.target.image]: value,
     });
   };
 
-  console.log("image1 : ", image);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("fomradta token : ", token);
     let body = new FormData();
-    body.append("name", e.target.name.value);
+    body.append("name", data.name);
     body.append("id", getPromo.id);
-    body.append("description", e.target.description.value);
-    body.append("code", e.target.code.value);
-    body.append("discount", valuepdp.value);
-    body.append("discount_start", e.target.discount_start.value);
-    body.append("discount_end", e.target.discount_end.value);
+    body.append("description", data.description);
+    body.append("code", data.code);
+    body.append("discount", data.discount);
+    body.append("discount_start", data.discount_start);
+    body.append("discount_end", data.discount_end);
+    body.append("R", data.R);
+    body.append("X", data.X);
+    body.append("XL", data.XL);
+    body.append("dine_in", data.dine_in);
+    body.append("home_delivery", data.home_delivery);
+    body.append("take_away", data.take_away);
     if (image) body.append("image", image);
 
     console.log("body data : ", body);
     console.log(body.discount);
-    // console.log("image : ", image);
     editPromoCoupon(body, token)
       .then((response) => {
         console.log("resposnse pos req", body);
@@ -114,7 +113,6 @@ const Editpromo = (props) => {
         }
       });
   };
-  // console.log(data);
 
   return (
     <>
@@ -144,21 +142,48 @@ const Editpromo = (props) => {
             <aside className="col col-md-5">
               <div className="card-coupon-edit align-item-center align-content-center">
                 <div>
-                  <div>
-                    {image && (
-                      <img
-                        src={imgPrev}
-                        className="coupon-edit-img"
-                        alt="add pic"
-                      />
-                    )}
+                  {image &&
+                  (
+                    <img
+                      src={imgPrev}
+                      className="coupon-edit-img"
+                      alt="add pic"
+                    />
+                  ) !== null ? (
+                    <img
+                      src={imgPrev}
+                      className="coupon-edit-img"
+                      alt="add pic"
+                    />
+                  ) : (
+                    <img
+                      src={defaultImg}
+                      className="coupon-edit-img"
+                      alt="add pic"
+                    />
+                  )}
+
+                  <div className="pencil-edit-promo">
+                    <input
+                      type="file"
+                      id="file"
+                      className="change-promo-img-btn img-edit-promo"
+                      onChange={(e) => handleImage(e)}
+                      {...data}
+                    />
+                    <label
+                      htmlFor="file"
+                      className="input-file-edit-btn change-promo-img-btn"
+                    >
+                      <i className="bi bi-pencil"></i>
+                    </label>
                   </div>
-                  <input
+                  {/* <input
                     type="file"
                     onChange={(e) => handleImage(e)}
                     {...data}
                     // value={image.file}
-                  />
+                  /> */}
                 </div>
                 {/* <img
                     src={defaultImg}
@@ -208,7 +233,6 @@ const Editpromo = (props) => {
                       ? `${getPromo.discount_start}`
                       : "Select Start Date"
                   }
-                  // value={getPromo.discount_start}
                   name="discount_start"
                   onChange={handleChange}
                 />
@@ -221,7 +245,6 @@ const Editpromo = (props) => {
                       ? `${getPromo.discount_end}`
                       : "Select End Date"
                   }
-                  // value=
                   name="discount_end"
                   onChange={handleChange}
                 />
@@ -240,7 +263,6 @@ const Editpromo = (props) => {
                         ? `${getPromo.promo}`
                         : "Type promo name min. 50 characters"
                     }
-                    // value={getPromo.code}
                     name="code"
                     onChange={handleChange}
                   />
@@ -297,24 +319,30 @@ const Editpromo = (props) => {
                   Click size you want to use for this product
                 </p>
                 <div>
-                  <button className="btn btn-radio btn-yellow-color">R</button>
-                  <button className="btn btn-radio btn-yellow-color">X</button>
-                  <button className="btn btn-radio btn-yellow-color">XL</button>
-                  <button className="btn btn-radio-load">
-                    200
-                    <br />
-                    gr
-                  </button>
-                  <button className="btn btn-radio-load">
-                    300
-                    <br />
-                    gr
-                  </button>
-                  <button className="btn btn-radio-load">
-                    500
-                    <br />
-                    gr
-                  </button>
+                  <SelectRound
+                    value="R"
+                    name="R"
+                    isSelected={data.R}
+                    onChange={(val) => {
+                      setData({ ...data, R: !data.R });
+                    }}
+                  />
+                  <SelectRound
+                    value="X"
+                    name="X"
+                    isSelected={data.X}
+                    onChange={(val) => {
+                      setData({ ...data, X: !data.X });
+                    }}
+                  />
+                  <SelectRound
+                    value="XL"
+                    name="XL"
+                    isSelected={data.XL}
+                    onChange={(val) => {
+                      setData({ ...data, XL: !data.XL });
+                    }}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -323,13 +351,43 @@ const Editpromo = (props) => {
                   Click methods you want to use for this product
                 </p>
                 <div className="row w-100 h-25 mx-0">
-                  <button className="col-8 col-sm-7 col-md-7 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.home_delivery && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({ ...data, home_delivery: !data.home_delivery });
+                    }}
+                  >
                     Home Delivery
                   </button>
-                  <button className="col-8 col-sm-7 col-md-7 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color">
-                    Dine in
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.dine_in && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({
+                        ...data,
+                        dine_in: !data.dine_in,
+                      });
+                    }}
+                  >
+                    Dine In
                   </button>
-                  <button className="col-8 col-sm-7 col-md-7 btn-take-away border-0 btn-width-form-input-add">
+                  <button
+                    type="button"
+                    className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                      data.take_away && " btn-yellow-color"
+                    }`}
+                    onClick={() => {
+                      setData({
+                        ...data,
+                        take_away: !data.take_away,
+                      });
+                    }}
+                  >
                     Take away
                   </button>
                 </div>
@@ -340,28 +398,18 @@ const Editpromo = (props) => {
                     Enter the Discount:
                   </label>
                   <select
-                    value={
-                      `${valuepdp.value}` !== null
-                        ? `${valuepdp.value}`
-                        : `${getPromo.discount}`
-                    }
                     name="discount"
                     onChange={handleChange}
                     className="start-hour-btn"
                   >
                     <option value="none" selected disabled>
-                      {/* hidden */}
                       Select an Option
                     </option>
-                    {/* <option selected disabled>
-                    Set Discount
-                  </option> */}
                     <option value="10">10%</option>
                     <option value="20">20%</option>
                     <option value="30">30%</option>
                     <option value="50">50%</option>
                   </select>
-                  {/* <input type="submit" value="Submit" /> */}
                 </div>
                 <button className="col col-md-auto btn btn-block btn-save-changes btn-brown-color font-white-color">
                   Save Changes

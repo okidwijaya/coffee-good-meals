@@ -10,11 +10,43 @@ class ResetPassword extends React.Component {
     this.state = {
       input: {},
       errorMsg: {},
-      isValid: false
-    }
+      isValid: false,
+      icon1: "far fa-eye-slash",
+      icon2: "far fa-eye-slash",
+      type1: "password",
+      type2: "password",
+    };
   }
 
- handleChange = (e) => {
+  handleToggle1 = () => {
+    if (this.state.type1 === "password") {
+      this.setState({
+        icon1: "far fa-eye",
+        type1: "text",
+      });
+    } else {
+      this.setState({
+        icon1: "far fa-eye-slash",
+        type1: "password",
+      });
+    }
+  };
+
+  handleToggle2 = () => {
+    if (this.state.type2 === "password") {
+      this.setState({
+        icon2: "far fa-eye",
+        type2: "text",
+      });
+    } else {
+      this.setState({
+        icon2: "far fa-eye-slash",
+        type2: "password",
+      });
+    }
+  };
+
+  handleChange = (e) => {
     let input = this.state.input;
     input[e.target.name] = e.target.value;
     this.setState({
@@ -27,11 +59,14 @@ class ResetPassword extends React.Component {
     let input = this.state.input;
     let isValid = true;
 
-    if(typeof input["newPass"] !== "undefined") {
-      const validPass = new RegExp('^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$');
+    if (typeof input["newPass"] !== "undefined") {
+      const validPass = new RegExp(
+        "^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$"
+      );
       if (!validPass.test(input["newPass"])) {
         isValid = false;
-        errors["newPass"] = "Password must be at least 6 characters, including uppercase letter and numbers"
+        errors["newPass"] =
+          "Password must be at least 6 characters, including lowercase, uppercase and numbers";
       }
     }
 
@@ -53,15 +88,10 @@ class ResetPassword extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.validate()) {
-      let input = {};
-      input["newPass"] = "";
-      input["confirmPass"] = "";
-      this.setState({ input: input });
-
       const { newPass } = this.state.input;
       // console.log(this.state.input);
-    const email = JSON.parse(localStorage["email-user"]);
-    const otp = JSON.parse(localStorage["otp"]);
+      const email = JSON.parse(localStorage["email-user"]);
+      const otp = JSON.parse(localStorage["otp"]);
 
       const body = {
         email: email,
@@ -79,8 +109,12 @@ class ResetPassword extends React.Component {
             confirmButtonText: "Ok",
           }).then((result) => {
             if (result.isConfirmed) {
-              localStorage.removeItem('email-user');
-              localStorage.removeItem('otp');
+              let input = {};
+              input["newPass"] = "";
+              input["confirmPass"] = "";
+              this.setState({ input: input });
+              localStorage.removeItem("email-user");
+              localStorage.removeItem("otp");
               const { navigate } = this.props;
               navigate("/login", { replace: true });
 
@@ -109,12 +143,26 @@ class ResetPassword extends React.Component {
               </label>
               <input
                 className="form-control new"
-                type="password"
+                type={this.state.type1}
                 name="newPass"
                 value={this.state.input.newPass || ""}
                 onChange={this.handleChange}
               />
-              <div className="text-danger mb-2" style={{fontSize: "1.2rem", fontWeight: "bold", backgroundColor: "black"}}>
+              <div
+                className="toggleReset1"
+                onClick={this.handleToggle1}
+              >
+                <i className={this.state.icon1}></i>
+              </div>
+              <div
+                className="text-danger mb-3"
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  backgroundColor: "white",
+                  opacity: "0.9",
+                }}
+              >
                 {this.state.errorMsg.newPass}
               </div>
               <label htmlFor="confirmPass" className="confirm-resetPass">
@@ -122,12 +170,26 @@ class ResetPassword extends React.Component {
               </label>
               <input
                 className="form-control confirm"
-                type="password"
+                type={this.state.type2}
                 name="confirmPass"
                 value={this.state.input.confirmPass || ""}
                 onChange={this.handleChange}
               />
-              <div className="text-danger mb-2" style={{fontSize: "1.2rem", fontWeight: "bold", backgroundColor: "black"}}>
+              <div
+                className={this.state.errorMsg.newPass ? "toggleReset2 resetIcon" : "toggleReset2"}
+                onClick={this.handleToggle2}
+              >
+                <i className={this.state.icon2}></i>
+              </div>
+              <div
+                className="text-danger mb-5"
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  backgroundColor: "white",
+                  opacity: "0.9",
+                }}
+              >
                 {this.state.errorMsg.confirmPass}
               </div>
             </div>
