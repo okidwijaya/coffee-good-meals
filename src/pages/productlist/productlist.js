@@ -1,15 +1,16 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 // import { Link, Outlet } from "react-router-dom";
-import Navactive from '../../components/navigation/Nav';
-import DetailCard from '../../components/cardDetail';
-import {Link, useNavigate, useParams} from 'react-router-dom';
-import {getDetailProduct, deleteProducts} from '../../utils/https/products';
-import {connect} from 'react-redux';
-import Swal from 'sweetalert2';
-import {toast} from 'react-toastify';
-import SelectRound from '../../components/SelectRound';
-import LoadingComponent from '../../components/LoadingComponent';
+
+import Navactive from "../../components/navigation/Nav";
+import DetailCard from "../../components/cardDetail";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { getDetailProduct, deleteProducts } from "../../utils/https/products";
+import { connect } from "react-redux";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import SelectRound from "../../components/SelectRound";
+import LoadingComponent from "../../components/LoadingComponent";
 
 function ProductDetail(props) {
   const params = useParams();
@@ -22,9 +23,9 @@ class ProductList extends React.Component {
     super(props);
     this.state = {
       detailProduct: {},
-      imgProduct: require('../../assets/Veggie-tomato-mix.png'),
-      selectedSize: 'R',
-      selectedMethods: 'Dine In',
+      imgProduct: require("../../assets/Veggie-tomato-mix.png"),
+      selectedSize: "R",
+      selectedMethods: "Dine In",
     };
     this.target = React.createRef();
   }
@@ -46,7 +47,7 @@ class ProductList extends React.Component {
         const data = res.data.result.data;
         const image = res.data.result.data.image;
         //  console.log('detail img', image);
-        if (image !== null && typeof image !== 'undefined') {
+        if (image !== null && typeof image !== "undefined") {
           this.setState({
             imgProduct: process.env.REACT_APP_HOST + `/products/${image}`,
           });
@@ -61,22 +62,22 @@ class ProductList extends React.Component {
   }
   onDelete = () => {
     Swal.fire({
-      icon: 'error',
-      title: 'Are you sure you want to delete this product?',
+      icon: "error",
+      title: "Are you sure you want to delete this product?",
       showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No',
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
         const token = this.props.token;
         const id = this.props.id;
-        console.log('delete', token);
+        console.log("delete", token);
         deleteProducts(id, token)
           .then((response) => {
             console.log(response);
             const usenavigate = this.props.usenavigate;
-            toast.success('Product deleted.');
-            usenavigate('/products');
+            toast.success("Product deleted.");
+            usenavigate("/products");
           })
           .catch((error) => {
             console.log(error.response);
@@ -86,65 +87,67 @@ class ProductList extends React.Component {
     });
   };
   render() {
-    console.log('props', this.props.token, this.props.role);
-    const {name, price, description} = this.state.detailProduct;
-    const {imgProduct, selectedMethods} = this.state;
+    console.log("props", this.props.token, this.props.role);
+    const { name, price, description } = this.state.detailProduct;
+    const { imgProduct, selectedMethods } = this.state;
 
     const role = this.props.role;
     const id = this.props.id;
-    console.log('role', role);
-    const formatPrice = new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
+    console.log("role", role);
+    const formatPrice = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
     }).format(price);
     return (
       <>
         <Navactive />
         {this.state.detailProduct.name ? (
           <>
-            <section className='row'>
-              <div className='col-12 col-md-6 image-detail-product'>
-                <p className='title-productDetail'>
-                  <Link to='/products'> Favorite {'&'} Promo </Link> {'/'}{' '}
+            <section className="row">
+              <div className="col-12 col-md-6 image-detail-product">
+                <p className="title-productDetail">
+                  <Link to="/products"> Favorite {"&"} Promo </Link> {"/"}{" "}
                   {name}
                 </p>
                 <img
                   src={imgProduct}
-                  alt='coffee cold'
-                  className='coffee-productDetail rounded-circle mb-2'
-                  onError={({currentTarget}) => {
+                  alt="coffee cold"
+                  className="coffee-productDetail rounded-circle mb-2"
+                  onError={({ currentTarget }) => {
                     console.log(currentTarget);
                     currentTarget.onerror = null;
-                    currentTarget.src = require('../../assets/Veggie-tomato-mix.png');
+                    currentTarget.src = require("../../assets/Veggie-tomato-mix.png");
                   }}
                 />
-                <p className='brand-coffee'>{name}</p>
-                <p className='price-coffee'>{formatPrice}</p>
-                {role === '1' ? (
+                <p className="brand-coffee">{name}</p>
+                <p className="price-coffee">{formatPrice}</p>
+                {role === "1" ? (
                   <>
-                    <Link to={'/payment'}>
-                      <button className='btn button-addCart'>
+                    <Link to={"/payment"}>
+                      <button className="btn button-addCart">
                         Add to Cart
                       </button>
                     </Link>
-                    <button className='btn button-askStaff'>Ask a Staff</button>
+                    <button className="btn button-askStaff">Ask a Staff</button>
                   </>
                 ) : (
                   <>
-                    <button className='btn button-addCart mb-3'>
+                    <button className="btn button-addCart mb-3">
                       Add to Cart
                     </button>
-                    {this.props.token && this.props.role === '2' && (
+                    {this.props.token && this.props.role === "2" && (
                       <>
                         <Link
-                          className='btn button-editCart'
-                          to={`/product/edit/${id}`}>
+                          className="btn button-editCart"
+                          to={`/product/edit/${id}`}
+                        >
                           Edit Product
                         </Link>
                         <button
-                          className='btn button-askStaff'
+                          className="btn button-askStaff"
                           onClick={this.onDelete}
-                          type='button'>
+                          type="button"
+                        >
                           Delete
                         </button>
                       </>
@@ -152,86 +155,89 @@ class ProductList extends React.Component {
                   </>
                 )}
               </div>
-              <div className='col col-md-6 detail-delivery'>
-                <div className='col col-md-10 detail-name'>
-                  <p className='delivery-time'>
+              <div className="col col-md-6 detail-delivery">
+                <div className="col col-md-10 detail-name">
+                  <p className="delivery-time">
                     Delivery only on <b>Monday to friday</b> at <b>12 - 8 pm</b>
                   </p>
-                  <p className='detail-name-delivery'>{description}</p>
-                  <p className='choose-size'>Choose a size</p>
-                  <div className='button-size-choose'>
+                  <p className="detail-name-delivery">{description}</p>
+                  <p className="choose-size">Choose a size</p>
+                  <div className="button-size-choose">
                     <SelectRound
-                      value='R'
-                      isSelected={this.state.selectedSize === 'R'}
+                      value="R"
+                      isSelected={this.state.selectedSize === "R"}
                       onChange={(val) => {
                         this.onChangeSize(val);
                       }}
                     />
                     <SelectRound
-                      value='X'
-                      isSelected={this.state.selectedSize === 'X'}
+                      value="X"
+                      isSelected={this.state.selectedSize === "X"}
                       onChange={(val) => {
                         this.onChangeSize(val);
                       }}
                     />
                     <SelectRound
-                      value='XL'
-                      isSelected={this.state.selectedSize === 'XL'}
+                      value="XL"
+                      isSelected={this.state.selectedSize === "XL"}
                       onChange={(val) => {
                         this.onChangeSize(val);
                       }}
                     />
                   </div>
                 </div>
-                <p className='methods-delivery'>Choose Delivery Methods</p>
-                <div className='button-methods'>
+                <p className="methods-delivery">Choose Delivery Methods</p>
+                <div className="button-methods">
                   <button
                     className={`btn delivery-methods ${
-                      selectedMethods === 'Dine In' && 'active-delivery'
+                      selectedMethods === "Dine In" && "active-delivery"
                     }`}
                     onClick={() => {
                       this.setState({
-                        selectedMethods: 'Dine In',
+                        selectedMethods: "Dine In",
                       });
-                    }}>
+                    }}
+                  >
                     Dine In
                   </button>
                   <button
                     className={`btn delivery-methods ${
-                      selectedMethods === 'Door Delivery' && 'active-delivery'
+                      selectedMethods === "Door Delivery" && "active-delivery"
                     }`}
                     onClick={() => {
                       this.setState({
-                        selectedMethods: 'Door Delivery',
+                        selectedMethods: "Door Delivery",
                       });
-                    }}>
+                    }}
+                  >
                     Door Delivery
                   </button>
                   <button
                     className={`btn delivery-methods ${
-                      selectedMethods === 'Pick Up' && 'active-delivery'
+                      selectedMethods === "Pick Up" && "active-delivery"
                     }`}
                     onClick={() => {
                       this.setState({
-                        selectedMethods: 'Pick Up',
+                        selectedMethods: "Pick Up",
                       });
-                    }}>
+                    }}
+                  >
                     Pick Up
                   </button>
                 </div>
-                <div className='col col-md-8 set-time-choose'>
-                  <label htmlFor='date' className='form-set-time mx-2'>
+                <div className="col col-md-8 set-time-choose">
+                  <label htmlFor="date" className="form-set-time mx-2">
                     Set Time :
                   </label>
                   <input
-                    type='text'
-                    className='set-time'
-                    name='set-time'
+                    type="text"
+                    className="set-time"
+                    name="set-time"
                     ref={this.target}
-                    placeholder='Enter the time you arrived'
+                    placeholder="Enter the time you arrived"
                     // onChange={this.handleChange}
-                    onFocus={() => (this.target.current.type = 'time')}
-                    onBlur={() => (this.target.current.type = 'text')}
+                    onFocus={() => (this.target.current.type = "time")}
+                    onBlur={() => (this.target.current.type = "text")}
                   />
                 </div>
               </div>
