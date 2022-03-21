@@ -47,7 +47,17 @@ function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>
-        <ToastContainer />
+        <ToastContainer
+          position='bottom-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Routes>
           <Route element={<PublicRoute />}>
             <Route path='/login' element={<Login />} />
