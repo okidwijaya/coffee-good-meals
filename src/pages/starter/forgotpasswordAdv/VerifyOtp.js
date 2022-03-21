@@ -145,7 +145,7 @@ function Verifyotp() {
             {count === -1 && (
               <>
                 <p className="forgotpasssword-information mt-5">
-                  Click here if you didn't recieve any link <br />
+                  Click here if you didn't receive any code <br />
                   in 1 minutes
                 </p>
                 <div
