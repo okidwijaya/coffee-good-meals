@@ -22,7 +22,6 @@ class Forgotpassword extends React.Component {
         const email = res.data.result.data.email;
         localStorage.setItem("email-user", JSON.stringify(email));
         toast.success("Verification code has been sent. Please check your email!", {
-          position: toast.POSITION.TOP_RIGHT,
           autoClose: false,
         });
         this.setState({

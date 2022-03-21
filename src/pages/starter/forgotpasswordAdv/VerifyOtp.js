@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import React, {useEffect, useState} from 'react';
+import {toast} from 'react-toastify';
 // import OtpInput from "react-otp-input-rc-17";
-import PinInput from "react-pin-input";
+import PinInput from 'react-pin-input';
 
-import { forgotPass, verifyOTP } from "../../../utils/https/auth";
-import "../style.css";
-import ResetPassword from "./ResetPassword";
+import {forgotPass, verifyOTP} from '../../../utils/https/auth';
+import '../style.css';
+import ResetPassword from './ResetPassword';
 
 function Verifyotp() {
   const style = {
     className: PinInput,
     inputStyle: {
-      fontFamily: "Nunito Sans",
-      marginRight: "10px",
-      marginBottom: "5px",
-      MozAppearance: "textfield",
-      width: "80px",
-      borderRadius: "6px",
-      fontSize: "30px",
-      height: "85px",
-      backgroundColor: "white",
-      color: "black",
-      border: "1px solid #6d7499",
-      textAlign: "center",
+      fontFamily: 'Nunito Sans',
+      marginRight: '10px',
+      marginBottom: '5px',
+      MozAppearance: 'textfield',
+      width: '80px',
+      borderRadius: '6px',
+      fontSize: '30px',
+      height: '85px',
+      backgroundColor: 'white',
+      color: 'black',
+      border: '1px solid #6d7499',
+      textAlign: 'center',
     },
   };
   const [isReset, setIsReset] = useState(false);
@@ -49,7 +49,7 @@ function Verifyotp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email = JSON.parse(localStorage["email-user"]);
+    const email = JSON.parse(localStorage['email-user']);
     // console.log("email", email)
     const body = {
       email: email,
@@ -59,21 +59,18 @@ function Verifyotp() {
       .then((res) => {
         // console.log(res);
         const code = otp;
-        localStorage.setItem("otp", JSON.stringify(code));
+        localStorage.setItem('otp', JSON.stringify(code));
 
         setIsReset(true);
       })
       .catch((err) => {
         console.error(err);
-        toast.error("Invalid OTP", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-        });
+        toast.error('Invalid OTP');
       });
   };
 
   const resendOtp = () => {
-    const email = JSON.parse(localStorage["email-user"]);
+    const email = JSON.parse(localStorage['email-user']);
     const body = {
       email: email,
     };
@@ -96,21 +93,21 @@ function Verifyotp() {
       }, 1000);
       return () => clearInterval(secondsLeft);
     } else {
-      console.log("timeout");
+      console.log('timeout');
     }
   }, [count]);
 
   return (
     <>
-      <div className="container-verify">
+      <div className='container-verify'>
         {!isReset ? (
           <>
-            <p className="forgotpassword-title">Verification Code</p>
-            <p className="forgotpassword-text">
+            <p className='forgotpassword-title'>Verification Code</p>
+            <p className='forgotpassword-text'>
               Please enter the verification code to verify your account
             </p>
             <form onSubmit={handleSubmit}>
-              <div className="userInput">
+              <div className='userInput'>
                 {/* <input
                     type="text"
                     className="col col-md-8 input-email-auth-password"
@@ -125,22 +122,22 @@ function Verifyotp() {
                   /> */}
                 <PinInput
                   length={6}
-                  type="numeric"
-                  inputMode="number"
+                  type='numeric'
+                  inputMode='number'
                   regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
                   autoSelect={true}
                   onChange={handleChange}
                   {...style}
                 />
               </div>
-              <button className="btn btn-warning btn-verify" type="submit">
+              <button className='btn btn-warning btn-verify' type='submit'>
                 CONFIRM
               </button>
             </form>
 
-            <p className="forgotpasssword-countdown mt-5">
-              {minute < 9 ? "0" + minute : minute} :{" "}
-              {second < 9 ? "0" + second : second}
+            <p className='forgotpasssword-countdown mt-5'>
+              {minute < 9 ? '0' + minute : minute} :{' '}
+              {second < 9 ? '0' + second : second}
             </p>
             {count === -1 && (
               <>
@@ -149,9 +146,8 @@ function Verifyotp() {
                   in 1 minutes
                 </p>
                 <div
-                  className="btn btn-resend col-3 d-flex justify-content-center align-items-center"
-                  onClick={resendOtp}
-                >
+                  className='btn btn-resend col-3 d-flex justify-content-center align-items-center'
+                  onClick={resendOtp}>
                   Resend Link
                 </div>
               </>

@@ -74,10 +74,7 @@ class Profile extends React.Component {
             err.response.data.err_code === 'INVALID_TOKEN'
           ) {
             this.props.dispatch(logoutAction());
-            toast.warning('Token Expired', {
-              position: toast.POSITION.TOP_RIGHT,
-              autoClose: 3000,
-            });
+            toast.warning('Token Expired');
           }
         }
       });
@@ -176,10 +173,7 @@ class Profile extends React.Component {
           this.props.dispatch(updateUserPhoto(image));
         }
         this.getUserData();
-        toast.success('Profile updated successfully', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.success('Profile updated successfully');
       })
       .catch((err) => {
         console.error(err);
@@ -189,16 +183,10 @@ class Profile extends React.Component {
             err.response.data.err_code === 'INVALID_TOKEN'
           ) {
             this.props.dispatch(logoutAction());
-            toast.warning('Token Expired', {
-              position: toast.POSITION.TOP_RIGHT,
-              autoClose: 3000,
-            });
+            toast.warning('Token Expired');
           }
         } else {
-          toast.error('Profile update is failed', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-          });
+          toast.error('Profile update is failed');
         }
       });
   };
@@ -280,10 +268,7 @@ class Profile extends React.Component {
           input['confirmPass'] = '';
           this.setState({input: input});
 
-          toast.success('Password updated successfully', {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 5000,
-          });
+          toast.success('Password updated successfully');
         })
         .catch((err) => {
           let errors = {};
