@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import chat from '../../assets/chat-icon.png';
 import imgProfile from '../../assets/profile-bg.png';
 
 // export default
 function NavActive(props) {
+  const navigate = useNavigate();
   const host = process.env.REACT_APP_HOST;
   const photo = host + '/users/' + props.image;
+  const location = useLocation();
   console.log('photo', photo);
   const [image, setImage] = useState(photo);
   console.log('props:', props.image);
@@ -18,14 +20,24 @@ function NavActive(props) {
       setImage(imgProfile);
     }
   }, [image]);
+  console.log('nav location', location);
   return (
     <>
-      <form className='form-inline my-2 my-lg-0 search-nav'>
+      <form
+        className='form-inline my-2 my-lg-0 search-nav'
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(e.target.keyword.value);
+          const keyword = e.target.keyword.value;
+            navigate({pathname: '/products', search: `?keyword=${keyword}`});
+        }}>
         <input
           className='form-control mr-sm-2'
           type='search'
+          name='keyword'
           placeholder='Search'
         />
+        {/* <button className="btn btn-search">Search</button> */}
       </form>
       <button className='btn chat-nav'>
         <Link to='/chat'>
