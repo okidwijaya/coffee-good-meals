@@ -1,4 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,600&display=swap');
+.input-file-btn input[type="file"] {
+    display: none;
+}
+
+.input-file-btn label {
+    /* color: black; */
+    height: 70px;
+    width: 100%;
+    background-color: "yellow";
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-file-edit-btn {
+    /* color: black; */
+    height: 70px;
+    width: 100%;
+    background-color: "yellow";
+    position: absolute;
+    z-index: 2;
+    /* left: 20%; */
+    top: 16%;
+    left: 21rem;
+    background-color: brown;
+}
+
+.img-edit-promo {
+    /* display: none; */
+    /* background-color: transparent; */
+    /* width: 100px; */
+    left: 21rem;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0.1;
+    position: absolute;
+}
+
+.img-edit-promo input[type="file"] {
+    display: none;
+}
+
 .Add-product-wrapper {
     margin: 50px auto auto auto;
     width: 100%;
@@ -778,6 +821,8 @@
     font-style: normal;
     font-weight: bold;
     font-size: 1.2rem;
+    /* width: 100%; */
+    width: 69%;
     color: #6a4029;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
@@ -792,6 +837,21 @@
     text-align: left;
     color: #9f9f9f;
     width: 70%;
+    margin: 10px auto;
+    height: 80px;
+    background-color: white;
+    border: 1px solid #9f9f9f;
+    border-radius: 20px;
+}
+
+.start-hour-btn-ctg {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    text-align: left;
+    color: #9f9f9f;
+    width: 100%;
     margin: 10px auto;
     height: 80px;
     background-color: white;
