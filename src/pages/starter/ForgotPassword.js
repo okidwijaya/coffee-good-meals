@@ -1,6 +1,6 @@
-/* eslint-disable spaced-comment */
-/// <reference types="react-scripts" />
 import React from "react";
+import { toast } from "react-toastify";
+
 import background from "../../assets/forgotPasswordBg.png";
 import { forgotPass } from "../../utils/https/auth";
 import Verifyotp from "./forgotpasswordAdv/VerifyOtp";
@@ -20,9 +20,11 @@ class Forgotpassword extends React.Component {
       .then((res) => {
         // console.log(res);
         const email = res.data.result.data.email;
-
         localStorage.setItem("email-user", JSON.stringify(email));
-
+        toast.success("Verification code has been sent. Please check your email!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: false,
+        });
         this.setState({
           isVerify: true,
         });
