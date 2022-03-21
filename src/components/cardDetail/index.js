@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css';
 
 const DetailCard = (props) => {
+  const [counter, setCounter] = useState(1);
   const detailProduct = props.detailProduct;
   const image = process.env.REACT_APP_HOST + `/products/${detailProduct.image}`;
   // console.log('product', detailProduct)
@@ -26,9 +27,25 @@ const DetailCard = (props) => {
               <p className='size-detail'>x1 (Regular)</p>
             </div>
             <div className='button-counter-detail'>
-              <button className='btn mr-3 minus-detail'>-</button>
-              <button className='btn mr-3 count-detail'>2</button>
-              <button className='btn plus-detail'>+</button>
+              <button
+                className='btn mr-3 minus-detail'
+                onClick={() => {
+                  if (counter > 1) {
+                    setCounter(counter - 1);
+                  }
+                }}>
+                -
+              </button>
+              <button className='btn mr-3 count-detail'>{counter}</button>
+              <button
+                className='btn plus-detail'
+                onClick={() => {
+                  if (counter < detailProduct.stock) {
+                    setCounter(counter + 1);
+                  }
+                }}>
+                +
+              </button>
             </div>
           </div>
         </div>
