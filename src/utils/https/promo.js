@@ -10,6 +10,10 @@ export const addPostPromo = (body, token) => {
   });
 };
 
+export const getPromos = () => {
+  return axios.get(url);
+};
+
 export const getPromoDetail = () => {
   return axios.get(url + "/21");
 };
