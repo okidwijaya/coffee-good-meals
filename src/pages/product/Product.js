@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './style.css';
+
 import {
   Link,
   NavLink,
@@ -16,11 +17,13 @@ import couponImg2 from '../../assets/promo-today-icon-nd.png';
 import {connect} from 'react-redux';
 import {serialize} from '../../helpers/serialize';
 import {searchList} from '../../utils/https/products';
+import {getPromos} from '../../utils/https/promo';
 
 const Product = (props) => {
   const token = props.token;
   const [searchParams, setSearchParams] = useSearchParams();
   const role = props.role;
+  const [promos, setPromos] = useState([]);
   console.log(role, typeof role);
   const location = useLocation();
   const navigate = useNavigate();
@@ -81,6 +84,23 @@ const Product = (props) => {
   };
   console.log('data:', searchResult);
   console.log('isSearching:', isSearching);
+
+  useEffect(() => {
+    const fetchData = () => {
+      getPromos()
+        .then((res) => {
+          console.log(res.data.result.data);
+          setPromos(res.data.result.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    fetchData();
+  }, []);
+
+  console.log('promo data : ', promos);
+
   return (
     <>
       <Navactive />
@@ -91,40 +111,34 @@ const Product = (props) => {
             Coupons will be updated every weeks.
             <br /> Check them out!
           </p>
-          <div className='col-9 col-md-9 btn couponCard green-couponCard'>
-            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
-            <p className='promo-today-title'>
-              <strong>HAPPY MOTHER'S DAY!</strong> <br />
-              Get one of our favorite <br /> menu for free!
-            </p>
-          </div>
-          <div className='col-9 col-md-9 btn couponCard yellow-couponCard '>
-            <img src={couponImg2} alt='promoImg' className='promo-coupon-img' />
-            <div>
-              <p className='promo-today-title'>
-                <strong>HAPPY MOTHER'S DAY!</strong> <br />
-                Get one of our favorite <br /> menu for free!
-              </p>
-            </div>
-          </div>
-          <div className='col-9 col-md-9 btn couponCard green-couponCard '>
-            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
-            <div>
-              <p className='promo-today-title'>
-                <strong>HAPPY MOTHER'S DAY!</strong> <br />
-                Get one of our favorite <br /> menu for free!
-              </p>
-            </div>
-          </div>
-          <div className='col-9 col-md-9 btn couponCard semi-brown-couponCard '>
-            <img src={couponImg} alt='promoImg' className='promo-coupon-img' />
-            <div>
-              <p className='promo-today-title'>
-                <strong>HAPPY MOTHER'S DAY!</strong> <br />
-                Get one of our favorite <br /> menu for free!
-              </p>
-            </div>
-          </div>
+
+          {promos.length > 0 &&
+            promos.map((item, idx) => (
+              <div key={idx}>
+                <div
+                  className={
+                    item.id % 2 === 1
+                      ? 'col-9 col-md-9 btn couponCard green-couponCard' ||
+                        item.id % 2 === 2
+                        ? 'col-9 col-md-9 btn couponCard yellow-couponCard'
+                        : 'col-9 col-md-9 btn couponCard semi-brown-couponCard'
+                      : 'col-9 col-md-9 btn couponCard green-couponCard'
+                  }>
+                  <img
+                    src={couponImg}
+                    alt='promoImg'
+                    className='promo-coupon-img'
+                  />
+                  <div className='w-75'>
+                    <p className='promo-today-title w-50'>
+                      <strong>{item.name}</strong> <br />
+                      {item.description.split('<br/>').join('\n')}
+                      {/* <br /> menu for free! */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
 
           <div className='col-9 col-md-9 btn btn-apply-coupon'>
             Apply Coupon
@@ -226,3 +240,34 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps)(Product);
+
+///base card promo
+{
+  /* <div className="col-9 col-md-9 btn couponCard yellow-couponCard ">
+<img src={couponImg2} alt="promoImg" className="promo-coupon-img" />
+<div>
+  <p className="promo-today-title">
+    <strong>HAPPY MOTHER'S DAY!</strong> <br />
+    Get one of our favorite <br /> menu for free!
+  </p>
+</div>
+</div>
+<div className="col-9 col-md-9 btn couponCard green-couponCard ">
+<img src={couponImg} alt="promoImg" className="promo-coupon-img" />
+<div>
+  <p className="promo-today-title">
+    <strong>HAPPY MOTHER'S DAY!</strong> <br />
+    Get one of our favorite <br /> menu for free!
+  </p>
+</div>
+</div>
+<div className="col-9 col-md-9 btn couponCard semi-brown-couponCard ">
+<img src={couponImg} alt="promoImg" className="promo-coupon-img" />
+<div>
+  <p className="promo-today-title">
+    <strong>HAPPY MOTHER'S DAY!</strong> <br />
+    Get one of our favorite <br /> menu for free!
+  </p>
+</div>
+</div> */
+}
