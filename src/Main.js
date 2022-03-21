@@ -84,9 +84,9 @@ function App() {
             <Route path='history' element={<History />} />
           </Route>
 
-          <Route path='404' element={<InvalidRoute />} />
+          {/* <Route path='404' element={<InvalidRoute />} /> */}
           <Route path='403' element={<UnAuthorize />} />
-          <Route path='*' exact element={<Navigate to='404' />} />
+          {/* <Route path='*' exact element={<Navigate to='404' />} /> */}
           <Route path='/' element={<Home />} />
           <Route path='products' element={<Product />}>
             <Route path='favourite' element={<ProductFavourite />} />
