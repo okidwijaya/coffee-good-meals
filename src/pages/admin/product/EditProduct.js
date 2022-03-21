@@ -13,6 +13,7 @@ import {connect} from 'react-redux';
 import {Link, useNavigate, useParams} from 'react-router-dom';
 import LoadingComponent from '../../../components/LoadingComponent';
 import Swal from 'sweetalert2';
+import {logoutAction} from '../../../redux/actions/auth';
 
 class Editproduct extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Editproduct extends React.Component {
   state = {
     image: defaultImg,
     counter: 1,
+    isSaved: false,
     selectedFile: null,
     selectedSize: 'R',
     productDetail: null,
@@ -102,17 +104,31 @@ class Editproduct extends React.Component {
             usenavigate('/products');
           })
           .catch((error) => {
-            console.log(error.response);
-            toast.error(error.response.data.msg, {
-              position: 'bottom-right',
-              autoClose: 5000,
-            });
+            if (error.response.data.err_code) {
+              if (
+                error.response.data.err_code === 'TOKEN_EXPIRED' ||
+                error.response.data.err_code === 'INVALID_TOKEN'
+              ) {
+                this.props.dispatch(logoutAction());
+                toast.warning('Token Expired', {
+                  position: toast.POSITION.TOP_RIGHT,
+                  autoClose: 3000,
+                });
+              }
+            } else {
+              console.log(error.response);
+              toast.error(error.response.data.msg, {
+                position: 'bottom-right',
+                autoClose: 5000,
+              });
+            }
           });
       }
     });
   };
   render() {
     const {counter, productDetail, image} = this.state;
+    console.log('pd', productDetail);
     const handleSubmit = (e) => {
       e.preventDefault();
       const token = this.props.token;
@@ -139,15 +155,31 @@ class Editproduct extends React.Component {
             position: 'top-right',
             autoClose: 5000,
           });
-          const navigate = this.props.usenavigate;
-          navigate('/products');
+          this.setState({
+            isSaved: true,
+          });
+          // const navigate = this.props.usenavigate;
+          // navigate('/products');
         })
         .catch((error) => {
-          console.log(error.response);
-          toast.success('Something went wrong.', {
-            position: 'top-right',
-            autoClose: 5000,
-          });
+          if (error.response.data.err_code) {
+            if (
+              error.response.data.err_code === 'TOKEN_EXPIRED' ||
+              error.response.data.err_code === 'INVALID_TOKEN'
+            ) {
+              this.props.dispatch(logoutAction());
+              toast.warning('Token Expired', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 3000,
+              });
+            }
+          } else {
+            console.log(error.response);
+            toast.success('Something went wrong.', {
+              position: 'top-right',
+              autoClose: 5000,
+            });
+          }
         });
     };
     return (
@@ -299,11 +331,20 @@ class Editproduct extends React.Component {
                         Add to cart
                       </button>
                     </div>
-                    <button
-                      className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
-                      type='submit'>
-                      Save Changes
-                    </button>
+                    {!this.state.isSaved ? (
+                      <button
+                        className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
+                        type='submit'>
+                        Save Changes
+                      </button>
+                    ) : (
+                      <button
+                        className='col col-md-auto btn btn-block btn-add-byGallery btn-brown-color font-white-color save-change-btn'
+                        type='submit'
+                        disabled={true}>
+                        Saved
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

@@ -66,7 +66,21 @@ class Profile extends React.Component {
           selectedGender: res.data.result.data.gender,
         });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err.response);
+        if (err.response.data.err_code) {
+          if (
+            err.response.data.err_code === 'TOKEN_EXPIRED' ||
+            err.response.data.err_code === 'INVALID_TOKEN'
+          ) {
+            this.props.dispatch(logoutAction());
+            toast.warning('Token Expired', {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 3000,
+            });
+          }
+        }
+      });
   };
 
   componentDidMount() {
@@ -169,10 +183,23 @@ class Profile extends React.Component {
       })
       .catch((err) => {
         console.error(err);
-        toast.error('Profile update is failed', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        if (err.response.data.err_code) {
+          if (
+            err.response.data.err_code === 'TOKEN_EXPIRED' ||
+            err.response.data.err_code === 'INVALID_TOKEN'
+          ) {
+            this.props.dispatch(logoutAction());
+            toast.warning('Token Expired', {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 3000,
+            });
+          }
+        } else {
+          toast.error('Profile update is failed', {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+          });
+        }
       });
   };
 
