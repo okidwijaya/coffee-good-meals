@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.css";
 // import { Link, Outlet } from "react-router-dom";
-
 import Navactive from "../../components/navigation/Nav";
 import DetailCard from "../../components/cardDetail";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -11,6 +10,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import SelectRound from "../../components/SelectRound";
 import LoadingComponent from "../../components/LoadingComponent";
+import { dataCart } from "../../redux/actions/cart";
 
 function ProductDetail(props) {
   const params = useParams();
@@ -26,11 +26,11 @@ class ProductList extends React.Component {
       imgProduct: require("../../assets/Veggie-tomato-mix.png"),
       selectedSize: "R",
       selectedMethods: "Dine In",
+      setTime: "",
+      qty: 1,
     };
     this.target = React.createRef();
   }
-  // state = {
-  // };
 
   onChangeSize = (value) => {
     this.setState({
@@ -86,18 +86,49 @@ class ProductList extends React.Component {
       }
     });
   };
+
+  counter = (data) => {
+    // console.log("data", data);
+    this.setState({ qty: data });
+  };
+
+  addCart = () => {
+    const data = 
+      // ...this.props.cart,
+      {
+        // product: this.state.detailProduct,
+        delivery: this.state.selectedMethods,
+        name: this.state.detailProduct.name,
+        price: this.state.detailProduct.price,
+        image: this.state.detailProduct.image,
+        size: this.state.selectedSize,
+        time: this.state.setTime,
+        product_id: this.state.detailProduct.id,
+        quantity: this.state.qty,
+      }
+    // ];
+    console.log("cart", data);
+    this.props.dispatch(dataCart(data));
+    toast.success("Added to cart");
+
+    // console.log(this.state.qty, "counter");
+  };
   render() {
-    console.log("props", this.props.token, this.props.role);
+    // console.log("props", this.props.token, this.props.role);
     const { name, price, description } = this.state.detailProduct;
     const { imgProduct, selectedMethods } = this.state;
 
     const role = this.props.role;
     const id = this.props.id;
-    console.log("role", role);
+    // console.log("role", role);
     const formatPrice = new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
-    }).format(price);
+    }).format(price).replace(/(\.|,)00$/g, "");
+
+    // console.log("size", this.state.selectedSize);
+    // console.log("method", this.state.selectedMethods);
+    // console.log("time", this.state.setTime);
     return (
       <>
         <Navactive />
@@ -123,11 +154,14 @@ class ProductList extends React.Component {
                 <p className="price-coffee">{formatPrice}</p>
                 {role === "1" ? (
                   <>
-                    <Link to={"/payment"}>
-                      <button className="btn button-addCart">
-                        Add to Cart
-                      </button>
-                    </Link>
+                    {/* <Link to={"/payment"}> */}
+                    <button
+                      className="btn button-addCart"
+                      onClick={this.addCart}
+                    >
+                      Add to Cart
+                    </button>
+                    {/* </Link> */}
                     <button className="btn button-askStaff">Ask a Staff</button>
                   </>
                 ) : (
@@ -232,17 +266,20 @@ class ProductList extends React.Component {
                   <input
                     type="text"
                     className="set-time"
-                    name="set-time"
+                    name="time"
                     ref={this.target}
                     placeholder="Enter the time you arrived"
-                    // onChange={this.handleChange}
+                    onChange={(e) => this.setState({ setTime: e.target.value })}
                     onFocus={() => (this.target.current.type = "time")}
                     onBlur={() => (this.target.current.type = "text")}
                   />
                 </div>
               </div>
             </section>
-            <DetailCard detailProduct={this.state.detailProduct} />
+            <DetailCard
+              detailProduct={this.state.detailProduct}
+              quantity={this.counter}
+            />
           </>
         ) : (
           <LoadingComponent />
@@ -256,6 +293,7 @@ const mapStateToProps = (state) => {
   return {
     role: state.auth.userData.role,
     token: state.auth.userData.token,
+    cart: state.cart.item,
   };
 };
 
