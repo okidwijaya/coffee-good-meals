@@ -32,10 +32,10 @@ function Verifyotp() {
   const [minute, setMinute] = useState(0);
 
   const secondsToTime = (secs) => {
-    var divisor_for_minutes = secs % (60 * 60);
-    var minutes = Math.floor(divisor_for_minutes / 60);
-    var divisor_for_seconds = divisor_for_minutes % 60;
-    var seconds = Math.ceil(divisor_for_seconds);
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
     return {
       m: minutes,
       s: seconds,
@@ -141,8 +141,8 @@ function Verifyotp() {
             </p>
             {count === -1 && (
               <>
-                <p className='forgotpasssword-information mt-5'>
-                  Click here if you didn't recieve any link <br />
+                <p className="forgotpasssword-information mt-5">
+                  Click here if you didn't receive any code <br />
                   in 1 minutes
                 </p>
                 <div
