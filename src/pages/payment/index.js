@@ -43,13 +43,10 @@ const Payment = (props) => {
   const [user, setUser] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const promo = useSelector((state) => state.promo);
-  // console.log('promo', promo.id);
 
   const getUserData = () => {
-    // console.log(auth.token)
     profile(auth.token)
       .then((res) => {
-        // console.log("result", res.data.result.data);
         setUser(res.data.result.data);
       })
       .catch((err) => {

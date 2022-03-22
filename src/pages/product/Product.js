@@ -20,7 +20,8 @@ import { serialize } from "../../helpers/serialize";
 import { searchList } from "../../utils/https/products";
 import { getPromos } from "../../utils/https/promo";
 import { useDispatch } from "react-redux";
-import { dataPromo } from "../../redux/actions/promo";
+import { dataPromo, emptyPromo } from "../../redux/actions/promo";
+import {toast} from 'react-toastify';
 
 const Product = (props) => {
   // const param = useParams();
@@ -147,8 +148,10 @@ const Product = (props) => {
       id_category: submitPromo.id_category,
       discount: submitPromo.discount,
     };
+    dispatch(emptyPromo())
     console.log("data dispatch", data);
     dispatch(dataPromo(data));
+    return toast.success("coupon apply")
   };
   // useEffect(() => {
   //   const handleSubmitPromo = (e) => {
