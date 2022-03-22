@@ -21,6 +21,7 @@ import { searchList } from "../../utils/https/products";
 import { getPromos } from "../../utils/https/promo";
 import { useDispatch } from "react-redux";
 import { dataPromo } from "../../redux/actions/promo";
+import { toast } from "react-toastify";
 
 const Product = (props) => {
   // const param = useParams();
@@ -150,6 +151,7 @@ const Product = (props) => {
     };
     console.log("data dispatch", data);
     dispatch(dataPromo(data));
+    toast.success("Coupon applied");
   };
   // useEffect(() => {
   //   const handleSubmitPromo = (e) => {
@@ -162,7 +164,7 @@ const Product = (props) => {
   //     dispatch(dataPromo(data));
   //   }
   // })
-  console.log('state', submitPromo)
+  console.log("state", submitPromo);
 
   return (
     <>
@@ -189,10 +191,18 @@ const Product = (props) => {
                         ref.current = event.target;
                         handleToggleClasslistRef(ref);
 
-                        console.log("oioiois", item.id, item.id_category, item.discount);
-                        let a = {id: item.id, id_category: item.id_category, discount: item.discount}
-                        setSubmitPromo(a)
-
+                        console.log(
+                          "oioiois",
+                          item.id,
+                          item.id_category,
+                          item.discount
+                        );
+                        let a = {
+                          id: item.id,
+                          id_category: item.id_category,
+                          discount: item.discount,
+                        };
+                        setSubmitPromo(a);
                       }}
                     >
                       <div
@@ -211,7 +221,11 @@ const Product = (props) => {
                             <img
                               src={`${process.env.REACT_APP_HOST}/promos/${item.image}`}
                               alt="promoImg"
-                              className="promo-coupon-img"
+                              className="promo-coupon-img rounded-circle"
+                              onError={({ currentTarget }) => {
+                                currentTarget.onerror = null;
+                                currentTarget.src = couponImg2;
+                              }}
                             />
                           ) : (
                             <img
@@ -223,27 +237,13 @@ const Product = (props) => {
                         </>
 
                         <div className="w-75">
-                          <p className="promo-today-title w-50">
-
-                            <strong>
-                              {item.name}
-                              {token && role === "2" && (
-                                <>
-                                  <span>
-                                    <Link to={`/editpromo/${item.id}`}>
-                                      {/* <button> */}
-                                        <i className="bi bi-pencil"></i>
-                                      {/* </button> */}
-                                    </Link>
-                                  </span>
-                                </>
-                              )}
-                            </strong>{" "}
-
-                            <br />
-                            {item.description.split("<br/>").join("\n")}
+                          {/* <div className="tooltip"> */}
+                          <p className="promo-today-title">
+                            <strong>{item.name}</strong> <br />
+                            {item.description}
                             {/* <br /> menu for free! */}
                           </p>
+                          {/* </div> */}
                         </div>
                       </div>
                     </div>
@@ -265,7 +265,8 @@ const Product = (props) => {
 
           <div
             className="col-9 col-md-9 btn btn-apply-coupon"
-            type="submit" onClick={handleSubmitPromo}
+            type="submit"
+            onClick={handleSubmitPromo}
           >
             Apply Coupon
           </div>
@@ -336,11 +337,6 @@ const Product = (props) => {
           </p>
           {token && role === "2" && (
             <>
-              <p className="mt-2">
-                <Link to="/product/edit" className="font-weight-bold">
-                  Edit Product
-                </Link>
-              </p>
               <p>
                 <Link to="/product/add" className="font-weight-bold">
                   Add New Product
