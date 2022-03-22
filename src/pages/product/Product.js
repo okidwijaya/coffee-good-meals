@@ -141,13 +141,17 @@ const Product = (props) => {
                     <p className="promo-today-title w-50">
                       <strong>
                         {item.name}
-                        <span>
-                          <Link to={`/editpromo/${item.id}`}>
-                            {/* <button> */}
-                            <i className="bi bi-pencil"></i>
-                            {/* </button> */}
-                          </Link>
-                        </span>
+                        {token && role === "2" && (
+                          <>
+                            <span>
+                              <Link to={`/editpromo/${item.id}`}>
+                                {/* <button> */}
+                                <i className="bi bi-pencil"></i>
+                                {/* </button> */}
+                              </Link>
+                            </span>
+                          </>
+                        )}
                       </strong>{" "}
                       <br />
                       {item.description.split("<br/>").join("\n")}

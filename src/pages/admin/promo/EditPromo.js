@@ -24,12 +24,12 @@ const Editpromo = (props) => {
   // const idp = props.id;
   // console.log(idp);
 
-  let idpromos = useParams();
-  console.log("parms :", idpromos);
+  // let idpromos = useParams();
+  console.log("parms :", props.id);
 
   useEffect(() => {
     const fetchBusinesses = () => {
-      getPromoDetail(idpromos.id)
+      getPromoDetail(props.id)
         .then((response) => {
           setGetPromo(response.data.result.data);
           console.log(response.data);
