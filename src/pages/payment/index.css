@@ -6,7 +6,9 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-
+.cart-empty {
+    font-size: 1.2rem;
+}
 .title-payment{
     padding: 5% 5%;
     font-family: 'Rubik';
@@ -103,6 +105,9 @@
     font-family: 'Poppins';
     font-weight: 700;
     text-shadow: 3px 3px 4px black;
+}
+.edit-address:hover {
+    cursor: pointer;
 }
 
 .detail-address-summary{
