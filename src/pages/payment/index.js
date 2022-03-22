@@ -300,7 +300,7 @@ const Payment = (props) => {
                 <p className="select-payment-summary">Cash on Delivery</p>
               </div>
             </div>
-            <div className="col col-md-12 button-payment">
+            <div className="col col-md-12 button-payment mb-5">
               <button className="btn button-confirm-pay" onClick={handleSubmit}>
                 Confirm and Pay
               </button>
