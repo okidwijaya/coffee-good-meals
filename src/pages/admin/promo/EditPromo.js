@@ -8,6 +8,7 @@ import { logout } from "../../../utils/https/auth";
 import { logoutAction } from "../../../redux/actions/auth";
 import defaultImg from "../../../assets/default-img.png";
 import SelectRound from "../../../components/SelectRound";
+import { useParams } from "react-router-dom";
 
 // import axios from "axios";
 // import { editPromoCoupon } from "../../../utils/https/category";
@@ -19,9 +20,15 @@ const Editpromo = (props) => {
   const [imgPrev, setImagePrev] = useState(null);
   const [getPromo, setGetPromo] = useState([]);
 
+  // const idp = props.id;
+  // console.log(idp);
+
+  let idpromos = useParams();
+  console.log("parms :", idpromos);
+
   useEffect(() => {
     const fetchBusinesses = () => {
-      getPromoDetail()
+      getPromoDetail(idpromos.id)
         .then((response) => {
           setGetPromo(response.data.result.data);
           console.log(response.data);

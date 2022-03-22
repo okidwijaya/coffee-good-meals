@@ -14,8 +14,9 @@ export const getPromos = () => {
   return axios.get(url);
 };
 
-export const getPromoDetail = () => {
-  return axios.get(url + "/21");
+export const getPromoDetail = (id) => {
+  const urlDetail = `${url}/${id}`;
+  return axios.get(urlDetail);
 };
 
 export const editPromoCoupon = (body, token) => {

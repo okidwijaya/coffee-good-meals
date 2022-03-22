@@ -7,6 +7,7 @@ import {
   Outlet,
   useLocation,
   useNavigate,
+  useParams,
   useSearchParams,
 } from 'react-router-dom';
 import Navactive from '../../components/navigation/Nav';
@@ -20,6 +21,7 @@ import {searchList} from '../../utils/https/products';
 import {getPromos} from '../../utils/https/promo';
 
 const Product = (props) => {
+  const param = useParams();
   const token = props.token;
   const [searchParams, setSearchParams] = useSearchParams();
   const role = props.role;
@@ -129,13 +131,29 @@ const Product = (props) => {
                     alt='promoImg'
                     className='promo-coupon-img'
                   />
-                  <div className='w-75'>
-                    <p className='promo-today-title w-50'>
-                      <strong>{item.name}</strong> <br />
-                      {item.description.split('<br/>').join('\n')}
+
+                  <div className="w-75">
+                    <p className="promo-today-title w-50">
+                      <strong>
+                        {item.name}
+                        <span>
+                          <Link to={`/editpromo/${item.id}`}>
+                            {/* <button> */}
+                            <i className="bi bi-pencil"></i>
+                            {/* </button> */}
+                          </Link>
+                        </span>
+                      </strong>{" "}
+                      <br />
+                      {item.description.split("<br/>").join("\n")}
+
                       {/* <br /> menu for free! */}
                     </p>
                   </div>
+
+                  {/* onClick={() => {
+        navigate(`/product/${props.id}`);
+      }} */}
                 </div>
               </div>
             ))}
@@ -163,16 +181,18 @@ const Product = (props) => {
           <div className='text-left ml-1'>
             {token && role === '2' && (
               <>
-                <p className='mt-2'>
-                  <Link to='/editpromo' className='font-weight-bold'>
+
+                {/* <p className="mt-2">
+                  <Link to="/editpromo" className="font-weight-bold">
                     Edit Promo
                   </Link>
-                </p>
-                <p>
-                  <Link to='/addpromo' className='font-weight-bold'>
+                </p> */}
+                <button className="col-9 col-md-9 btn btn-apply-coupon">
+                  <Link to="/addpromo" className="font-weight-bold">
+
                     Add New Promo
                   </Link>
-                </p>
+                </button>
               </>
             )}
           </div>
