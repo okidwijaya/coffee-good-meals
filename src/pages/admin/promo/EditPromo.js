@@ -114,10 +114,7 @@ const Editpromo = (props) => {
           err.response.data.err_code === "INVALID_TOKEN"
         ) {
           props.dispatch(logoutAction());
-          toast.warning("Token Expired", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-          });
+          toast.warning("Token Expired");
         }
       });
   };
