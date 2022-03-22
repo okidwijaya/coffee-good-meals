@@ -6,6 +6,7 @@ import {
   Outlet,
   useLocation,
   useNavigate,
+  useParams,
 } from "react-router-dom";
 import { getPromos } from "../../utils/https/promo";
 import Navactive from "../../components/navigation/Nav";
@@ -14,6 +15,7 @@ import couponImg2 from "../../assets/promo-today-icon-nd.png";
 import { connect } from "react-redux";
 
 const Product = (props) => {
+  const param = useParams();
   const token = props.token;
   const role = props.role;
   const [promos, setPromos] = useState([]);
@@ -73,11 +75,25 @@ const Product = (props) => {
                   />
                   <div className="w-75">
                     <p className="promo-today-title w-50">
-                      <strong>{item.name}</strong> <br />
+                      <strong>
+                        {item.name}
+                        <span>
+                          <Link to={`/editpromo/${item.id}`}>
+                            {/* <button> */}
+                            <i className="bi bi-pencil"></i>
+                            {/* </button> */}
+                          </Link>
+                        </span>
+                      </strong>{" "}
+                      <br />
                       {item.description.split("<br/>").join("\n")}
                       {/* <br /> menu for free! */}
                     </p>
                   </div>
+
+                  {/* onClick={() => {
+        navigate(`/product/${props.id}`);
+      }} */}
                 </div>
               </div>
             ))}
@@ -105,16 +121,16 @@ const Product = (props) => {
           <div className="text-left ml-1">
             {token && role === "2" && (
               <>
-                <p className="mt-2">
+                {/* <p className="mt-2">
                   <Link to="/editpromo" className="font-weight-bold">
                     Edit Promo
                   </Link>
-                </p>
-                <p>
+                </p> */}
+                <button className="col-9 col-md-9 btn btn-apply-coupon">
                   <Link to="/addpromo" className="font-weight-bold">
                     Add New Promo
                   </Link>
-                </p>
+                </button>
               </>
             )}
           </div>
