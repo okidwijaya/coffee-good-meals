@@ -27,6 +27,12 @@ const Editpromo = (props) => {
   let idpromos = useParams();
   console.log("parms :", idpromos);
 
+  // const idp = props.id;
+  // console.log(idp);
+
+  let idpromos = useParams();
+  console.log("parms :", idpromos);
+
   useEffect(() => {
     const fetchBusinesses = () => {
       getPromoDetail(idpromos.id)

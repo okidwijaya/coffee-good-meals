@@ -7,6 +7,7 @@ import {
   Outlet,
   useLocation,
   useNavigate,
+  useParams,
   useSearchParams,
   useParams,
 } from "react-router-dom";
