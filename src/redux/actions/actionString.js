@@ -5,6 +5,9 @@ export const ACTION_STRING = {
 
     setCart: "SET_CART",
     cartEmpty: "EMPTY_CART",
+    
+    setPromo: "SET_PROMO",
+    promoEmpty: "EMPTY_PROMO",
   
     pending: "_PENDING",
     fulfilled: "_FULFILLED",
