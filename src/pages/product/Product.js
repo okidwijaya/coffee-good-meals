@@ -14,11 +14,14 @@ import Navactive from "../../components/navigation/Nav";
 import ProductSearchResult from "../../components/ProductSearchResult";
 import LoadingComponent from "../../components/LoadingComponent";
 // import couponImg from "../../assets/promo-today-st.svg";
-// import couponImg2 from "../../assets/promo-today-icon-nd.png";
+import couponImg2 from "../../assets/promo-today-icon-nd.png";
 import { connect } from "react-redux";
 import { serialize } from "../../helpers/serialize";
 import { searchList } from "../../utils/https/products";
 import { getPromos } from "../../utils/https/promo";
+import { useDispatch } from "react-redux";
+import { dataPromo } from "../../redux/actions/promo";
+import { toast } from "react-toastify";
 
 const Product = (props) => {
   // const param = useParams();
@@ -38,6 +41,8 @@ const Product = (props) => {
     page: parseInt(searchParams.get("page")) || 1,
   });
   const ref = useRef(null);
+  const dispatch = useDispatch();
+  const [submitPromo, setSubmitPromo] = useState(null);
 
   const handleToggleClasslistRef = (ref) => {
     if (!ref.current) {
@@ -120,7 +125,8 @@ const Product = (props) => {
         .then((res) => {
           console.log(res.data.result.data);
           setPromos(res.data.result.data);
-          setImageShow(res.data.result.data.image);
+          // setImageShow(res.data.result.data.image);
+          // console.log("sasa", res.data.result.data.image);
         })
         .catch((err) => {
           console.log(err);
@@ -129,10 +135,36 @@ const Product = (props) => {
     fetchData();
   }, []);
 
-  console.log("promo data : ", promos.image);
-  console.log("img promo", imageShow);
-  const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
-  console.log("imgurl", imgpreview);
+  // console.log("promo data : ", promos.image);
+  // console.log("img promo", imageShow);
+  // const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
+  // console.log("imgurl", );
+
+  // console.log("heihei promo", promos);
+  const handleSubmitPromo = (e) => {
+    e.preventDefault();
+    console.log("halo propmo", promos);
+    const data = {
+      id: submitPromo.id,
+      id_category: submitPromo.id_category,
+      discount: submitPromo.discount,
+    };
+    console.log("data dispatch", data);
+    dispatch(dataPromo(data));
+    toast.success("Coupon applied");
+  };
+  // useEffect(() => {
+  //   const handleSubmitPromo = (e) => {
+  //     e.preventDefault();
+  //     console.log("halo propmo", promos);
+  //     const data = {
+  //       id: promos.id,
+  //     };
+  //     console.log("data dispatch", data);
+  //     dispatch(dataPromo(data));
+  //   }
+  // })
+  console.log("state", submitPromo);
 
   return (
     <>
@@ -148,6 +180,7 @@ const Product = (props) => {
           <div id="wrapper">
             {promos.length > 0 &&
               promos.map((item, idx) => {
+                // console.log(item.id);
                 return (
                   <div key={idx}>
                     <div
@@ -157,7 +190,19 @@ const Product = (props) => {
                         event.stopPropagation();
                         ref.current = event.target;
                         handleToggleClasslistRef(ref);
-                        console.log(item.id);
+
+                        console.log(
+                          "oioiois",
+                          item.id,
+                          item.id_category,
+                          item.discount
+                        );
+                        let a = {
+                          id: item.id,
+                          id_category: item.id_category,
+                          discount: item.discount,
+                        };
+                        setSubmitPromo(a);
                       }}
                     >
                       <div
@@ -170,40 +215,59 @@ const Product = (props) => {
                             : "col-12 col-md-12 btn couponCard green-couponCard"
                         }
                       >
-                        <img
-                          src={imgpreview}
-                          alt="promoImg"
-                          className="promo-coupon-img"
-                        />
+                        <>
+                          {/* <p>{item.image}</p> */}
+                          {item.image !== null && item.image !== undefined ? (
+                            <img
+                              src={`${process.env.REACT_APP_HOST}/promos/${item.image}`}
+                              alt="promoImg"
+                              className="promo-coupon-img rounded-circle"
+                              onError={({ currentTarget }) => {
+                                currentTarget.onerror = null;
+                                currentTarget.src = couponImg2;
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src={couponImg2}
+                              alt="promoImg"
+                              className="promo-coupon-img"
+                            />
+                          )}
+                        </>
+
                         <div className="w-75">
-                          <p className="promo-today-title w-50">
-                            <strong>
-                              {item.name}
-                              {token && role === "2" && (
-                                <>
-                                  <span>
-                                    <Link to={`/editpromo/${item.id}`}>
-                                      {/* <button> */}
-                                      <i className="bi bi-pencil"></i>
-                                      {/* </button> */}
-                                    </Link>
-                                  </span>
-                                </>
-                              )}
-                            </strong>{" "}
-                            <br />
-                            {item.description.split("<br/>").join("\n")}
+                          {/* <div className="tooltip"> */}
+                          <p className="promo-today-title">
+                            <strong>{item.name}</strong> <br />
+                            {item.description}
                             {/* <br /> menu for free! */}
                           </p>
+                          {/* </div> */}
                         </div>
                       </div>
                     </div>
+                    {token && role === "2" && (
+                      <div>
+                        <span className="btn-edit-promo">
+                          <Link to={`/editpromo/${item.id}`}>
+                            {/* <button> */}
+                            <i className="bi bi-pencil"></i>
+                            {/* </button> */}
+                          </Link>
+                        </span>
+                      </div>
+                    )}
                   </div>
                 );
               })}
           </div>
 
-          <div className="col-9 col-md-9 btn btn-apply-coupon">
+          <div
+            className="col-9 col-md-9 btn btn-apply-coupon"
+            type="submit"
+            onClick={handleSubmitPromo}
+          >
             Apply Coupon
           </div>
           <div className="terms">
@@ -273,11 +337,6 @@ const Product = (props) => {
           </p>
           {token && role === "2" && (
             <>
-              <p className="mt-2">
-                <Link to="/product/edit" className="font-weight-bold">
-                  Edit Product
-                </Link>
-              </p>
               <p>
                 <Link to="/product/add" className="font-weight-bold">
                   Add New Product

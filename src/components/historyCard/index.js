@@ -19,35 +19,36 @@ function CardHistory({ id, name, total }) {
   // console.log('token', token)
 
   const deleteHandler = (e) => {
-     console.log('check', e.target.value)
+    // console.log("check", e.target.value);
     // {
     //   e.target.checked === true
     //     ? console.log("Halooo")
     //     : console.log("no data");
-    // }
-    // Swal.fire({
-    //   icon: "warning",
-    //   title: "Delete This Item",
-    //   showCancelButton: true,
-    //   confirmButtonText: "Delete",
-    //   cancelButtonText: "Cancel",
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     console.log('brp id', id);
-    //     const body = {id: [id]}
-    //     deleteHistory(body, token)
-    //       .then((res) => {
-    //         console.log(res);
-    //         return toast.success("Delete Succesfully", res.data);
-    //         // window.location.reload();
-    //       })
-    //       .then((res) =>
-    //       setTimeout(() => {
-    //         window.location.reload()
-    //       }, 2000))
-    //       .catch((err) => console.log(err));
-    //   }
-    // })
+
+    Swal.fire({
+      icon: "warning",
+      title: "Delete This Item",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("brp id", id);
+        const body = { id: [id] };
+        deleteHistory(body, token)
+          .then((res) => {
+            console.log(res);
+            return toast.success("Delete Succesfully", res.data);
+            // window.location.reload();
+          })
+          .then((res) =>
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000)
+          )
+          .catch((err) => console.log(err));
+      }
+    });
   };
 
   return (
@@ -58,7 +59,6 @@ function CardHistory({ id, name, total }) {
             <div className="row w-100">
               <div className="col col-md-4">
                 <div className="image-history-wrapper">
-                  {/* <p>{id}</p> */}
                   <img
                     src={imageVegie}
                     alt="imageHistory"
@@ -87,21 +87,6 @@ function CardHistory({ id, name, total }) {
           </div>
         </div>
       </div>
-      {/* <div>
-        <Modal show={showModal} onHide={handleClose} className="modal-deleteHistory">
-          <Modal.Header closeButton>
-            <Modal.Title className="mx-auto">DELETE THIS ITEM</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div>
-              <button className="btn" onClick={deleteHandler}>Yes</button>
-            </div>
-            <div>
-              <button className="btn" onClick={handleClose}>No</button>
-            </div>
-          </Modal.Body>
-        </Modal>
-      </div> */}
     </>
   );
 }
