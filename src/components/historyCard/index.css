@@ -68,6 +68,10 @@
     text-align: end;
 }
 
+.modal-deleteHistory{
+    margin-top: 10%;
+}
+
 @media screen and (max-width: 1024px) {
     .image-history-wrapper{
         width: 80px;
