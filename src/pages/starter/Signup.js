@@ -63,10 +63,7 @@ function Signup(props) {
       register(body)
         .then((res) => {
           setIsLoading(false);
-          toast.success("Registration successful!", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-          });
+          toast.success("Registration success!");
           const { navigate } = props;
           return navigate("/login", { replace: true });
         })

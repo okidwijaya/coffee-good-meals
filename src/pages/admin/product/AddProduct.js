@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {addProduct} from '../../../utils/https/products';
 import {getCategory} from '../../../utils/https/category';
 import {toast} from 'react-toastify';
+import SelectRound from '../../../components/SelectRound';
 class Addproduct extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +19,70 @@ class Addproduct extends Component {
   state = {
     image: defaultImg,
     selectedFile: null,
-    selectedSize: 'R',
+    name: null,
+    price: null,
+    description: null,
+    delivery_hours_start: '12:00',
+    delivery_hours_end: '21:00',
+    stock: 0,
+    // selectedSize: 'R',
+    R: true,
+    X: true,
+    XL: true,
+    dine_in: true,
+    home_delivery: true,
+    take_away: true,
     categories: null,
-    deliveryMethods: 'Home Delivery.',
+    selectedCategory: null,
+    canSubmit: false,
+    // deliveryMethods: 'Home Delivery.',
   };
+  // componentDidUpdate(a, b) {
+  //   const {
+  //     R,
+  //     X,
+  //     XL,
+  //     name,
+  //     price,
+  //     description,
+  //     delivery_hours_start,
+  //     delivery_hours_end,
+  //     dine_in,
+  //     take_away,
+  //     home_delivery,
+  //     selectedFile,
+  //     selectedCategory,
+  //   } = this.state;
+  //   console.log(a, b);
+  //   if (
+  //     !selectedFile ||
+  //     !selectedCategory ||
+  //     !name ||
+  //     !price ||
+  //     !description ||
+  //     !delivery_hours_start ||
+  //     !delivery_hours_end
+  //   ) {
+  //     console.log('1')
+  //     if (
+  //       selectedFile &&
+  //       selectedCategory &&
+  //       name &&
+  //       price &&
+  //       description &&
+  //       delivery_hours_start &&
+  //       delivery_hours_end
+  //     ) {
+  //       console.log('2');
+  //       if (R || X || XL) {
+  //         console.log('3');
+  //         if (dine_in || take_away || home_delivery) {
+  //           this.setState({canSubmit: true});
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   componentDidMount() {
     getCategory()
       .then((response) => {
@@ -34,10 +95,6 @@ class Addproduct extends Component {
         toast.error(
           `Something went wrong.
         Please refresh the page.`,
-          {
-            position: 'top-right',
-            autoClose: 5000,
-          },
         );
       });
   }
@@ -75,6 +132,13 @@ class Addproduct extends Component {
     }
     return elements;
   }
+  onChangeSize = (value) => {
+    const val = this.state[value];
+    this.setState({
+      [value]: !val,
+    });
+  };
+
   render() {
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -91,18 +155,21 @@ class Addproduct extends Component {
       body.append('price', e.target.price.value);
       body.append('category_id', e.target.category.value);
       body.append('description', e.target.description.value);
-      body.append('size', this.state.selectedSize);
-      body.append('delivery_methods', this.state.deliveryMethods);
+      body.append('R', this.state.R);
+      body.append('X', this.state.X);
+      body.append('XL', this.state.XL);
+      body.append('dine_in', this.state.dine_in);
+      body.append('home_delivery', this.state.home_delivery);
+      body.append('take_away', this.state.take_away);
+      // body.append('size', this.state.selectedSize);
+      // body.append('delivery_methods', this.state.deliveryMethods);
       body.append('delivery_hours_start', e.target.deliveryStart.value);
       body.append('delivery_hours_end', e.target.deliveryEnd.value);
       body.append('stock', e.target.stock.value);
       console.log('body', body);
       addProduct(body, token)
         .then((response) => {
-          toast.success('Product Added.', {
-            position: 'top-right',
-            autoClose: 5000,
-          });
+          toast.success('Product Added.');
           const navigate = this.props.usenavigate;
           navigate('/products');
         })
@@ -166,6 +233,11 @@ class Addproduct extends Component {
                     <input
                       type='time'
                       name='deliveryStart'
+                      onChange={(val) => {
+                        console.log(val.target.value);
+                        const value = val.target.value;
+                        this.setState({delivery_hours_start: value});
+                      }}
                       className='start-hour-btn px-3'
                       ref={this.startHour}
                       defaultValue={'12:00'}
@@ -178,6 +250,11 @@ class Addproduct extends Component {
                       name='deliveryEnd'
                       className='start-hour-btn px-3'
                       ref={this.endHour}
+                      onChange={(val) => {
+                        console.log(val.target.value);
+                        const value = val.target.value;
+                        this.setState({delivery_hours_end: value});
+                      }}
                       defaultValue={'21:00'}
                       placeholder='Select end hour'
                     />
@@ -194,6 +271,11 @@ class Addproduct extends Component {
                       name='stock'
                       className='start-hour-btn px-3'
                       placeholder='Input stock'
+                      onChange={(val) => {
+                        console.log(val.target.value);
+                        const value = val.target.value;
+                        this.setState({stock: value});
+                      }}
                     />
                   </div>
                 </div>
@@ -209,6 +291,11 @@ class Addproduct extends Component {
                     id='formGroupExampleInput'
                     placeholder='Type product name min. 50 characters'
                     name='name'
+                    onChange={(val) => {
+                      console.log(val.target.value);
+                      const value = val.target.value;
+                      this.setState({name: value});
+                    }}
                   />
                 </div>
                 <div className='form-group'>
@@ -218,7 +305,12 @@ class Addproduct extends Component {
                   <select
                     name='category'
                     id='category'
-                    className='form-control add-product-input'>
+                    className='form-control add-product-input'
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      const value = e.target.value;
+                      this.setState({selectedCategory: value});
+                    }}>
                     {categories && this.showCategory(categories)}
                   </select>
                 </div>
@@ -230,6 +322,11 @@ class Addproduct extends Component {
                     id='formGroupExampleInput2'
                     placeholder='Type the price'
                     name='price'
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      const value = e.target.value;
+                      this.setState({price: value});
+                    }}
                   />
                 </div>
                 <div className='form-group'>
@@ -240,6 +337,11 @@ class Addproduct extends Component {
                     id='formGroupExampleInput2'
                     placeholder='Describe your product min. 150 characters'
                     name='description'
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      const value = e.target.value;
+                      this.setState({description: value});
+                    }}
                   />
                 </div>
                 <div className='form-group'>
@@ -248,48 +350,27 @@ class Addproduct extends Component {
                     Click size you want to use for this product
                   </p>
                   <div>
-                    <div
-                      className='btn btn-radio btn-yellow-color size-selected'
-                      name='size'
-                      value='R'>
-                      R
-                    </div>
-                    <div
-                      className='btn btn-radio btn-yellow-color'
-                      name='size'
-                      value='X'>
-                      X
-                    </div>
-                    <div
-                      className='btn btn-radio btn-yellow-color'
-                      name='size'
-                      value='XL'>
-                      XL
-                    </div>
-                    <div
-                      className='btn btn-radio-load'
-                      name='size'
-                      value='200gr'>
-                      200
-                      <br />
-                      gr
-                    </div>
-                    <div
-                      className='btn btn-radio-load'
-                      name='size'
-                      value='300gr'>
-                      300
-                      <br />
-                      gr
-                    </div>
-                    <div
-                      className='btn btn-radio-load'
-                      name='size'
-                      value='500gr'>
-                      500
-                      <br />
-                      gr
-                    </div>
+                    <SelectRound
+                      value='R'
+                      isSelected={this.state.R}
+                      onChange={(val) => {
+                        this.onChangeSize(val);
+                      }}
+                    />
+                    <SelectRound
+                      value='X'
+                      isSelected={this.state.X}
+                      onChange={(val) => {
+                        this.onChangeSize(val);
+                      }}
+                    />
+                    <SelectRound
+                      value='XL'
+                      isSelected={this.state.XL}
+                      onChange={(val) => {
+                        this.onChangeSize(val);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className='form-group'>
@@ -298,22 +379,52 @@ class Addproduct extends Component {
                     Click methods you want to use for this product
                   </p>
                   <div className='row w-100 h-25 mx-0'>
-                    <button className='col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color'>
+                    <button
+                      type='button'
+                      className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                        this.state.home_delivery && ' btn-yellow-color'
+                      }`}
+                      onClick={() => {
+                        this.setState({
+                          home_delivery: !this.state.home_delivery,
+                        });
+                      }}>
                       Home Delivery
                     </button>
-                    <button className='col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add btn-yellow-color'>
-                      Dine in
+                    <button
+                      type='button'
+                      className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                        this.state.dine_in && ' btn-yellow-color'
+                      }`}
+                      onClick={() => {
+                        this.setState({
+                          dine_in: !this.state.dine_in,
+                        });
+                      }}>
+                      Dine In
                     </button>
-                    <button className='col-11 col-md col-lg mx-1 btn-take-away border-0 btn-width-form-input-add'>
+                    <button
+                      type='button'
+                      className={`col-11 col-md col-lg mx-1 btn-add-byGallery border-0 btn-width-form-input-add cursor-pointer ${
+                        this.state.take_away && ' btn-yellow-color'
+                      }`}
+                      onClick={() => {
+                        this.setState({
+                          take_away: !this.state.take_away,
+                        });
+                      }}>
                       Take away
                     </button>
                   </div>
                 </div>
                 <div className='form-group my-5'>
                   <button className='col col-md col-lg btn btn-block btn-add-byGallery btn-brown-color font-white-color'>
+                    {/* disabled={!this.state.canSubmit} */}
                     Save Product
                   </button>
-                  <button className='col col-md col-lg btn btn-block btn-take-away'>
+                  <button
+                    type='reset'
+                    className='col col-md col-lg btn btn-block btn-take-away'>
                     Cancel
                   </button>
                 </div>

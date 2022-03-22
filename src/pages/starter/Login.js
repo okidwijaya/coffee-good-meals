@@ -73,10 +73,8 @@ function Login(props) {
       setIsFetching(true);
     }
     if (auth.isFulfilled === true) {
-      toast.success("Login successful", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
+      // toast.success('Login successful');
+      toast.success("Login Success");
       const { navigate } = props;
       return navigate("/", { replace: true });
     }
@@ -98,10 +96,12 @@ function Login(props) {
           <nav className="navbar navbar-light navbar-expand-lg login-nav-bar">
             <div className="container-fluid">
               <div className="col-sm-2 ml-0 container">
-                <div className="navbar-brand">
-                  <img src={logo} alt="logo" width="30" height="24" />
-                  <strong>Coffee Shop</strong>
-                </div>
+                <Link to="/">
+                  <div className="navbar-brand">
+                    <img src={logo} alt="logo" width="30" height="24" />
+                    <strong>Coffee Shop</strong>
+                  </div>
+                </Link>
               </div>
               <div className="d-flex">
                 <Link to="/signup">

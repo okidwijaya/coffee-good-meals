@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 
-import { Modal } from "react-bootstrap";
 import imageVegie from "../../assets/vegie.png";
-import chickenWings from "../../assets/chicken-wings.png"
 import { useSelector } from "react-redux";
+import LoadingComponent from '../../components/LoadingComponent';
 import {deleteHistory} from '../../utils/https/transactions';
 import {logoutAction} from '../../redux/actions/auth';
 import {toast} from 'react-toastify';
@@ -19,18 +18,6 @@ function CardHistory({id, name, total}) {
   const token = useSelector(state => state.auth.userData.token);
   // console.log('token', token)
   
-  // const body = {id}
-
-    // const deleteHandler = () => {
-    //   deleteHistory(body, token)
-    //   .then((res) => {
-    //     return toast.success("success",  res.data)
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     toast.error("error")
-    //   })
-    // }
 
    const deleteHandler = () => {
       Swal.fire({
@@ -42,12 +29,17 @@ function CardHistory({id, name, total}) {
       }).then((result) => {
         if (result.isConfirmed) {
           console.log('brp id', id);
-          const body = {id: [{id}]}
+          const body = {id: [id]}
           deleteHistory(body, token)
             .then((res) => {
               console.log(res);
-              return toast.success("Delete Succesfully", res.data)
+              return toast.success("Delete Succesfully", res.data);
+              // window.location.reload();
             })
+            .then((res) =>
+            setTimeout(() => {
+              window.location.reload()
+            }, 2000))  
             .catch((err) => console.log(err));
         }
       })

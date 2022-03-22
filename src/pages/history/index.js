@@ -21,6 +21,7 @@ function History(props) {
     getHistory(token)
     .then((res) => {
       // console.log(res)
+      setLoading(false)
       setHistory({...res.data.result.data})
       console.log('cekcek', history)
     })
@@ -47,6 +48,9 @@ function History(props) {
   return (
     <>
     <Navactive />
+    {loading === false ? (
+
+    
     <main className="history-page">
         <div className="row col-12">
             <div className="col col-md-12 title-history">
@@ -66,6 +70,9 @@ function History(props) {
                 />
               ))}
     </main>
+    ) : (
+      <LoadingComponent />
+    )}
     </>
   );
 }
