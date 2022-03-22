@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./style.css";
 
 import {
@@ -13,15 +13,15 @@ import {
 import Navactive from "../../components/navigation/Nav";
 import ProductSearchResult from "../../components/ProductSearchResult";
 import LoadingComponent from "../../components/LoadingComponent";
-import couponImg from "../../assets/promo-today-st.svg";
-import couponImg2 from "../../assets/promo-today-icon-nd.png";
+// import couponImg from "../../assets/promo-today-st.svg";
+// import couponImg2 from "../../assets/promo-today-icon-nd.png";
 import { connect } from "react-redux";
 import { serialize } from "../../helpers/serialize";
 import { searchList } from "../../utils/https/products";
 import { getPromos } from "../../utils/https/promo";
 
 const Product = (props) => {
-  const param = useParams();
+  // const param = useParams();
   const token = props.token;
   const [searchParams, setSearchParams] = useSearchParams();
   const role = props.role;
@@ -37,6 +37,31 @@ const Product = (props) => {
     keyword: searchParams.get("keyword") || "",
     page: parseInt(searchParams.get("page")) || 1,
   });
+  const ref = useRef(null);
+
+  const handleToggleClasslistRef = (ref) => {
+    if (!ref.current) {
+      return;
+    }
+    if (!ref.current.classList.contains("big-border")) {
+      ref.current.classList.add("big-border");
+    } else {
+      ref.current.classList.remove("big-border");
+      ref.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      handleToggleClasslistRef(ref);
+    };
+    const element = document.getElementById("wrapper");
+    element.addEventListener("click", handleOutsideClick);
+    return () => {
+      element.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
   // useEffect(() => {
   //   console.log(location);
   //   if (
@@ -63,6 +88,7 @@ const Product = (props) => {
       page: parseInt(searchParams.get("page")) || 1,
     });
   }, [location.search]);
+
   useEffect(() => {
     const filter = serialize(search);
     console.log("filter", search, filter);
@@ -94,7 +120,7 @@ const Product = (props) => {
         .then((res) => {
           console.log(res.data.result.data);
           setPromos(res.data.result.data);
-          setImageShow(res.data.result.data[0].image);
+          setImageShow(res.data.result.data.image);
         })
         .catch((err) => {
           console.log(err);
@@ -119,52 +145,63 @@ const Product = (props) => {
             <br /> Check them out!
           </p>
 
-          {promos.length > 0 &&
-            promos.map((item, idx) => (
-              <div key={idx}>
-                <div
-                  className={
-                    item.id % 2 === 1
-                      ? "col-9 col-md-9 btn couponCard green-couponCard" ||
-                        item.id % 2 === 2
-                        ? "col-9 col-md-9 btn couponCard yellow-couponCard"
-                        : "col-9 col-md-9 btn couponCard semi-brown-couponCard"
-                      : "col-9 col-md-9 btn couponCard green-couponCard"
-                  }
-                >
-                  <img
-                    src={imgpreview}
-                    alt="promoImg"
-                    className="promo-coupon-img"
-                  />
-                  <div className="w-75">
-                    <p className="promo-today-title w-50">
-                      <strong>
-                        {item.name}
-                        {token && role === "2" && (
-                          <>
-                            <span>
-                              <Link to={`/editpromo/${item.id}`}>
-                                {/* <button> */}
-                                <i className="bi bi-pencil"></i>
-                                {/* </button> */}
-                              </Link>
-                            </span>
-                          </>
-                        )}
-                      </strong>{" "}
-                      <br />
-                      {item.description.split("<br/>").join("\n")}
-                      {/* <br /> menu for free! */}
-                    </p>
+          <div id="wrapper">
+            {promos.length > 0 &&
+              promos.map((item, idx) => {
+                return (
+                  <div key={idx}>
+                    <div
+                      className="item-color"
+                      onClick={(event) => {
+                        handleToggleClasslistRef(ref);
+                        event.stopPropagation();
+                        ref.current = event.target;
+                        handleToggleClasslistRef(ref);
+                        console.log(item.id);
+                      }}
+                    >
+                      <div
+                        className={
+                          item.id % 2 === 1
+                            ? "col-12 col-md-12 btn couponCard green-couponCard" ||
+                              item.id % 2 === 2
+                              ? "col-12 col-md-12 btn couponCard yellow-couponCard"
+                              : "col-12 col-md-12 btn couponCard semi-brown-couponCard"
+                            : "col-12 col-md-12 btn couponCard green-couponCard"
+                        }
+                      >
+                        <img
+                          src={imgpreview}
+                          alt="promoImg"
+                          className="promo-coupon-img"
+                        />
+                        <div className="w-75">
+                          <p className="promo-today-title w-50">
+                            <strong>
+                              {item.name}
+                              {token && role === "2" && (
+                                <>
+                                  <span>
+                                    <Link to={`/editpromo/${item.id}`}>
+                                      {/* <button> */}
+                                      <i className="bi bi-pencil"></i>
+                                      {/* </button> */}
+                                    </Link>
+                                  </span>
+                                </>
+                              )}
+                            </strong>{" "}
+                            <br />
+                            {item.description.split("<br/>").join("\n")}
+                            {/* <br /> menu for free! */}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  {/* onClick={() => {
-        navigate(`/product/${props.id}`);
-      }} */}
-                </div>
-              </div>
-            ))}
+                );
+              })}
+          </div>
 
           <div className="col-9 col-md-9 btn btn-apply-coupon">
             Apply Coupon
@@ -189,11 +226,6 @@ const Product = (props) => {
           <div className="text-left ml-1">
             {token && role === "2" && (
               <>
-                {/* <p className="mt-2">
-                  <Link to="/editpromo" className="font-weight-bold">
-                    Edit Promo
-                  </Link>
-                </p> */}
                 <Link to="/addpromo" className="font-weight-bold">
                   <button className="col-9 col-md-9 btn btn-apply-coupon">
                     Add New Promo
@@ -267,34 +299,3 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps)(Product);
-
-///base card promo
-{
-  /* <div className="col-9 col-md-9 btn couponCard yellow-couponCard ">
-<img src={couponImg2} alt="promoImg" className="promo-coupon-img" />
-<div>
-  <p className="promo-today-title">
-    <strong>HAPPY MOTHER'S DAY!</strong> <br />
-    Get one of our favorite <br /> menu for free!
-  </p>
-</div>
-</div>
-<div className="col-9 col-md-9 btn couponCard green-couponCard ">
-<img src={couponImg} alt="promoImg" className="promo-coupon-img" />
-<div>
-  <p className="promo-today-title">
-    <strong>HAPPY MOTHER'S DAY!</strong> <br />
-    Get one of our favorite <br /> menu for free!
-  </p>
-</div>
-</div>
-<div className="col-9 col-md-9 btn couponCard semi-brown-couponCard ">
-<img src={couponImg} alt="promoImg" className="promo-coupon-img" />
-<div>
-  <p className="promo-today-title">
-    <strong>HAPPY MOTHER'S DAY!</strong> <br />
-    Get one of our favorite <br /> menu for free!
-  </p>
-</div>
-</div> */
-}
