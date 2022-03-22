@@ -88,7 +88,7 @@ function Signup(props) {
     <>
       <main>
         <div className="starter-wrapper">
-          <section className="col-6 col-lg-6 signup-form-wrapper">
+          <section className="col-12 col-sm-6 col-lg-6 signup-form-wrapper">
             <Header />
             <form className="signup-form" onSubmit={submitHandler} noValidate>
               <p className="signup-form-title">Sign Up</p>
