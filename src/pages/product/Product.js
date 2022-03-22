@@ -14,7 +14,7 @@ import Navactive from "../../components/navigation/Nav";
 import ProductSearchResult from "../../components/ProductSearchResult";
 import LoadingComponent from "../../components/LoadingComponent";
 // import couponImg from "../../assets/promo-today-st.svg";
-// import couponImg2 from "../../assets/promo-today-icon-nd.png";
+import couponImg2 from "../../assets/promo-today-icon-nd.png";
 import { connect } from "react-redux";
 import { serialize } from "../../helpers/serialize";
 import { searchList } from "../../utils/https/products";
@@ -120,7 +120,8 @@ const Product = (props) => {
         .then((res) => {
           console.log(res.data.result.data);
           setPromos(res.data.result.data);
-          setImageShow(res.data.result.data.image);
+          // setImageShow(res.data.result.data.image);
+          // console.log("sasa", res.data.result.data.image);
         })
         .catch((err) => {
           console.log(err);
@@ -129,10 +130,10 @@ const Product = (props) => {
     fetchData();
   }, []);
 
-  console.log("promo data : ", promos.image);
-  console.log("img promo", imageShow);
-  const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
-  console.log("imgurl", imgpreview);
+  // console.log("promo data : ", promos.image);
+  // console.log("img promo", imageShow);
+  // const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
+  // console.log("imgurl", );
 
   return (
     <>
@@ -148,6 +149,7 @@ const Product = (props) => {
           <div id="wrapper">
             {promos.length > 0 &&
               promos.map((item, idx) => {
+                // console.log(item.id);
                 return (
                   <div key={idx}>
                     <div
@@ -157,7 +159,12 @@ const Product = (props) => {
                         event.stopPropagation();
                         ref.current = event.target;
                         handleToggleClasslistRef(ref);
-                        console.log(item.id);
+                        console.log(
+                          item.id,
+                          item.discount,
+                          item.category,
+                          item.image
+                        );
                       }}
                     >
                       <div
@@ -170,27 +177,26 @@ const Product = (props) => {
                             : "col-12 col-md-12 btn couponCard green-couponCard"
                         }
                       >
-                        <img
-                          src={imgpreview}
-                          alt="promoImg"
-                          className="promo-coupon-img"
-                        />
+                        <>
+                          {/* <p>{item.image}</p> */}
+                          {item.image !== null && item.image !== undefined ? (
+                            <img
+                              src={`${process.env.REACT_APP_HOST}/promos/${item.image}`}
+                              alt="promoImg"
+                              className="promo-coupon-img"
+                            />
+                          ) : (
+                            <img
+                              src={couponImg2}
+                              alt="promoImg"
+                              className="promo-coupon-img"
+                            />
+                          )}
+                        </>
+
                         <div className="w-75">
                           <p className="promo-today-title w-50">
-                            <strong>
-                              {item.name}
-                              {token && role === "2" && (
-                                <>
-                                  <span>
-                                    <Link to={`/editpromo/${item.id}`}>
-                                      {/* <button> */}
-                                      <i className="bi bi-pencil"></i>
-                                      {/* </button> */}
-                                    </Link>
-                                  </span>
-                                </>
-                              )}
-                            </strong>{" "}
+                            <strong>{item.name}</strong>
                             <br />
                             {item.description.split("<br/>").join("\n")}
                             {/* <br /> menu for free! */}
@@ -198,6 +204,17 @@ const Product = (props) => {
                         </div>
                       </div>
                     </div>
+                    {token && role === "2" && (
+                      <div>
+                        <span className="btn-edit-promo">
+                          <Link to={`/editpromo/${item.id}`}>
+                            {/* <button> */}
+                            <i className="bi bi-pencil"></i>
+                            {/* </button> */}
+                          </Link>
+                        </span>
+                      </div>
+                    )}
                   </div>
                 );
               })}
