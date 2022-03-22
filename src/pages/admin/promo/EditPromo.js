@@ -8,6 +8,7 @@ import { logout } from "../../../utils/https/auth";
 import { logoutAction } from "../../../redux/actions/auth";
 import defaultImg from "../../../assets/default-img.png";
 import SelectRound from "../../../components/SelectRound";
+import { useParams } from "react-router-dom";
 
 // import axios from "axios";
 // import { editPromoCoupon } from "../../../utils/https/category";
@@ -18,13 +19,21 @@ const Editpromo = (props) => {
   const [image, setImage] = useState(null);
   const [imgPrev, setImagePrev] = useState(null);
   const [getPromo, setGetPromo] = useState([]);
+  const [imageShow, setImageShow] = useState(null);
+
+  // const idp = props.id;
+  // console.log(idp);
+
+  // let idpromos = useParams();
+  console.log("parms :", props.id);
 
   useEffect(() => {
     const fetchBusinesses = () => {
-      getPromoDetail()
+      getPromoDetail(props.id)
         .then((response) => {
           setGetPromo(response.data.result.data);
           console.log(response.data);
+          setImageShow(response.data.result.data.image);
         })
         .catch((error) => {
           console.log(error);
@@ -32,6 +41,10 @@ const Editpromo = (props) => {
     };
     fetchBusinesses();
   }, []);
+
+  console.log("img promo", imageShow);
+  const imgpreview = `${process.env.REACT_APP_HOST}/promos/${imageShow}`;
+  console.log("imgurl", imgpreview);
 
   const [data, setData] = useState({
     name: "",
@@ -270,7 +283,7 @@ const Editpromo = (props) => {
               </div>
             </aside>
 
-            <p name="id">{getPromo.id}</p>
+            {/* <p name="id">{getPromo.id}</p> */}
 
             <div className="col col-md-6">
               <div className="form-group">
