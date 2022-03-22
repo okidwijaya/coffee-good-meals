@@ -15,21 +15,16 @@ import { useParams } from "react-router-dom";
 
 const Editpromo = (props) => {
   const token = useSelector((state) => state.auth.userData.token);
-  console.log("my token", token);
+  const param = useParams();
+  let idPromo = param.id;
   const [image, setImage] = useState(null);
   const [imgPrev, setImagePrev] = useState(null);
   const [getPromo, setGetPromo] = useState([]);
   const [imageShow, setImageShow] = useState(null);
 
-  // const idp = props.id;
-  // console.log(idp);
-
-  // let idpromos = useParams();
-  console.log("parms :", props.id);
-
   useEffect(() => {
     const fetchBusinesses = () => {
-      getPromoDetail(props.id)
+      getPromoDetail(idPromo)
         .then((response) => {
           setGetPromo(response.data.result.data);
           console.log(response.data);
@@ -119,10 +114,7 @@ const Editpromo = (props) => {
           err.response.data.err_code === "INVALID_TOKEN"
         ) {
           props.dispatch(logoutAction());
-          toast.warning("Token Expired", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 3000,
-          });
+          toast.warning("Token Expired");
         }
       });
   };

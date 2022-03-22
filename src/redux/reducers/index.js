@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import authReducer from "./auth";
 import cartReducer from "./cart";
+import promoReducer from "./promo"
 import { ACTION_STRING } from "../actions/actionString";
 import storage from "redux-persist/lib/storage";
 
@@ -8,6 +9,7 @@ import storage from "redux-persist/lib/storage";
 const appReducer = combineReducers({
   auth: authReducer,
   cart: cartReducer,
+  promo: promoReducer,
 });
 
 
