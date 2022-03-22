@@ -61,7 +61,7 @@ const Navdefault = (props) => {
               ) : (
                 <>
                   <li className='nav-item'>
-                    <NavLink to='/cart' className='nav-link'>
+                    <NavLink to='/payment' className='nav-link'>
                       Your Cart
                     </NavLink>
                   </li>
