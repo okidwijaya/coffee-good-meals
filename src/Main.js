@@ -42,6 +42,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminOnly from "./components/AdminOnly";
 import UserOnly from "./components/UserOnly";
 import Dashboard from "./pages/admin/Dashboard";
+import ScrollToTop from "./components/scrollToTop";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
           draggable
           pauseOnHover
         />
+        <ScrollToTop />
         <Routes>
           <Route element={<PublicRoute />}>
             <Route path="/login" element={<Login />} />
@@ -84,9 +86,9 @@ function App() {
             <Route path="history" element={<History />} />
           </Route>
 
-          {/* <Route path='404' element={<InvalidRoute />} /> */}
+          <Route path='404' element={<InvalidRoute />} />
           <Route path="403" element={<UnAuthorize />} />
-          {/* <Route path='*' exact element={<Navigate to='404' />} /> */}
+          <Route path='*' exact element={<Navigate to='404' />} />
           <Route path="/" element={<Home />} />
           <Route path="products" element={<Product />}>
             <Route path="favourite" element={<ProductFavourite />} />

@@ -503,11 +503,11 @@
 }
 
 @media screen and (max-width: 426px) {
-  .signup-img-wrapper {
+  /* .signup-img-wrapper {
     position: relative;
     width: 100%;
     z-index: -1;
-  }
+  } */
   .signup-form-wrapper {
     position: absolute;
     top: 7%;
@@ -561,5 +561,11 @@
   }
   .toggles {
     top: 395px;
+  }
+  .icon-toggle {
+    top: 345px;
+  }
+  .toggle {
+    top: 373px;
   }
 }

@@ -43,7 +43,6 @@ const Payment = (props) => {
   const [user, setUser] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const promo = useSelector((state) => state.promo);
-  // console.log('promo', promo.id);
 
   const getUserData = () => {
     // console.log(auth.token)
@@ -127,7 +126,10 @@ const Payment = (props) => {
 
   useEffect(() => {
     getUserData();
-  });
+  console.log('promo', promo.discount > 0);
+  console.log('promo', promo);
+
+  }, [promo]);
   return (
     <>
       <Navactive />
@@ -181,7 +183,9 @@ const Payment = (props) => {
                       <p className="subtotal-summary">SUBTOTAL</p>
                       <p className="tax-fees-summary">TAX {"&"} FEES</p>
                       <p className="shipping-summary">SHIPPING</p>
-                      <p className="shipping-summary">COUPON</p>
+                      {promo.discount > 0 && (
+                        <p className="shipping-summary">COUPON</p>
+                      )}
                       <p className="total-order-summary">TOTAL</p>
                     </div>
                     <div className="col col-md-6">
@@ -196,19 +200,33 @@ const Payment = (props) => {
                           ? formatPrice(0)
                           : formatPrice(10000)}
                       </p>
-                      <p className="price-order-summary">
-                        {formatPrice(subTotal * (promo.discount/100))}
-                      </p>
-                      <p className="total-price-summary">
-                        {formatPrice(
-                          subTotal -
-                          (subTotal * (promo.discount/100)) +
-                            subTotal * 0.1 +
-                            (delivery === "Dine In" || delivery === "Pick Up"
-                              ? 0
-                              : 10000)
-                        )}
-                      </p>
+                      {promo.discount > 0 && (
+                        <p className="price-order-summary">
+                          {formatPrice(subTotal * (promo.discount / 100))}
+                        </p>
+                      )}
+                      {promo.discount > 0 ? (
+                        <p className="total-price-summary">
+                          {formatPrice(
+                            subTotal -
+                              subTotal * (promo.discount / 100) +
+                              subTotal * 0.1 +
+                              (delivery === "Dine In" || delivery === "Pick Up"
+                                ? 0
+                                : 10000)
+                          )}
+                        </p>
+                      ) : ( 
+                        <p className="total-price-summary">
+                          {formatPrice(
+                            subTotal +
+                              subTotal * 0.1 +
+                              (delivery === "Dine In" || delivery === "Pick Up"
+                                ? 0
+                                : 10000)
+                          )}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </>
@@ -307,8 +325,11 @@ const Payment = (props) => {
                 <p className="select-payment-summary">Cash on Delivery</p>
               </div>
             </div>
-            <div className="col col-md-12 button-payment mb-5">
-              <button className="btn button-confirm-pay" onClick={handleSubmit}>
+            <div className="col col-md-12 button-payment">
+              <button
+                className="btn button-confirm-pay mb-5"
+                onClick={handleSubmit}
+              >
                 Confirm and Pay
               </button>
             </div>

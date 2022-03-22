@@ -40,3 +40,6 @@
     color: #FFFFFF;
     text-shadow: 3px 3px 4px black;
 }
+.selectall-item-history:hover {
+    cursor: pointer;
+}
