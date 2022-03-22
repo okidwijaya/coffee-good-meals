@@ -7,7 +7,7 @@ import SignupCard from "../../components/Auth";
 import googleIcon from "../../assets/google-icon.svg";
 import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
-import CobaLoading from "../../components/loadingComp/LoadingComp";
+import Loading from "../../components/loadingComp/LoadingComp";
 import { validateSignup } from "../../helpers/validation";
 import "./style.css";
 
@@ -156,7 +156,7 @@ function Signup(props) {
                   type="submit"
                 >
                   {/* Signup */}
-                  {isLoading ? <CobaLoading /> : "Sign Up"}
+                  {isLoading ? <Loading /> : "Sign Up"}
                 </button>
                 <div
                   className="btn btn-light btn-signup btn-signup-custom"

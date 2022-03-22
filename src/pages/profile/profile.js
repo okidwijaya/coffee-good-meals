@@ -18,6 +18,7 @@ import {logoutAction, updateUserPhoto} from '../../redux/actions/auth';
 
 import Navactive from '../../components/navigation/Nav';
 import iconPen from '../../assets/pen-icon.svg';
+import LoadingComponent from '../../components/LoadingComponent';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class Profile extends React.Component {
       type1: 'password',
       type2: 'password',
       type3: 'password',
+      isLoading: false,
     };
   }
 
@@ -62,6 +64,7 @@ class Profile extends React.Component {
           });
         }
         this.setState({
+          isLoading: false,
           userData: result,
           selectedGender: res.data.result.data.gender,
         });
@@ -341,11 +344,13 @@ class Profile extends React.Component {
   render() {
     const {display_name, address, dob, email, phone, first_name, last_name} =
       this.state.userData;
-    const {profilePic, selectedGender, isEdit} = this.state;
+    const {profilePic, selectedGender, isEdit, isLoading} = this.state;
     // console.log("photo user", this.state.userData.image);
     return (
       <>
         <Navactive />
+        {isLoading === false ? (
+        
         <div className='row bg-profile'>
           <h1 className='title-profile'>User Profile</h1>
           <form onSubmit={this.submitHandler} onReset={this.cancelHandler}>
@@ -541,6 +546,9 @@ class Profile extends React.Component {
             </section>
           </form>
         </div>
+        ) : (
+          <LoadingComponent />
+        )}
 
         {/* Modal */}
         <div className='modal-editPass'>
