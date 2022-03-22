@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <>
       <Navactive />
-      <p>See How your stotr proggress so far</p>
+      <p>See how your store proggress so far</p>
       <div className="container mx-auto w-100 my-5">
         <div className="form-check form-check-inline">
           <input
@@ -18,7 +18,7 @@ const Dashboard = () => {
             name="flexRadioDefault"
             id="flexRadioDefault1"
           />
-          <label className="form-check-label">Dayily</label>
+          <label className="form-check-label">Daily</label>
         </div>
         <div className="form-check form-check-inline">
           <input

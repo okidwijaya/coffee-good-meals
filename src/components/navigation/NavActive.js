@@ -1,12 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import chat from '../../assets/chat-icon.png';
 import imgProfile from '../../assets/profile-bg.png';
 
 // export default
 function NavActive(props) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [keyword, setKeyword] = useState('');
   const host = process.env.REACT_APP_HOST;
   const photo = host + '/users/' + props.image;
   const location = useLocation();
@@ -20,6 +27,9 @@ function NavActive(props) {
       setImage(imgProfile);
     }
   }, [image]);
+  useEffect(() => {
+    setKeyword(searchParams.get('keyword') || '');
+  }, [location.search]);
   console.log('nav location', location);
   return (
     <>
@@ -29,9 +39,10 @@ function NavActive(props) {
           e.preventDefault();
           console.log(e.target.keyword.value);
           const keyword = e.target.keyword.value;
-            navigate({pathname: '/products', search: `?keyword=${keyword}`});
+          navigate({pathname: '/products', search: `?keyword=${keyword}`});
         }}>
         <input
+          defaultValue={keyword}
           className='form-control mr-sm-2'
           type='search'
           name='keyword'

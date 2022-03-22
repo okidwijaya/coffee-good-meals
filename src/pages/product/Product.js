@@ -14,7 +14,7 @@ import Navactive from '../../components/navigation/Nav';
 import ProductSearchResult from '../../components/ProductSearchResult';
 import LoadingComponent from '../../components/LoadingComponent';
 import couponImg from '../../assets/promo-today-st.svg';
-import couponImg2 from '../../assets/promo-today-icon-nd.png';
+// import couponImg2 from '../../assets/promo-today-icon-nd.png';
 import {connect} from 'react-redux';
 import {serialize} from '../../helpers/serialize';
 import {searchList} from '../../utils/https/products';
@@ -62,11 +62,13 @@ const Product = (props) => {
       page: parseInt(searchParams.get('page')) || 1,
     });
   }, [location.search]);
+
   useEffect(() => {
     const filter = serialize(search);
     console.log('filter', search, filter);
     searchData(filter);
   }, [search]);
+
   const searchData = (filter) => {
     setIsSearching(true);
     searchList(filter)
@@ -78,6 +80,8 @@ const Product = (props) => {
       })
       .catch((err) => {
         console.log(err.response);
+        setSearchResult(null);
+        setMeta(null);
         setIsSearching(false);
       });
     // .done(() => {
@@ -132,21 +136,20 @@ const Product = (props) => {
                     className='promo-coupon-img'
                   />
 
-                  <div className="w-75">
-                    <p className="promo-today-title w-50">
+                  <div className='w-75'>
+                    <p className='promo-today-title w-50'>
                       <strong>
                         {item.name}
                         <span>
                           <Link to={`/editpromo/${item.id}`}>
                             {/* <button> */}
-                            <i className="bi bi-pencil"></i>
+                            <i className='bi bi-pencil'></i>
                             {/* </button> */}
                           </Link>
                         </span>
-                      </strong>{" "}
+                      </strong>{' '}
                       <br />
-                      {item.description.split("<br/>").join("\n")}
-
+                      {item.description.split('<br/>').join('\n')}
                       {/* <br /> menu for free! */}
                     </p>
                   </div>
@@ -181,15 +184,13 @@ const Product = (props) => {
           <div className='text-left ml-1'>
             {token && role === '2' && (
               <>
-
                 {/* <p className="mt-2">
                   <Link to="/editpromo" className="font-weight-bold">
                     Edit Promo
                   </Link>
                 </p> */}
-                <button className="col-9 col-md-9 btn btn-apply-coupon">
-                  <Link to="/addpromo" className="font-weight-bold">
-
+                <button className='col-9 col-md-9 btn btn-apply-coupon'>
+                  <Link to='/addpromo' className='font-weight-bold'>
                     Add New Promo
                   </Link>
                 </button>
