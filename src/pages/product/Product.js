@@ -19,6 +19,8 @@ import { connect } from "react-redux";
 import { serialize } from "../../helpers/serialize";
 import { searchList } from "../../utils/https/products";
 import { getPromos } from "../../utils/https/promo";
+import { useDispatch } from "react-redux";
+import { dataPromo } from "../../redux/actions/promo";
 
 const Product = (props) => {
   // const param = useParams();
@@ -38,6 +40,8 @@ const Product = (props) => {
     page: parseInt(searchParams.get("page")) || 1,
   });
   const ref = useRef(null);
+  const dispatch = useDispatch();
+  const [submitPromo, setSubmitPromo] = useState(null);
 
   const handleToggleClasslistRef = (ref) => {
     if (!ref.current) {
@@ -134,6 +138,31 @@ const Product = (props) => {
   const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
   console.log("imgurl", imgpreview);
 
+  // console.log("heihei promo", promos);
+  const handleSubmitPromo = (e) => {
+    e.preventDefault();
+    console.log("halo propmo", promos);
+    const data = {
+      id: submitPromo.id,
+      id_category: submitPromo.id_category,
+      discount: submitPromo.discount,
+    };
+    console.log("data dispatch", data);
+    dispatch(dataPromo(data));
+  };
+  // useEffect(() => {
+  //   const handleSubmitPromo = (e) => {
+  //     e.preventDefault();
+  //     console.log("halo propmo", promos);
+  //     const data = {
+  //       id: promos.id,
+  //     };
+  //     console.log("data dispatch", data);
+  //     dispatch(dataPromo(data));
+  //   }
+  // })
+  console.log('state', submitPromo)
+
   return (
     <>
       <Navactive />
@@ -157,7 +186,10 @@ const Product = (props) => {
                         event.stopPropagation();
                         ref.current = event.target;
                         handleToggleClasslistRef(ref);
-                        console.log(item.id);
+                        console.log("oioiois", item.id, item.id_category, item.discount);
+                        let a = {id: item.id, id_category: item.id_category, discount: item.discount}
+                        setSubmitPromo(a)
+                        
                       }}
                     >
                       <div
@@ -184,7 +216,7 @@ const Product = (props) => {
                                   <span>
                                     <Link to={`/editpromo/${item.id}`}>
                                       {/* <button> */}
-                                      <i className="bi bi-pencil"></i>
+                                        <i className="bi bi-pencil"></i>
                                       {/* </button> */}
                                     </Link>
                                   </span>
@@ -203,7 +235,10 @@ const Product = (props) => {
               })}
           </div>
 
-          <div className="col-9 col-md-9 btn btn-apply-coupon">
+          <div
+            className="col-9 col-md-9 btn btn-apply-coupon"
+            type="submit" onClick={handleSubmitPromo}
+          >
             Apply Coupon
           </div>
           <div className="terms">
