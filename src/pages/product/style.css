@@ -1,14 +1,29 @@
+.btn-edit-promo {
+    z-index: 5;
+    position: relative;
+    left: 7rem;
+    top: -5rem;
+    width: 25px;
+    height: 25px;
+    padding: 6px;
+    font-size: 16px;
+    color: white;
+    background-color: #6a4029;
+    border-radius: 10px;
+}
+
+
 /* selected promo */
 
 .item-color {
-    z-index: 4999;
+    z-index: 4;
     cursor: pointer;
     height: 90px;
     border-radius: 24px;
     width: 80%;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .big-border {
