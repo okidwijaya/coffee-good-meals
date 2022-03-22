@@ -19,6 +19,7 @@ const Editpromo = (props) => {
   const [image, setImage] = useState(null);
   const [imgPrev, setImagePrev] = useState(null);
   const [getPromo, setGetPromo] = useState([]);
+  const [imageShow, setImageShow] = useState(null);
 
   // const idp = props.id;
   // console.log(idp);
@@ -32,6 +33,7 @@ const Editpromo = (props) => {
         .then((response) => {
           setGetPromo(response.data.result.data);
           console.log(response.data);
+          setImageShow(response.data.result.data.image);
         })
         .catch((error) => {
           console.log(error);
@@ -39,6 +41,10 @@ const Editpromo = (props) => {
     };
     fetchBusinesses();
   }, []);
+
+  console.log("img promo", imageShow);
+  const imgpreview = `${process.env.REACT_APP_HOST}/promos/${imageShow}`;
+  console.log("imgurl", imgpreview);
 
   const [data, setData] = useState({
     name: "",
@@ -277,7 +283,7 @@ const Editpromo = (props) => {
               </div>
             </aside>
 
-            <p name="id">{getPromo.id}</p>
+            {/* <p name="id">{getPromo.id}</p> */}
 
             <div className="col col-md-6">
               <div className="form-group">

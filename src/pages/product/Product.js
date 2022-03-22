@@ -1,32 +1,92 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+
 import {
   Link,
   NavLink,
   Outlet,
   useLocation,
   useNavigate,
+  useSearchParams,
   useParams,
 } from "react-router-dom";
-import { getPromos } from "../../utils/https/promo";
 import Navactive from "../../components/navigation/Nav";
+import ProductSearchResult from "../../components/ProductSearchResult";
+import LoadingComponent from "../../components/LoadingComponent";
 import couponImg from "../../assets/promo-today-st.svg";
 import couponImg2 from "../../assets/promo-today-icon-nd.png";
 import { connect } from "react-redux";
+import { serialize } from "../../helpers/serialize";
+import { searchList } from "../../utils/https/products";
+import { getPromos } from "../../utils/https/promo";
 
 const Product = (props) => {
   const param = useParams();
   const token = props.token;
+  const [searchParams, setSearchParams] = useSearchParams();
   const role = props.role;
   const [promos, setPromos] = useState([]);
   console.log(role, typeof role);
   const location = useLocation();
   const navigate = useNavigate();
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchResult, setSearchResult] = useState(null);
+  const [meta, setMeta] = useState(null);
+  const [imageShow, setImageShow] = useState(null);
+  const [search, setSearch] = useState({
+    keyword: searchParams.get("keyword") || "",
+    page: parseInt(searchParams.get("page")) || 1,
+  });
+  // useEffect(() => {
+  //   console.log(location);
+  //   if (
+  //     location.pathname === '/products' &&
+  //     (location.search === '' || !location.search)
+  //   ) {
+  //     navigate('/products/favourite', {replace: true});
+  //   } else {
+  //     const page = parseInt(searchParams.get('page')) || 1;
+  //     setSearch({keyword: searchParams.get('keyword'), page});
+  //   }
+  // }, [searchParams, location, navigate]);
+  // search();
+  // const
   useEffect(() => {
-    if (location.pathname === "/products") {
+    if (
+      location.pathname === "/products" &&
+      (location.search === "" || !location.search)
+    ) {
       navigate("/products/favourite", { replace: true });
     }
-  });
+    setSearch({
+      keyword: searchParams.get("keyword") || "",
+      page: parseInt(searchParams.get("page")) || 1,
+    });
+  }, [location.search]);
+  useEffect(() => {
+    const filter = serialize(search);
+    console.log("filter", search, filter);
+    searchData(filter);
+  }, [search]);
+  const searchData = (filter) => {
+    setIsSearching(true);
+    searchList(filter)
+      .then((res) => {
+        console.log(res);
+        setIsSearching(false);
+        setSearchResult(res.data.result);
+        setMeta(res.data.result.meta);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        setIsSearching(false);
+      });
+    // .done(() => {
+
+    // });
+  };
+  console.log("data:", searchResult);
+  console.log("isSearching:", isSearching);
 
   useEffect(() => {
     const fetchData = () => {
@@ -34,6 +94,7 @@ const Product = (props) => {
         .then((res) => {
           console.log(res.data.result.data);
           setPromos(res.data.result.data);
+          setImageShow(res.data.result.data[0].image);
         })
         .catch((err) => {
           console.log(err);
@@ -42,7 +103,10 @@ const Product = (props) => {
     fetchData();
   }, []);
 
-  console.log("promo data : ", promos);
+  console.log("promo data : ", promos.image);
+  console.log("img promo", imageShow);
+  const imgpreview = `${process.env.REACT_APP_HOST}/promos/${promos.image}`;
+  console.log("imgurl", imgpreview);
 
   return (
     <>
@@ -69,7 +133,7 @@ const Product = (props) => {
                   }
                 >
                   <img
-                    src={couponImg}
+                    src={imgpreview}
                     alt="promoImg"
                     className="promo-coupon-img"
                   />
@@ -126,11 +190,11 @@ const Product = (props) => {
                     Edit Promo
                   </Link>
                 </p> */}
-                <button className="col-9 col-md-9 btn btn-apply-coupon">
-                  <Link to="/addpromo" className="font-weight-bold">
+                <Link to="/addpromo" className="font-weight-bold">
+                  <button className="col-9 col-md-9 btn btn-apply-coupon">
                     Add New Promo
-                  </Link>
-                </button>
+                  </button>
+                </Link>
               </>
             )}
           </div>
@@ -156,6 +220,17 @@ const Product = (props) => {
               Add on
             </NavLink>
           </div>
+          {location.search !== "" || location.search ? (
+            <>
+              {searchResult && !isSearching ? (
+                <ProductSearchResult data={searchResult} meta={meta} />
+              ) : (
+                <LoadingComponent />
+              )}
+            </>
+          ) : (
+            <></>
+          )}
           <Outlet />
           <p className="product-content-bottom-text mb-2">
             *the price has been cutted by discount appears
