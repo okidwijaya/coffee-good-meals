@@ -39,7 +39,7 @@ function CardHistory({id, name, total}) {
             .then((res) =>
             setTimeout(() => {
               window.location.reload()
-            }, 2000))  
+            }, 1000))  
             .catch((err) => console.log(err));
         }
       })
