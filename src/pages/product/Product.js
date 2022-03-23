@@ -99,6 +99,7 @@ const Product = (props) => {
     console.log("filter", search, filter);
     searchData(filter);
   }, [search]);
+
   const searchData = (filter) => {
     setIsSearching(true);
     searchList(filter)
@@ -110,6 +111,8 @@ const Product = (props) => {
       })
       .catch((err) => {
         console.log(err.response);
+        setSearchResult(null);
+        setMeta(null);
         setIsSearching(false);
       });
     // .done(() => {

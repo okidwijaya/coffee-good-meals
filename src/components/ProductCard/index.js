@@ -3,6 +3,16 @@ import {Link} from 'react-router-dom';
 import productImg from '../../assets/Veggie-tomato-mix.png';
 import '../style.css';
 
+const formatPrice = (value) => {
+  let price = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  })
+    .format(value)
+    .replace(/(\.|,)00$/g, "");
+  return price;
+};
+
 const loopCard = (data) => {
   const elements = [];
   if (data.length === 0) {
@@ -39,7 +49,7 @@ const loopCard = (data) => {
               />
             </div>
             <p className='product-title'>{data[i].name}</p>
-            <p className='product-price w-100'>Rp. {data[i].price}</p>
+            <p className='product-price w-100'>{formatPrice(data[i].price)}</p>
           </Link>
         </div>
       </div>
