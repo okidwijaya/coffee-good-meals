@@ -41,7 +41,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminOnly from "./components/AdminOnly";
 import UserOnly from "./components/UserOnly";
 import Dashboard from "./pages/admin/Dashboard";
-import ScrollToTop from "./components/scrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
