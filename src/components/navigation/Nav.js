@@ -48,7 +48,7 @@ const Navdefault = (props) => {
               {role === '2' ? (
                 <>
                   <li className='nav-item'>
-                    <NavLink to='/orders' className='nav-link'>
+                    <NavLink to='/order' className='nav-link'>
                       Orders
                     </NavLink>
                   </li>
