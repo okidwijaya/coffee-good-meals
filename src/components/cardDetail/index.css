@@ -43,11 +43,18 @@
     font-family: 'Poppins';
     font-weight: 700;
     text-align: center;
-    margin-left: 5%;
+    margin-left: 20%;
     /* margin-right: auto; */
     border-radius: 15px;
     background-color: #FFBA33;
-    /* box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67); */
+    box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+    height: 100%;
+    width: 200px;
+}
+
+.checkoutButton{
+    margin-top: auto;
+    /* margin-bottom: auto; */
 }
 
 .brand-detail-list{
@@ -116,6 +123,20 @@
     .checkout-detail{
         padding-top: 60%;
     }
+    .detail-card-product{
+        height: 80%;
+    }
+    .product-image{
+        width: 70px;
+        height: 70px;
+    }
+    .checkout-detail{
+        height: 50%;
+    }
+    .checkoutButton{
+        margin-bottom: 20%;
+        /* margin-top: auto; */
+    }
 }
 
 @media (max-width: 425px) {
@@ -128,5 +149,32 @@
     }
     .checkout-detail{
         padding-top: 5%;
+    }
+    .coffee-productDetail{
+        width: 180px;
+        height: 180px;
+    }
+    .brand-coffee{
+        font-size: 1.3rem;
+    }
+    .price-coffee{
+        font-size: 0.8rem;
+    }
+    .button-addCart{
+        width: 60%;
+        font-size: 0.8rem;
+    }
+    .button-askStaff{
+        width: 60%;
+        font-size: 0.8rem;
+    }
+    .delivery-time{
+        font-size: 1rem;
+    }
+    .detail-name-delivery{
+        font-size: 1rem;
+    }
+    .choose-size{
+        font-size: 1rem;
     }
 }

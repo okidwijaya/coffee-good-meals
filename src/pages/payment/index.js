@@ -45,10 +45,8 @@ const Payment = (props) => {
   const promo = useSelector((state) => state.promo);
 
   const getUserData = () => {
-    // console.log(auth.token)
     profile(auth.token)
       .then((res) => {
-        // console.log("result", res.data.result.data);
         setUser(res.data.result.data);
       })
       .catch((err) => {
