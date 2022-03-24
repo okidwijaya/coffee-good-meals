@@ -12,6 +12,7 @@ Web Application to manage products and transactions for customer based on React 
 [![lottie-react](https://img.shields.io/npm/v/lottie-react?label=lottie-react)](https://www.npmjs.com/package/lottie-react)
 [![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
 [![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
+<br />
 
 ## Deployment
 
