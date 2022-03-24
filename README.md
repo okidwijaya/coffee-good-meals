@@ -8,9 +8,7 @@ Web Application to manage products and transactions for customer based on React 
 [![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
 [![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
 [![chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
-[![craco](https://img.shields.io/npm/v/craco?label=craco)](https://www.npmjs.com/package/craco)
-[![bootstrap](https://img.shields.io/twitter/url?url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Freact-bootstrap
-)](https://www.npmjs.com/package/react-bootstrap)
+[![bootstrap](https://img.shields.io/npm/v/bootstrap?label=bootstrap)](https://www.npmjs.com/package/react-bootstrap)
 [![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
 [![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
 <br />
