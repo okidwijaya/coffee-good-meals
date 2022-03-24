@@ -1,41 +1,12 @@
 
 # Coffee Shop App
 
-Web Application to manage products and transactions for customer based on React Js
-
-
-## API Reference
-
-#### Get all items
-
-```http
-  GET /products/favorite
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
-
-#### Get item
-
-```http
-  GET /products/detail/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-
+Web Application to manage products and transactions for customer based on React Js.
 
 
 ## Deployment
 
-To deploy this project run
-
-```bash
-  npm run start
-```
+https://arkacoffeeshop.netlify.app/
 
 
 ## Documentation
@@ -57,15 +28,6 @@ To deploy this project run
 - History Management
 
 
-## Contributing
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-Please adhere to this project's `code of conduct`.
-
-
 ## Authors
 
 - [@rahmasbn](https://github.com/rahmasbn)
@@ -73,3 +35,28 @@ Please adhere to this project's `code of conduct`.
 - [@ahmadfauzan](https://github.com/special-snowflake)
 - [@mahendraiqbal](https://github.com/mahendraiqbal)
 
+
+## Installation
+
+1. Clone this repository $ git clone <repository https://github.com/okidwijaya/coffee-good-meals>
+
+2. Download all packages
+
+3. Configure .env file 
+
+    REACT_APP_HOST = "https://aws-coffee-good-meals.herokuapp.com"
+
+4. Run npm start 
+    
+## Packages
+
+1. [https://www.npmjs.com/package/axios]
+2. [https://www.npmjs.com/package/react-router-dom]
+3. [https://www.npmjs.com/package/chart.js?activeTab=readme]
+4. [https://www.npmjs.com/package/sweetalert2]
+5. [https://www.npmjs.com/package/redux]
+## Related
+
+Here are some related projects
+
+[Backend - Coffee Good Meals](https://github.com/rahmasbn/Coffee-Good-Meals)
