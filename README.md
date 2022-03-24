@@ -17,12 +17,6 @@ Web Application to manage products and transactions for customer based on React 
 
 https://arkacoffeeshop.netlify.app/
 
-
-## Documentation
-
-[Documentation](https://arkacoffeeshop.netlify.app/)
-
-
 ## Features
 
 - Add Products
@@ -35,6 +29,11 @@ https://arkacoffeeshop.netlify.app/
 - Update Profile
 - Transactions
 - History Management
+
+## Documentation
+
+[Documentation](https://arkacoffeeshop.netlify.app/)
+
 
 
 ## Authors
