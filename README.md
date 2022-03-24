@@ -35,15 +35,6 @@ https://arkacoffeeshop.netlify.app/
 [Documentation](https://arkacoffeeshop.netlify.app/)
 
 
-
-## Authors
-
-- [@rahmasbn](https://github.com/rahmasbn)
-- [@okidwijaya](https://github.com/okidwijaya)
-- [@ahmadfauzan](https://github.com/special-snowflake)
-- [@mahendraiqbal](https://github.com/mahendraiqbal)
-
-
 ## Installation
 
 1. Clone this repository <repository https://github.com/okidwijaya/coffee-good-meals>
@@ -56,13 +47,13 @@ https://arkacoffeeshop.netlify.app/
 
 4. Run npm start 
     
-## Packages
+## Authors
 
-1. [https://www.npmjs.com/package/axios]
-2. [https://www.npmjs.com/package/react-router-dom]
-3. [https://www.npmjs.com/package/chart.js?activeTab=readme]
-4. [https://www.npmjs.com/package/sweetalert2]
-5. [https://www.npmjs.com/package/redux]
+- [@rahmasbn](https://github.com/rahmasbn)
+- [@okidwijaya](https://github.com/okidwijaya)
+- [@ahmadfauzan](https://github.com/special-snowflake)
+- [@mahendraiqbal](https://github.com/mahendraiqbal)
+
 ## Related
 
 Here are some related projects
