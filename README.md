@@ -30,10 +30,6 @@ https://arkacoffeeshop.netlify.app/
 - Transactions
 - History Management
 
-## Documentation
-
-[Documentation](https://arkacoffeeshop.netlify.app/)
-
 
 ## Installation
 
@@ -50,7 +46,6 @@ https://arkacoffeeshop.netlify.app/
 ## Authors
 
 - [@rahmasbn](https://github.com/rahmasbn)
-- [@okidwijaya](https://github.com/okidwijaya)
 - [@ahmadfauzan](https://github.com/special-snowflake)
 - [@mahendraiqbal](https://github.com/mahendraiqbal)
 
