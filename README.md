@@ -2,7 +2,7 @@
 
 Web Application to manage products and transactions for customer based on React Js.
 <br />
-![coffee](https://drive.google.com/file/d/10kTxAo6zr33NX9Xhh8Bb3GN4vp57Zr-M/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=10kTxAo6zr33NX9Xhh8Bb3GN4vp57Zr-M)
 <br />
 
 [![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
