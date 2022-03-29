@@ -41,7 +41,7 @@ https://arkacoffeeshop.netlify.app/
 
 ## Installation
 
-1. Clone this repository <repository https://github.com/okidwijaya/coffee-good-meals>
+1. Clone this repository <repository https://github.com/okidwijaya/coffee-good-meals
 
 2. Download all packages
 
