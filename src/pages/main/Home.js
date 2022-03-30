@@ -15,23 +15,7 @@ import { connect } from "react-redux";
 // import SignupCard from "../../components/Auth";
 
 const Home = (props) => {
-  // pagination Function
-  // $(function () {
-  //   var button = $(".button");
 
-  //   function switchToNext() {
-  //     var _this = $(this);
-
-  //     if (_this.hasClass("active")) return false;
-  //     else {
-  //       $(".button.active").removeClass("active");
-  //       _this.addClass("active");
-  //     }
-  //   }
-
-  //   button.on("click", switchToNext);
-  // });
-  // console.log(props.auth.userData.token)
   const token = props.auth.userData.token;
 
   return (
@@ -57,7 +41,7 @@ const Home = (props) => {
               Get Started
             </button>
           </div>
-          {token === null && (
+          {/* {token === null && (
             <div className="col-4">
               <form className="form-inline my-2 my-lg-0 search-box-home">
                 <input
@@ -67,7 +51,7 @@ const Home = (props) => {
                 />
               </form>
             </div>
-          )}
+          )} */}
         </div>
         {/* middle section card */}
         <div className="row company-info-header align-items-center justify-content-center">
