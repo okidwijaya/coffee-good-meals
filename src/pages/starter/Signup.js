@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import homeBg from "../../assets/loginbg.png";
-import SignupCard from "../../components/Auth";
+import homeBg from "../../assets/barber-auth.jpg";
 import googleIcon from "../../assets/google-icon.svg";
 import Header from "../../components/Header";
 import { register } from "../../utils/https/auth";
@@ -18,71 +17,53 @@ function WrapperRegister(props) {
 }
 
 function Signup(props) {
-  const [type, setType] = useState("password");
-  const [icon, setIcon] = useState("far fa-eye-slash");
   const [values, setValues] = useState({
-    phone: "",
     email: "",
+    name: "",
     password: "",
   });
   const [error, setError] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
 
-  const changeHandler = (e) => {
+  const handleChange = (e) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleToggle = () => {
-    if (type === "password") {
-      setIcon("far fa-eye");
-      setType("text");
-    } else {
-      setIcon("far fa-eye-slash");
-      setType("password");
-    }
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
     setError(validateSignup(values));
     const validateBody = validateSignup(values);
-
     const body = {
+      name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value,
-      phone: e.target.phone.value,
     };
-
+    console.log("cek body", validateBody);
     if (Object.keys(validateBody).length === 0) {
       setIsSubmit(true);
-      setIsLoading(true);
       register(body)
         .then((res) => {
-          setIsLoading(false);
-          toast.success("Registration success!");
-          const { navigate } = props;
-          return navigate("/login", { replace: true });
+          setIsloading(false);
+          toast.success("Registration Successfull", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000,
+          });
+          props.history.push("/login");
         })
-        .catch((err) => {
-          setIsLoading(false);
-          console.log(err);
-          let errors = {};
-          errors.form = "Email already exist";
-          setError(errors);
-        });
+        .catch((err) => console.log(err));
     }
   };
 
   useEffect(() => {
     if (Object.keys(error).length === 0 && isSubmit) {
-      console.log("isSubmit", isSubmit);
-      console.log("useEff error", error);
+      console.log("submit", isSubmit);
+      console.log("useEf", error);
     }
-  });
+  }, [error, isSubmit, props]);
 
   return (
     <>
@@ -92,60 +73,43 @@ function Signup(props) {
             <Header />
             <form className="signup-form" onSubmit={submitHandler} noValidate>
               <p className="signup-form-title">Sign Up</p>
-              <div className="mb-3">
-                <label className="form-label">Email address:</label>
+              <div className="input-name">
+                <input
+                  type="name"
+                  className="name"
+                  id="name"
+                  placeholder="Name"
+                  name="name"
+                ></input>
+              </div>
+              <div className="input-email">
                 <input
                   type="email"
-                  className="form-control"
-                  id="inputEmail1"
+                  className="email"
+                  id="email"
+                  placeholder="Email"
                   name="email"
-                  placeholder="Enter your email address"
-                  value={values.email}
-                  onChange={changeHandler}
-                />
-                {error.email && (
-                  <div className="text-danger error">{error.email}</div>
-                )}
-                {error.form && (
-                  <div className="text-danger error">{error.form}</div>
-                )}
+                  onChange={handleChange}
+                ></input>
               </div>
-              <div className="mb-3">
-                <label className="form-label">Password:</label>
+              {error.email && (
+                <div className="text-danger fw-bold error">{error.email}</div>
+              )}
+              <div className="input-password">
                 <input
-                  type={type}
-                  className="form-control"
+                  type="password"
+                  className="password"
+                  id="password"
+                  placeholder="Password"
                   name="password"
-                  placeholder="Enter your password"
-                  id="inputPassword1"
-                  value={values.password}
-                  onChange={changeHandler}
-                />
-                {error.password && (
-                  <div className="text-danger error">{error.password}</div>
-                )}
+                  onChange={handleChange}
+                ></input>
               </div>
-              <div
-                className={error.email ? "icon-toggle toggle" : "icon-toggle"}
-                onClick={handleToggle}
-              >
-                <i className={icon}></i>
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Phone Number:</label>
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Enter your phone number"
-                  className="form-control"
-                  id="inputPhoneNumber"
-                  value={values.phone}
-                  onChange={changeHandler}
-                />
-                {error.phone && (
-                  <div className="text-danger error">{error.phone}</div>
-                )}
-              </div>
+              {error.password && (
+                <div className="text-danger fw-bold error">
+                  {error.password}
+                </div>
+              )}
               <div
                 className="d-grid gap-2 col-12 mx-auto p-0"
                 style={{ width: "100%" }}
@@ -155,7 +119,6 @@ function Signup(props) {
                   style={{ width: "100%" }}
                   type="submit"
                 >
-                  {/* Signup */}
                   {isLoading ? <Loading /> : "Sign Up"}
                 </button>
                 <div
@@ -175,8 +138,6 @@ function Signup(props) {
           </aside>
         </div>
       </main>
-
-      <SignupCard />
     </>
   );
 }

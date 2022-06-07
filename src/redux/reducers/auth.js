@@ -3,8 +3,8 @@ import { ACTION_STRING } from "../actions/actionString";
 
 const initialState = {
   userData: {
-    token: JSON.parse(localStorage["coffee-good-meals"] || null),
-    photo: '',
+    token: JSON.parse(localStorage["barbershop"] || null),
+    photo: "",
     role: 0,
   },
 
@@ -15,7 +15,8 @@ const initialState = {
 };
 const authReducer = (prevState = initialState, action) => {
   // const {Pending, Fulfilled, Rejected} = ActionType
-  const { authLogin, authUserPhoto, pending, fulfilled, rejected } = ACTION_STRING;
+  const { authLogin, authUserPhoto, pending, fulfilled, rejected } =
+    ACTION_STRING;
   switch (action.type) {
     // case authLogin.concat("_", Pending):
     case authLogin + pending:
@@ -52,16 +53,15 @@ const authReducer = (prevState = initialState, action) => {
         err,
       };
 
-      case authUserPhoto: 
+    case authUserPhoto:
       const newPhoto = action.payload;
       return {
         ...prevState,
         userData: {
           ...prevState.userData,
           photo: newPhoto,
-        }
-      }
-      
+        },
+      };
 
     default:
       return prevState;

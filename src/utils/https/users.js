@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getProfile = process.env.REACT_APP_HOST + "/users";
+const getProfile = process.env.REACT_APP_HOST + "/user";
 export const profile = (token) => {
   return axios.get(getProfile, {
     headers: {
@@ -17,7 +17,7 @@ export const editProfile = (body, token) => {
   });
 };
 
-const URL = process.env.REACT_APP_HOST + "/users/edit-password";
+const URL = process.env.REACT_APP_HOST + "/user/edit-password";
 export const editPassword = (data, token) => {
   return axios.patch(URL, data, {
     headers: {
@@ -30,6 +30,6 @@ export const deletePhoto = (token) => {
   return axios.delete(getProfile, {
     headers: {
       "x-access-token": token,
-    }
-  })
-}
+    },
+  });
+};
