@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,600&display=swap");
+
+.image-detail-product {
+  text-align: center;
+  padding: 2% 5%;
+}
+
+.title-productDetail {
+  text-align: start;
+}
+
+.coffee-productDetail {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.button-addCart {
+  width: 70%;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #6a4029;
+  color: #ffffff;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  font-family: 'Poppins';
+}
+
+.button-editCart {
+  width: 70%;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #6a4029;
+  color: #ffffff;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  font-family: 'Poppins';
+  
+}
+
+.button-askStaff {
+  margin-top: 2%;
+  width: 70%;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #ffba33;
+  color: #6a4029;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  font-family: 'Poppins';
+}
+
+.methods-delivery {
+  margin-top: 4%;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.button-methods {
+  text-align: center;
+}
+
+/* .dine,
+.door, */
+.delivery-methods {
+  margin: 1%;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  border-radius: 10px;
+}
+
+.active-delivery {
+  background-color: #6a4029;
+  color: #ffffff;
+}
+
+.detail-card-delivery {
+  background-color: #ffffff;
+  text-align: center;
+  height: 50%;
+  width: 100%;
+  padding: 5% 5%;
+  margin-top: 5%;
+}
+
+.brand-coffee {
+  font-family: "Poppins";
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.price-coffee {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.detail-delivery{
+  padding: 0;
+  /* text-align: center; */
+}
+
+.detail-name {
+  /* margin: auto; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  padding: 5% 5%;
+}
+
+.delivery-time {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #6a4029;
+}
+
+.detail-name-delivery {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #6a4029;
+}
+
+.choose-size {
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.button-size-choose {
+  text-align: center;
+}
+
+.set-time-choose {
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.form-set-time {
+  font-size: 1.1rem;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+.set-time {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+
+@media (max-width: 1024px) {
+  .coffee-productDetail {
+    width: 250px;
+    height: 250px;
+  }
+  .brand-coffee {
+    font-size: 2.1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .coffee-productDetail {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .brand-coffee {
+    font-size: 1.9rem;
+  }
+}

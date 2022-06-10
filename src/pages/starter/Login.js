@@ -4,8 +4,8 @@ import { loginAction } from "../../redux/actions/auth";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
-import homeBg from "../../assets/barber-auth.jpg";
-import logo from "../../assets/logo-barber.png";
+import homeBg from "../../assets/loginbg.png";
+import logo from "../../assets/icon.svg";
 import googleIcon from "../../assets/google-icon.svg";
 
 import SignupCard from "../../components/Auth";
@@ -99,7 +99,7 @@ function Login(props) {
                 <Link to="/">
                   <div className="navbar-brand">
                     <img src={logo} alt="logo" width="30" height="24" />
-                    <strong>Barber Shop</strong>
+                    <strong>Coffee Shop</strong>
                   </div>
                 </Link>
               </div>
@@ -199,6 +199,7 @@ function Login(props) {
           />
         </aside>
       </main>
+      <SignupCard />
     </>
   );
 }
